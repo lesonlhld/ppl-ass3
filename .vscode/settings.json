@@ -1,0 +1,9 @@
+{
+    "python.autoComplete.extraPaths": [
+    "target",
+    "src/main/bkit/utils",
+    "src/main/bkit/parser",
+    "src/main/bkit/astgen",
+    "src/test"
+    ]
+}
