@@ -1,7 +1,7 @@
 @echo off
 set "CurDir="
 for %%a in ("%cd%") do set "CurDir=%%~nxa"
-if NOT "%CurDir%" == "assignment2" exit
+if NOT "%CurDir%" == "assignment3" exit
 
 if exist %CD%\src\test\testcases\ (
     echo "Cleaning testcases"
@@ -33,12 +33,17 @@ if exist %CD%\output\ (
 if exist %CD%\test\solutions\ (
     echo "Copying solution sample"
     mkdir %CD%\src\test\solutionsSample
-    robocopy %CD%\test\solutions %CD%\src\test\solutionsSample /move /NFL /NDL /NJH /NJS /nc /ns /np
+    robocopy %CD%\test\solutions %CD%\src\test\solutionsSample /NFL /NDL /NJH /NJS /nc /ns /np
+)
+
+if exist %CD%\src\test\CheckSuite.txt (
+    echo "Deleting CheckSuite.txt"
+    del %CD%\src\test\CheckSuite.txt /f /q
 )
 
 if exist %CD%\test\check.py (
     echo "Copying check.py"
-    robocopy %CD%\test\ %CD%\src\ check.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    robocopy %CD%\test\ %CD%\src\ check.py /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
 @REM if exist %CD%\test\LexerSuite.py (
@@ -59,14 +64,14 @@ if exist %CD%\test\TestUtils.py (
     echo "Rename old TestUtils.py to TestUtils_old.py"
     ren %CD%\src\test\TestUtils.py TestUtils_old.py
     echo "Copying TestUtils.py"
-    robocopy %CD%\test\ %CD%\src\test\ TestUtils.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    robocopy %CD%\test\ %CD%\src\test\ TestUtils.py /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
-if exist %CD%\main\bkit\utils\AST.py (
+if exist %CD%\test\AST.py (
     echo "Rename old AST.py to AST_old.py"
-    ren %CD%\src\test\AST.py AST_old.py
+    ren %CD%\src\main\bkit\utils\AST.py AST_old.py
     echo "Copying AST.py"
-    robocopy %CD%\test\ %CD%\src\test\ AST.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    robocopy %CD%\test\ %CD%\src\main\bkit\utils\ AST.py /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
 @REM if exist %CD%\src\test\testLexer.py (
@@ -100,10 +105,15 @@ python run.py gen
 @REM echo "Testing Parser..."
 @REM python run.py test ParserSuite
 
+@REM echo.
+@REM echo "=============================================="
+@REM echo "Testing ASTGen..."
+@REM python run.py test ASTGenSuite
+
 echo.
 echo "=============================================="
-echo "Testing ASTGen..."
-python run.py test ASTGenSuite
+echo "Testing Check..."
+python run.py test CheckSuite
 
 @REM cd ..
 @REM if exist %CD%\src\test\ParserSuite.txt (
@@ -140,9 +150,14 @@ if exist %CD%\src\check.txt (
 @REM     ren %CD%\src\test\ParserSuite_old.py ParserSuite.py
 @REM )
 
-if exist %CD%\src\test\AST_old.py (
-    robocopy %CD%\src\test\ %CD%\output\test\ AST.py /move /NFL /NDL /NJH /NJS /nc /ns /np
-    ren %CD%\src\test\AST_old.py AST.py
+if exist %CD%\src\main\bkit\utils\AST_old.py (
+    robocopy %CD%\src\main\bkit\utils\ %CD%\output\test\ AST.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    ren %CD%\src\main\bkit\utils\AST_old.py AST.py
+)
+
+if exist %CD%\src\test\TestUtils_old.py (
+    robocopy %CD%\src\test\ %CD%\output\test\ TestUtils.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    ren %CD%\src\test\TestUtils_old.py TestUtils.py
 )
 
 if exist %CD%\src\check.py (

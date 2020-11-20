@@ -4,6 +4,7 @@
     "src/main/bkit/utils",
     "src/main/bkit/parser",
     "src/main/bkit/astgen",
+    "src/main/bkit/checker",
     "src/test"
     ]
 }
