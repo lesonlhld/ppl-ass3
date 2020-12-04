@@ -23,9 +23,22 @@ class Type(ABC):
         elif type(literal) == BooleanLiteral:
             return BoolType()
         elif type(literal) == ArrayLiteral:
+            if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType)) for x in [Type.getTypeFromLiteral(i) for i in literal.value]):
+                raise TypeMismatchInExpression(literal)
+
+            dimen1 = len(literal.value)
+            dimen2 = 0
+            dimen3 = 0
             for x in literal.value:
-                varType = Type.getTypeFromLiteral(x)
-            return varType
+                varType = varType1 = Type.getTypeFromLiteral(x)
+                if type(varType1) == ArrayType:
+                    dimen2 = len(x.value) if dimen2 < len(x.value) else dimen2
+                    for y in x.value:
+                        varType = varType2 = Type.getTypeFromLiteral(y)
+                        if type(varType2) == ArrayType:
+                            dimen3 = len(y.value) if dimen3 < len(y.value) else dimen3
+            dimen = [dimen1, dimen2, dimen3] if dimen3 > 0 else [dimen1, dimen2] if dimen2 > 0 else [dimen1]
+            return ArrayType(dimen,varType)
         else:
             return Unknown()
 
@@ -172,6 +185,7 @@ class Symbol:
         for x in listSymbol:
             if name == x.name:
                 return x
+        
 
 class Checker:
     @staticmethod
@@ -217,8 +231,9 @@ class Checker:
     def checkMatchType(lhs, rhs, ast, envi):
         # Handle Array Type
         if ArrayType in [type(lhs), type(rhs)]:
-            if type(patternType) != type(paramType): return False
-            return Checker.matchArrayType(patternType, paramType)
+            if type(lhs) != type(rhs):
+                raise TypeMismatchInStatement(ast)
+            # return Checker.matchArrayType(patternType, paramType)
         else:
             if type(lhs) == Unknown and type(rhs) == Unknown:
                 raise TypeCannotBeInferred(ast)
@@ -271,8 +286,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         if 'main' not in list(symbolList.keys()) or type(symbolList['main']) != Function:
             raise NoEntryPoint()
 
-        # Visit all function expect function "main"
-        [self.visit(x, globalEnvi) for x in ast.decl if type(x) == FuncDecl]
+        # for x in globalEnvi:
+        #     print(x)
+
+        # Visit all function except function "main"
+        [self.visit(x, globalEnvi) for x in ast.decl if type(x) == FuncDecl and x.name.name != 'main']
 
         # # Visit all functions and update its type
         # for x in globalEnvi:
@@ -324,25 +342,29 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     def visitUnaryOp(self, ast, param):
         return None
     
-    def visitCallExpr(self, ast, param):
-        return None
+    def visitCallExpr(self, ast: ArrayCell, globalEnvi):
+        symbol = Checker.checkUndeclared(globalEnvi, ast.method.name, Function())
+        return symbol, symbol.mtype.restype
     
     def visitId(self, ast: Id, envi):
         symbol = Checker.checkUndeclared(envi, ast.name, Identifier())
-        return symbol.mtype
+        return symbol, symbol.mtype
 
-    def visitArrayCell(self, ast, envi):
-        print(envi)
-        return None
+    def visitArrayCell(self, ast: ArrayCell, envi):
+        arr, arrType = self.visit(ast.arr, envi)
+        if not all(isinstance(x, IntType) for x in [Type.getTypeFromLiteral(i) for i in ast.idx]):
+            raise TypeMismatchInExpression(ast)
+        return arr, arrType
     
 
     def visitAssign(self, ast: Assign, envi):
-        rhs = self.visit(ast.rhs, envi)
-        lhs = self.visit(ast.lhs, envi)
+        rhs, rhsType = self.visit(ast.rhs, envi)
+        lhs, lhsType = self.visit(ast.lhs, envi)
 
-        print(type(ast.lhs))
-        print("======*********=======")
-        Checker.checkMatchType(lhs, rhs, ast, envi)
+        print(rhsType)
+        print(lhsType)
+        print("here oke!!!")
+        Checker.checkMatchType(lhsType, rhsType, ast, envi)
         # # Return None Type
         # scope, retType, inLoop, funcName = params
         # lhsType = self.visit(ast.lhs, (scope, funcName))
@@ -382,19 +404,31 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
     # Return type
     def visitIntLiteral(self, ast, param):
-        return IntType()
+        return ast, IntType()
     
     def visitFloatLiteral(self, ast, param):
-        return FloatType()
+        return ast, FloatType()
     
     def visitBooleanLiteral(self, ast, param):
-        return BoolType()
+        return ast, BoolType()
     
     def visitStringLiteral(self, ast, param):
-        return StringType()
+        return ast, StringType()
         
     def visitArrayLiteral(self, ast, param):
-        print("***********************")
+        if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType)) for x in [Type.getTypeFromLiteral(i) for i in ast.value]):
+            raise TypeMismatchInExpression(ast)
+
+        dimen1 = len(ast.value)
+        dimen2 = 0
+        dimen3 = 0
         for x in ast.value:
-            varType = Type.getTypeFromLiteral(x)
-        return varType
+            varType = varType1 = Type.getTypeFromLiteral(x)
+            if type(varType1) == ArrayType:
+                dimen2 = len(x.value) if dimen2 < len(x.value) else dimen2
+                for y in x.value:
+                    varType = varType2 = Type.getTypeFromLiteral(y)
+                    if type(varType2) == ArrayType:
+                        dimen3 = len(y.value) if dimen3 < len(y.value) else dimen3
+        dimen = [dimen1, dimen2, dimen3] if dimen3 > 0 else [dimen1, dimen2] if dimen2 > 0 else [dimen1]
+        return ast, ArrayType(dimen, varType)

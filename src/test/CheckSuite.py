@@ -65,11 +65,17 @@ class CheckSuite(unittest.TestCase):
         
     def test_multi_func(self):
         input = r"""
+        **Var: x[1] = {{{1,2},{3,4}},{{5,6},{7,8}},{9,10}};**
         Var: x;
 Function: fact
 Parameter: m[1]
 Body:
-m[1] =1;
+m[1] ={1,2};
+EndBody.
+Function: foo
+Parameter: a
+Body:
+Var: x = 2;
 EndBody.
 Function: main
 Body:
