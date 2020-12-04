@@ -68,14 +68,17 @@ class CheckSuite(unittest.TestCase):
         **Var: x[1] = {{{1,2},{3,4}},{{5,6},{7,8}},{9,10}};**
         Var: x;
 Function: fact
-Parameter: m[1]
+Parameter: m[1],n
 Body:
-m[1] ={1,2};
+m[1] ={1};
+n = 2.5;
+x =3;
 EndBody.
 Function: foo
 Parameter: a
 Body:
-Var: x = 2;
+a = 2;
+x =3.2;
 EndBody.
 Function: main
 Body:

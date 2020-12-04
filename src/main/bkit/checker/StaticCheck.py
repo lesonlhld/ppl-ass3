@@ -233,7 +233,16 @@ class Checker:
         if ArrayType in [type(lhs), type(rhs)]:
             if type(lhs) != type(rhs):
                 raise TypeMismatchInStatement(ast)
-            # return Checker.matchArrayType(patternType, paramType)
+            if lhs.dimen != rhs.dimen:
+                raise TypeCannotBeInferred(ast)
+            if type(lhs.eletype) == Unknown and type(rhs.eletype) == Unknown:
+                raise TypeCannotBeInferred(ast)
+            elif type(rhs.eletype) != Unknown and type(lhs.eletype) == Unknown:
+                lhs = rhs
+                symbol = Symbol.getSymbol(ast.lhs.arr.name, envi).updateMember(mtype = rhs)
+            elif type(lhs.eletype) != Unknown and type(rhs.eletype) == Unknown:
+                rhs = lhs
+                symbol = Symbol.getSymbol(ast.rhs.arr.name, envi).updateMember(mtype = lhs)
         else:
             if type(lhs) == Unknown and type(rhs) == Unknown:
                 raise TypeCannotBeInferred(ast)
@@ -243,7 +252,7 @@ class Checker:
             elif type(lhs) != Unknown and type(rhs) == Unknown:
                 rhs = lhs
                 symbol = Symbol.getSymbol(ast.rhs.name, envi).updateMember(mtype = lhs)
-            elif not type(lhs) == type(rhs):
+            elif type(lhs) != type(rhs):
                 raise TypeCannotBeInferred(ast)
         
 
@@ -286,11 +295,12 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         if 'main' not in list(symbolList.keys()) or type(symbolList['main']) != Function:
             raise NoEntryPoint()
 
-        # for x in globalEnvi:
-        #     print(x)
 
         # Visit all function except function "main"
         [self.visit(x, globalEnvi) for x in ast.decl if type(x) == FuncDecl and x.name.name != 'main']
+
+        for x in globalEnvi:
+            print(x)
 
         # # Visit all functions and update its type
         # for x in globalEnvi:
@@ -306,8 +316,6 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         return Symbol.fromVarDecl(ast)
 
     def visitFuncDecl(self, ast: FuncDecl, globalEnvi):
-        symbol = Symbol.getSymbol(ast.name.name, globalEnvi)
-
         # Visit all local variables, parameter of function from input
         listParams = [self.visit(x, globalEnvi).toParam() for x in ast.param]
         listLocalVar = [self.visit(x, globalEnvi).toVar() for x in ast.body[0]]
@@ -320,20 +328,16 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
         # Visit statements
         stmts = [self.visit(x, localEnvi) for x in ast.body[1]]
+        
+        # Update parameter type
+        paramType = [x.mtype for x in localEnvi if type(x.kind) == Parameter]
+        returnType = Unknown()
+        varType = MType(paramType, returnType)
 
-        # for x in globalEnvi:
-        #    print(x)
-        # print("====================")
-        # for x in localEnvi:
-        #    print(x)
-        # print("====================")
-        # Checker.updateGlobalEnvi(globalEnvi, localEnvi)
-        # for x in globalEnvi:
-        #    print(x)
-        # print("====================")
+        Symbol.getSymbol(ast.name.name, localEnvi).updateMember(mtype = varType, visited = True)
 
-        symbol.updateMember(mtype = None,visited = True)
-
+        # Update global environment
+        Checker.updateGlobalEnvi(globalEnvi, localEnvi)
 
     # Visit statement
     def visitBinaryOp(self, ast, param):
@@ -354,17 +358,20 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         arr, arrType = self.visit(ast.arr, envi)
         if not all(isinstance(x, IntType) for x in [Type.getTypeFromLiteral(i) for i in ast.idx]):
             raise TypeMismatchInExpression(ast)
+
         return arr, arrType
     
 
     def visitAssign(self, ast: Assign, envi):
+        # for x in envi:
+        #     print(x)
         rhs, rhsType = self.visit(ast.rhs, envi)
         lhs, lhsType = self.visit(ast.lhs, envi)
 
-        print(rhsType)
-        print(lhsType)
-        print("here oke!!!")
         Checker.checkMatchType(lhsType, rhsType, ast, envi)
+        # for x in envi:
+        #     print(x)
+        # print("=============================")
         # # Return None Type
         # scope, retType, inLoop, funcName = params
         # lhsType = self.visit(ast.lhs, (scope, funcName))
