@@ -1,0 +1,12 @@
+
+        Var: x;
+Function: fact
+Parameter: m[1]
+Body:
+m[1] =1;
+EndBody.
+Function: main
+Body:
+x = 10;
+fact (x);
+EndBody.
