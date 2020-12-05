@@ -368,6 +368,9 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         rhs, rhsType = self.visit(ast.rhs, envi)
         lhs, lhsType = self.visit(ast.lhs, envi)
 
+        print(lhsType)
+        print(rhsType)
+
         Checker.checkMatchType(lhsType, rhsType, ast, envi)
         # for x in envi:
         #     print(x)
