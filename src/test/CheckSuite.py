@@ -60,7 +60,7 @@ class CheckSuite(unittest.TestCase):
 
     # def test_var_decl(self):
     #     input = Program([VarDecl(Id("main"),[],IntLiteral(5)),VarDecl(Id("b"),[2,3],ArrayLiteral([ArrayLiteral([IntLiteral(2),IntLiteral(3),IntLiteral(4)]),ArrayLiteral([IntLiteral(4),IntLiteral(5),IntLiteral(6)])])),VarDecl(Id("c"),[],None),VarDecl(Id("d"),[],IntLiteral(6)),VarDecl(Id("e"),[],None),VarDecl(Id("f"),[],None),VarDecl(Id("m"),[],None),VarDecl(Id("n"),[10],None)])
-    #     expect = str()
+    #     expect = str(NoEntryPoint())
     #     self.assertTrue(TestChecker.test(input,expect,406))
         
     def test_multi_func(self):
@@ -68,22 +68,22 @@ class CheckSuite(unittest.TestCase):
         **Var: x[1] = {{{1,2},{3,4}},{{5,6},{7,8}},{9,10}};**
         Var: x;
 Function: fact
-Parameter: m[1],n
+Parameter: **m[1],**n,q
 Body:
-m[1] ={1};
-n = 2.5;
-x =3;
-EndBody.
+**m[1] ={1};**
+q = 2;
+n = !q;
+**m[1] = 1;**
+**foo(3);**
+EndBody.**
 Function: foo
 Parameter: a
 Body:
-a = 2;
-x =3.2;
-EndBody.
+a = 1;
+EndBody.**
 Function: main
 Body:
-x = 10;
-fact (x);
+x = -10;
 EndBody.""" 
         expect = str()
         self.assertTrue(TestChecker.test(input,expect,407))

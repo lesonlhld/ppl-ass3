@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(Id(x),FloatLiteral(3.2))
+Type Mismatch In Expression: UnaryOp(!,Id(q))
