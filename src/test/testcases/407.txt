@@ -2,19 +2,18 @@
         **Var: x[1] = {{{1,2},{3,4}},{{5,6},{7,8}},{9,10}};**
         Var: x;
 Function: fact
-Parameter: **m[1],**n,q
+Parameter: **m[1],**n,a,y,x
 Body:
-**m[1] ={1};**
-q = 2;
-n = !q;
+n = !foo(3);
+**m[1] ={1};****
+y = a + foo(x,2.5);**
 **m[1] = 1;**
-**foo(3);**
-EndBody.**
+EndBody.
 Function: foo
 Parameter: a
 Body:
-a = 1;
-EndBody.**
+a=1;
+EndBody.
 Function: main
 Body:
 x = -10;

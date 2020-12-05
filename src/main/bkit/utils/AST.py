@@ -108,7 +108,7 @@ class BinaryOp(Expr):
 @dataclass
 class UnaryOp(Expr):
     op:str
-    body:Expr
+    ./c :Expr
 
     def __str__(self):
         return "UnaryOp(" + self.op + "," + str(self.body) + ")"
