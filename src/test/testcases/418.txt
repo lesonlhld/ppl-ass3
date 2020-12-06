@@ -1,0 +1,14 @@
+
+        Var: a;
+
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                a = 3.0;
+
+            EndBody.
+
+        Function: main
+            Body:
+                a = 1;
+            EndBody.

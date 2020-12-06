@@ -1,4 +1,6 @@
-Function: test
-Body:
-    a = 1+ 2[2][3];
-EndBody.
+Var: test;
+        Function: main
+            Parameter: x
+            Body:
+            x = test[0];
+            EndBody.
