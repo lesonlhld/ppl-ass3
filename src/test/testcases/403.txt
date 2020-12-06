@@ -1,1 +1,14 @@
-Program([FuncDecl(Id(main)[],([][CallExpr(Id(foo),[])]))])
+
+        Var: a;
+
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                b = 3.0;
+
+            EndBody.
+
+        Function: main
+            Body:
+                a = 1;
+            EndBody.

@@ -1,1 +1,12 @@
-Program([VarDecl(Id(main),IntLiteral(5)),VarDecl(Id(b),[2,3],ArrayLiteral(ArrayLiteral(IntLiteral(2),IntLiteral(3),IntLiteral(4)),ArrayLiteral(IntLiteral(4),IntLiteral(5),IntLiteral(6)))),VarDecl(Id(c)),VarDecl(Id(d),IntLiteral(6)),VarDecl(Id(e)),VarDecl(Id(f)),VarDecl(Id(m)),VarDecl(Id(n),[10])])
+
+                Function: foo
+                Parameter: x
+                Body:
+                EndBody.
+                Function: main
+                Body:
+                    Var: x, y = 0.5;
+                    x = 1. +. foo(1);
+                    y = foo(2.5) -. 1.;
+                EndBody.
+            

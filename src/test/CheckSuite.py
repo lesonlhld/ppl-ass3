@@ -299,7 +299,7 @@ EndBody."""
         Function: bar
             Parameter: n[10], int_of_string
             Body:
-                a = 3.0;
+                b = 3.0;
 
             EndBody.
 
@@ -308,4 +308,5 @@ EndBody."""
                 a = 1;
             EndBody."""
         expect = str(TypeMismatchInStatement(Assign(Id("a"),IntLiteral(1))))
+        expect = str(Undeclared(Identifier(),"b"))
         self.assertTrue(TestChecker.test(input,expect,418))

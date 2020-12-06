@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[FloatLiteral(2.5)])
+Type Mismatch In Expression: CallExpr(Id(read),[IntLiteral(4)])

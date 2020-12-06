@@ -1,4 +1,16 @@
-Function: main  
-                   Body:
-                        printStrLn();
-                    EndBody.
+
+                Var: abc[5];
+                Function: foo
+                Parameter: x[2]
+                Body:
+                    x[1] = 1;
+                    abc[1] = 2;
+                EndBody.
+                Function: main
+                Body:
+                    Var: z[2] = {1,2};
+                    Var: w[2] = {3,4};
+                    Var: x;
+                    abc[1] = 1.5;
+                EndBody.
+            

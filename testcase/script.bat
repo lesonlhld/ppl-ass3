@@ -74,6 +74,13 @@ if exist %CD%\test\AST.py (
     robocopy %CD%\test\ %CD%\src\main\bkit\utils\ AST.py /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
+if exist %CD%\test\StaticError.py (
+    echo "Rename old StaticError.py to StaticError_old.py"
+    ren %CD%\src\main\bkit\checker\StaticError.py StaticError_old.py
+    echo "Copying StaticError.py"
+    robocopy %CD%\test\ %CD%\src\main\bkit\checker\ StaticError.py /NFL /NDL /NJH /NJS /nc /ns /np
+)
+
 @REM if exist %CD%\src\test\testLexer.py (
 @REM     del %CD%\src\test\testLexer.py /f /q
 @REM )
@@ -84,9 +91,9 @@ if exist %CD%\test\AST.py (
 
 cd src
 
-echo "Cleaning and Generatting..."
-python run.py clean
-python run.py gen
+@REM echo "Cleaning and Generatting..."
+@REM python run.py clean
+@REM python run.py gen
 
 @REM echo.
 @REM echo "=============================================="
@@ -153,6 +160,11 @@ if exist %CD%\src\check.txt (
 if exist %CD%\src\main\bkit\utils\AST_old.py (
     robocopy %CD%\src\main\bkit\utils\ %CD%\output\test\ AST.py /move /NFL /NDL /NJH /NJS /nc /ns /np
     ren %CD%\src\main\bkit\utils\AST_old.py AST.py
+)
+
+if exist %CD%\src\main\bkit\checker\StaticError_old.py (
+    robocopy %CD%\src\main\bkit\checker\ %CD%\output\test\ StaticError.py /move /NFL /NDL /NJH /NJS /nc /ns /np
+    ren %CD%\src\main\bkit\checker\StaticError_old.py StaticError.py
 )
 
 if exist %CD%\src\test\TestUtils_old.py (
