@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(Id(a),Id(c))
+TypeCannotBeInferred(CallStmt(Id("foo"),[Id("x")]))

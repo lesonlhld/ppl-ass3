@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[FloatLiteral(2.5)])
+TypeMismatchInStatement(Assign(ArrayCell(Id("abc"),[IntLiteral(1)]),FloatLiteral(1.5)))

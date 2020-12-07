@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[Id(x)])
+TypeMismatchInStatement(CallStmt(Id("foo"),[Id("w")]))
