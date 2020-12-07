@@ -299,8 +299,18 @@ class Checker:
         if type(ast) == BinaryOp: # Binary operator
             if type(left) == Unknown:
                 left = Checker.updateSideType("left", opType, ast.left, envi)
+            elif type(left) == ArrayType and type(left.eletype) == Unknown:
+                left = Checker.updateSideType("left", opType, ast.left, envi)
+            elif type(left) == ArrayType and type(left.eletype) != Unknown:
+                left = left.eletype
+                
             if type(right) == Unknown:
                 right = Checker.updateSideType("right", opType, ast.right, envi)
+            elif type(right) == ArrayType and type(right.eletype) == Unknown:
+                right = Checker.updateSideType("right", opType, ast.right, envi)
+            elif type(right) == ArrayType and type(right.eletype) != Unknown:
+                right = right.eletype
+
             if type(left) == type(opType) and type(right) == type(opType):
                 typeReturn = targetType
             else:
@@ -560,6 +570,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         arrType = self.visit(ast.arr, envi)
         idxType = [self.visit(i, envi) for i in ast.idx]
         
+        if type(arrType) != ArrayType:
+            raise TypeMismatchInExpression(ast)
         if 'Error' not in idxType:
             if not all((isinstance(x, IntType) if type(x) != ArrayType else x.eletype) for x in idxType):
                 raise TypeMismatchInExpression(ast)
@@ -575,6 +587,10 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         lhsType = self.visit(ast.lhs, envi)
 
         if "Error" not in [lhsType, rhsType]:
+            # if type(ast.lhs) == ArrayCell and type(lhsType) != ArrayType:
+            #     raise TypeMismatchInExpression(ast)
+            # if type(ast.rhs) == ArrayCell and type(rhsType) != ArrayType:
+            #     raise TypeMismatchInExpression(ast)
             if type(lhsType) in [VoidType]: # StringType
                 raise TypeMismatchInStatement(ast)
             
@@ -649,16 +665,16 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             
         return typeReturn
     
-    def visitDowhile(self, ast: Dowhile, envi):
-        exp = self.visit(ast.exp, envi)
-        if type(exp) != BoolType:
-            raise TypeMismatchInStatement(ast)
-        
+    def visitDowhile(self, ast: Dowhile, envi):        
         varDecl = [self.visit(y, envi) for y in ast.sl[0]]
         localEnvi = Checker.checkRedeclared(envi, varDecl)
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
         if "Error" in list(stmt.values()):
             return "Error"
+
+        exp = self.visit(ast.exp, envi)
+        if type(exp) != BoolType:
+            raise TypeMismatchInStatement(ast)
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, envi, ast)
 

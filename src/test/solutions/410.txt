@@ -1,1 +1,0 @@
-TypeMismatchInStatement(CallStmt(Id("foo"),[Id("w")]))
