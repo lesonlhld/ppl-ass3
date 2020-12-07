@@ -1,25 +1,20 @@
 
-        **Var: x[1] = {{{1,2},{3,4}},{{5,6},{7,8}},{9,10}};**
-        Var: x;
-Function: fact
-Parameter: m[1][2],n[1],a**,y,x**
-Body:
-**n = !True;**
-**m[1] ={1};**
-**y = a + foo(x,2.5);**
-**m[1][2] = {{2,2}};**
-n[1] = 1;
-a[3 + foo(2)] = a[n[1]] + 4;
-**x = 1.5+ foo(3);**
-Return 3.5;
-EndBody.
-Function: foo
-Parameter: a
-Body:
-a=3;
-Return 2;
-EndBody.
-Function: main
-Body:
-x = -10;
-EndBody.
+        Var: a;
+        Function: foo
+            Body:
+                a = 1.5;
+                bar(a);
+            EndBody.
+                   
+        Function: main
+            Body:
+            a =2.5;
+            foo();
+            EndBody.
+
+        Function: bar
+            Parameter: a
+            Body:
+                a = 3.0;
+
+            EndBody.

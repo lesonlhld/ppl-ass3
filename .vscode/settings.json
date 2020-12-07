@@ -6,5 +6,6 @@
     "src/main/bkit/astgen",
     "src/main/bkit/checker",
     "src/test"
-    ]
+    ],
+    "python.analysis.logLevel": "Trace"
 }

@@ -316,7 +316,16 @@ class Checker:
             else:
                 raise TypeMismatchInExpression(ast)
         elif type(ast) == Assign:
-            if type(left) == Unknown and type(right) == Unknown:
+            if type(ast.lhs) == Id:
+                leftName = ast.lhs.name
+            elif type(ast.lhs) in [CallExpr, CallStmt]:
+                leftName = ast.lhs.method.name
+            if type(ast.rhs) == Id:
+                rightName = ast.rhs.name
+            elif type(ast.rhs) in [CallExpr, CallStmt]:
+                rightName = ast.rhs.method.name
+
+            if type(left) == Unknown and type(right) == Unknown and Parameter not in [type(Symbol.getSymbol(leftName, envi).kind), type(Symbol.getSymbol(rightName, envi).kind)]:
                 raise TypeCannotBeInferred(ast)
             elif type(left) == Unknown and type(right) != Unknown and type(right) != ArrayType:
                 left = right
@@ -371,7 +380,7 @@ class Checker:
             lhs = left.eletype
             rhs = right.eletype
             typeReturn = Checker.checkTwoSideType(lhs, rhs, ast, envi)
-        elif all(x in [ArrayType, Unknown] for x in [type(left), type(right)]):
+        elif ArrayType in [type(left), type(right)] and Unknown in [type(left), type(right)]:
             raise TypeCannotBeInferred(ast)
         elif ArrayType in [type(left), type(right)]:
             lhs = left.eletype if type(left) == ArrayType else left
@@ -484,10 +493,14 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         Symbol.getSymbol(ast.name.name, globalEnvi).makeHere()
         # Visit all local variables, parameter of function from input
         listParams = [self.visit(x, globalEnvi).toParam() for x in ast.param]
+        
+        # Check Redeclared Parameter and update localEnvi
+        localEnvi = Checker.checkRedeclared([], listParams)
+
         listLocalVar = [self.visit(x, globalEnvi).toVar() for x in ast.body[0]]
 
-        # Check Redeclared Variable/Parameter and update localEnvi
-        localEnvi = Checker.checkRedeclared(listParams, listLocalVar)
+        # Check Redeclared Variable and update localEnvi
+        localEnvi = Checker.checkRedeclared(localEnvi, listLocalVar)
 
         # Merge local with global environment
         localEnvi = Checker.mergedEnvi(globalEnvi, localEnvi)
@@ -497,11 +510,6 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
         if "Error" not in list(stmts.values()):
             Symbol.updateParamAndReturnType(stmts, localEnvi, ast)
-            # paramType = [x.update(y).mtype for x in listParams for y in localEnvi if x.name == y.name]
-            # typeReturn = stmts[Return] if Return in list(stmts.keys()) else Unknown()
-            # varType = MType(paramType, typeReturn)
-
-            # Symbol.getSymbol(ast.name.name, localEnvi).updateMember(mtype = varType, visited = True)
 
             # print(ast.name.name)
             # for x in localEnvi:
@@ -583,9 +591,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
     # Visit statement
     def visitAssign(self, ast: Assign, envi):
-        rhsType = self.visit(ast.rhs, envi)
         lhsType = self.visit(ast.lhs, envi)
-
+        rhsType = self.visit(ast.rhs, envi)
         if "Error" not in [lhsType, rhsType]:
             # if type(ast.lhs) == ArrayCell and type(lhsType) != ArrayType:
             #     raise TypeMismatchInExpression(ast)
