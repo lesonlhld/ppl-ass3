@@ -106,19 +106,25 @@ class Symbol:
     kind: Kind
     isGlobal: bool
     visited: bool
+    inHere: bool
 
-    def __init__(self, name, mtype, kind = Function(), isGlobal = False, visited = False):
+    def __init__(self, name, mtype, kind = Function(), isGlobal = False, visited = False, inHere = False):
         self.name = name
         self.mtype = mtype
         self.kind = kind
         self.isGlobal = isGlobal
         self.visited = visited
+        self.inHere = inHere
 
     def __str__(self):
-        return "Symbol(" + (self.name.name if type(self.name) == Id else self.name) + ',' + str(self.mtype) + ("" if self.kind == None else ("," + str(self.kind))) + (",global" if self.isGlobal == True else ",local") + (",visited" if self.visited == True else ",not visited") + ')'
+        return "Symbol(" + (self.name.name if type(self.name) == Id else self.name) + ',' + str(self.mtype) + ("" if self.kind == None else ("," + str(self.kind))) + (",global" if self.isGlobal == True else ",local") + (",visited" if self.visited == True else ",not visited") + (",in here" if self.inHere == True else ",not here") + ')'
 
     def toGlobal(self):
         self.isGlobal = True
+        return self
+
+    def makeHere(self):
+        self.inHere = True
         return self
 
     def makeVisit(self):
@@ -133,7 +139,7 @@ class Symbol:
         self.kind = Variable()
         return self
     
-    def updateMember(self, mtype = None, kind = None, isGlobal = None, visited = None):
+    def updateMember(self, mtype = None, kind = None, isGlobal = None, visited = None, inHere = None):
         if mtype != None:
             self.mtype = mtype
         if kind != None:
@@ -142,10 +148,12 @@ class Symbol:
             self.isGlobal = isGlobal
         if visited != None:
             self.visited = visited
+        if inHere != None:
+            self.inHere = inHere
         return self
 
     def update(self, newSymbol):
-        self.updateMember(mtype = newSymbol.mtype, kind = newSymbol.kind, isGlobal = newSymbol.isGlobal, visited = newSymbol.visited)
+        self.updateMember(mtype = newSymbol.mtype, kind = newSymbol.kind, isGlobal = newSymbol.isGlobal, visited = newSymbol.visited, inHere= newSymbol.inHere)
         return self
 
     @staticmethod
@@ -192,6 +200,33 @@ class Symbol:
             if name == x.name:
                 return x
         Checker.checkUndeclared(listSymbol, name, Function())
+
+    @staticmethod
+    def getNowSymbol(listSymbol):
+        for x in listSymbol:
+            if x.inHere == True:
+                return x
+        Checker.checkUndeclared(listSymbol, name, Function())
+
+    @staticmethod
+    def updateParamAndReturnType(stmtList, envi, ast):
+        symbol = Symbol.getNowSymbol(envi)
+
+        listParams = [x for x in envi if type(x.kind) == Parameter]
+        paramType = [x.update(y).mtype for x in listParams for y in envi if x.name == y.name]
+
+        if Return in list(stmtList.keys()):
+            if type(symbol.mtype.restype) == Unknown or type(symbol.mtype.restype) == type(stmtList[Return]):
+                typeReturn = stmtList[Return]
+            else:
+                raise TypeMismatchInStatement(ast)
+        else:
+            typeReturn = symbol.mtype.restype
+
+        varType = MType(paramType, typeReturn)
+
+        symbol.updateMember(mtype = varType, visited = True)
+        return typeReturn
         
 
 class Checker:
@@ -236,28 +271,17 @@ class Checker:
         
     @staticmethod
     def updateSideType(side, sideType, ast, envi):
-        if side == "left":
-            if type(ast) == BinaryOp:
-                name = ast.left.name
-            elif type(ast) == ArrayCell:
-                name = ast.arr.name
-            elif type(ast) == CallExpr:
-                name = ast.method.name
-            elif type(ast) == Id:
-                name = ast.name
-            else:
-                name = ast.lhs.name
-        elif side == "right":
-            if type(ast) == BinaryOp:
-                name = ast.right.name
-            elif type(ast) == ArrayCell:
-                name = ast.arr.name
-            elif type(ast) == CallExpr:
-                name = ast.method.name
-            elif type(ast) == Id:
-                name = ast.name
-            else:
-                name = ast.rhs.name
+        
+        if type(ast) == ArrayCell:
+            name = ast.arr.name
+        elif type(ast) == CallExpr:
+            name = ast.method.name
+        elif type(ast) == Id:
+            name = ast.name
+        elif type(ast) == BinaryOp:
+            name = ast.left.name if side == "left" else ast.right.name
+        else:
+            name = ast.lhs.name if side == "left" else ast.rhs.name
 
         symbol = Symbol.getSymbol(name, envi)
         if type(symbol.kind) == Function:
@@ -274,10 +298,10 @@ class Checker:
     def checkTwoSideType(left, right, ast, envi, opType = None, targetType = None):
         if type(ast) == BinaryOp: # Binary operator
             if type(left) == Unknown:
-                left = Checker.updateSideType("left", targetType, ast.left, envi)
+                left = Checker.updateSideType("left", opType, ast.left, envi)
             if type(right) == Unknown:
-                right = Checker.updateSideType("right", targetType, ast.right, envi)
-            if type(left) == opType and type(right) == opType:
+                right = Checker.updateSideType("right", opType, ast.right, envi)
+            if type(left) == type(opType) and type(right) == type(opType):
                 typeReturn = targetType
             else:
                 raise TypeMismatchInExpression(ast)
@@ -307,7 +331,7 @@ class Checker:
                     raise TypeMismatchInExpression(ast)
             typeReturn = Checker.updateSideType("left", left, ast.method, envi)
             return left, right
-
+            
         return typeReturn
 
     @staticmethod
@@ -429,8 +453,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         # Visit function "main"
         [self.visit(x, globalEnvi) for x in ast.decl if type(x) == FuncDecl and x.name.name == 'main']
 
-        for x in globalEnvi:
-            print(x)
+        # for x in globalEnvi:
+        #     print(x)
 
 
     # Visit declaration
@@ -438,6 +462,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         return Symbol.fromVarDecl(ast)
 
     def visitFuncDecl(self, ast: FuncDecl, globalEnvi):
+        Symbol.getSymbol(ast.name.name, globalEnvi).makeHere()
         # Visit all local variables, parameter of function from input
         listParams = [self.visit(x, globalEnvi).toParam() for x in ast.param]
         listLocalVar = [self.visit(x, globalEnvi).toVar() for x in ast.body[0]]
@@ -452,20 +477,22 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         stmts = {type(x): self.visit(x, localEnvi) for x in ast.body[1]}
 
         if "Error" not in list(stmts.values()):
-            # Update parameter type
-            paramType = [x.update(y).mtype for x in listParams for y in localEnvi if x.name == y.name]
-            typeReturn = stmts[Return] if Return in list(stmts.keys()) else Unknown()
-            varType = MType(paramType, typeReturn)
+            Symbol.updateParamAndReturnType(stmts, localEnvi, ast)
+            # paramType = [x.update(y).mtype for x in listParams for y in localEnvi if x.name == y.name]
+            # typeReturn = stmts[Return] if Return in list(stmts.keys()) else Unknown()
+            # varType = MType(paramType, typeReturn)
 
-            Symbol.getSymbol(ast.name.name, localEnvi).updateMember(mtype = varType, visited = True)
+            # Symbol.getSymbol(ast.name.name, localEnvi).updateMember(mtype = varType, visited = True)
 
-            # print(ast.name.name)
-            # for x in localEnvi:
-            #     print(x)
-            # print("==================")
+            print(ast.name.name)
+            for x in localEnvi:
+                print(x)
+            print("==================")
 
             # Update global environment
             Checker.updateGlobalEnvi(globalEnvi, localEnvi)
+            
+        Symbol.getSymbol(ast.name.name, globalEnvi).updateMember(inHere = False)
 
 
 
@@ -477,15 +504,15 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         
         if "Error" not in [leftType, rightType]:
             if ast.op in ['+', '-', '*', '\\', '%']:
-                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType, IntType())
+                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType(), IntType())
             elif ast.op in ['+.', '-.', '*.', '\\.']:
-                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, FloatType, FloatType())
+                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, FloatType(), FloatType())
             elif ast.op in ['==', '!=', '<', '>', '<=', '>=']:
-                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType, BoolType())
+                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType(), BoolType())
             elif ast.op in ['=/=', '<.', '>.', '<=.', '>=.']:
-                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, FloatType, BoolType())
+                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, FloatType(), BoolType())
             elif ast.op in ['&&', '||']:
-                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, BoolType, BoolType())
+                typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, BoolType(), BoolType())
             return typeReturn
         else:
             return "Error"
@@ -547,8 +574,32 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         else:
             return "Error"
 
-    def visitIf(self, ast, param):
-        return None
+    def visitIf(self, ast: If, envi):
+        listReturn = []
+        for x in ast.ifthenStmt:
+            conditionalExprIf = self.visit(x[0], envi)
+            if type(conditionalExprIf) != BoolType:
+                raise TypeMismatchInStatement(ast)
+            varDeclIf = [self.visit(y, envi) for y in x[1]]
+            localEnvi = Checker.checkRedeclared(envi, varDeclIf)
+            stmtIf = {type(y): self.visit(y, localEnvi) for y in x[2]}
+            if "Error" in list(stmtIf.values()):
+                return "Error"
+            
+            listReturn.append(Symbol.updateParamAndReturnType(stmtIf, envi, ast))
+        
+        varDeclElse = [self.visit(y, envi) for y in ast.elseStmt[0]]
+        localEnvi = Checker.checkRedeclared(envi, varDeclElse)
+        stmtElse = {type(y): self.visit(y, localEnvi) for y in ast.elseStmt[1]}
+        if "Error" in list(stmtElse.values()):
+            return "Error"
+
+        listReturn.append(Symbol.updateParamAndReturnType(stmtElse, envi, ast))
+
+        if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType)) for x in listReturn):
+            raise TypeMismatchInStatement(ast)
+        
+        return listReturn[0]
     
     def visitFor(self, ast, param):
         return None
@@ -561,9 +612,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     
     def visitReturn(self, ast: Return, param):
         if ast.expr == None:
-            return VoidType()
+            typeReturn = VoidType()
         else:
-            return self.visit(ast.expr, param)
+            typeReturn = self.visit(ast.expr, param)
+            
+        return typeReturn
     
     def visitDowhile(self, ast, param):
         return None
