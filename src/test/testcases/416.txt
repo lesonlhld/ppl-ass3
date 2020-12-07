@@ -1,5 +1,4 @@
-Function: main
-        Parameter: n
-                   Body: 
-                        foo();
-                   EndBody.
+Function: main  
+                   Body:
+                        printStrLn();
+                    EndBody.

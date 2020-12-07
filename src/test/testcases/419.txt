@@ -1,17 +1,5 @@
-
-        Var: x;
-Function: fact
-Parameter: n
-Body:
-If n == 0 Then
-Return 2;
-Else
-Return n * fact (n - 1);
-EndIf.
-EndBody.
 Function: main
-Parameter: n
-Body:
-x = 10.1;
-n = fact (x);
-EndBody.
+        Parameter: n
+                   Body: 
+                        foo();
+                   EndBody.

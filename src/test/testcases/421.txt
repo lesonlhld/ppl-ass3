@@ -1,10 +1,1 @@
-
-        Function: foroke
-        Body: 
-            For (i = 0, i < 10, 2) Do
-                writeln(i);
-            EndFor.
-        EndBody.
-        Function: main
-        Body:
-        EndBody.
+Program([VarDecl(Id(main),IntLiteral(5)),VarDecl(Id(b),[2,3],ArrayLiteral(ArrayLiteral(IntLiteral(2),IntLiteral(3),IntLiteral(4)),ArrayLiteral(IntLiteral(4),IntLiteral(5),IntLiteral(6)))),VarDecl(Id(c)),VarDecl(Id(d),IntLiteral(6)),VarDecl(Id(e)),VarDecl(Id(f)),VarDecl(Id(m)),VarDecl(Id(n),[10])])

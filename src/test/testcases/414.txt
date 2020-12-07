@@ -1,1 +1,4 @@
-Program([FuncDecl(Id(main)[VarDecl(Id(x))],([][CallStmt(Id(printStrLn),[])]))])
+Function: main 
+                    Body:
+                        printStrLn(read(4));
+                    EndBody.

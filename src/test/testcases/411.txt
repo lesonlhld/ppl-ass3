@@ -1,4 +1,15 @@
-Function: main 
-                    Body:
-                        printStrLn(read(4));
-                    EndBody.
+
+                Function: foo
+                Parameter: x
+                Body:
+                    Var: a[5]={1,2,3,4};
+                    Return a;
+                EndBody.
+                Function: main
+                Body:
+                    Var: a[5]={1,2,3,4};
+                    Var: b[4];
+                    Var: c;
+                    a[5]=b;
+                EndBody.
+            

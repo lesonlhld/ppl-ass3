@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(printStrLn),[])
+Type Mismatch In Expression: CallExpr(Id(read),[IntLiteral(4)])

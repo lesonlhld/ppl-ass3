@@ -1,5 +1,0 @@
-Function: main
-        Parameter: n
-                   Body: 
-                        foo();
-                   EndBody.

@@ -308,10 +308,10 @@ class Checker:
         elif type(ast) == Assign:
             if type(left) == Unknown and type(right) == Unknown:
                 raise TypeCannotBeInferred(ast)
-            elif type(left) == Unknown and type(right) != Unknown:
+            elif type(left) == Unknown and type(right) != Unknown and type(right) != ArrayType:
                 left = right
                 typeReturn = Checker.updateSideType("left", right, ast.lhs, envi)
-            elif type(left) != Unknown and type(right) == Unknown:
+            elif type(left) != Unknown and type(left) != ArrayType and type(right) == Unknown:
                 right = left
                 typeReturn = Checker.updateSideType("right", left, ast.rhs, envi)
             elif type(left) != type(right):
@@ -322,13 +322,16 @@ class Checker:
             for i in range(len(left)):
                 if type(left[i]) == Unknown and type(right[i]) == Unknown:
                     raise TypeCannotBeInferred(ast)
-                elif type(left[i]) == Unknown and type(right[i]) != Unknown:
+                elif type(left[i]) == Unknown and type(right[i]) != Unknown and type(right[i]) != ArrayType:
                     left[i] = right[i]
-                elif type(left[i]) != Unknown and type(right[i]) == Unknown:
+                elif type(left[i]) != Unknown and type(left[i]) != ArrayType and type(right[i]) == Unknown:
                     right[i] = left[i]
                     typeReturn = Checker.updateSideType("right", left[i], ast.param[i], envi)
                 elif type(left[i]) != type(right[i]):
-                    raise TypeMismatchInExpression(ast)
+                    if type(ast) == CallExpr:
+                        raise TypeMismatchInExpression(ast)
+                    else:
+                        raise TypeMismatchInStatement(ast)
             typeReturn = Checker.updateSideType("left", left, ast.method, envi)
             return left, right
             
@@ -354,7 +357,13 @@ class Checker:
     @staticmethod
     def checkMatchType(left, right, ast, envi):
         # Handle Array Type
-        if ArrayType in [type(left), type(right)]:
+        if type(left) == ArrayType and type(right) == ArrayType:
+            lhs = left.eletype
+            rhs = right.eletype
+            typeReturn = Checker.checkTwoSideType(lhs, rhs, ast, envi)
+        elif all(x in [ArrayType, Unknown] for x in [type(left), type(right)]):
+            raise TypeCannotBeInferred(ast)
+        elif ArrayType in [type(left), type(right)]:
             lhs = left.eletype if type(left) == ArrayType else left
             rhs = right.eletype if type(right) == ArrayType else right
             typeReturn = Checker.checkTwoSideType(lhs, rhs, ast, envi)
@@ -484,10 +493,10 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
             # Symbol.getSymbol(ast.name.name, localEnvi).updateMember(mtype = varType, visited = True)
 
-            print(ast.name.name)
-            for x in localEnvi:
-                print(x)
-            print("==================")
+            # print(ast.name.name)
+            # for x in localEnvi:
+            #     print(x)
+            # print("==================")
 
             # Update global environment
             Checker.updateGlobalEnvi(globalEnvi, localEnvi)
@@ -601,8 +610,30 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         
         return listReturn[0]
     
-    def visitFor(self, ast, param):
-        return None
+    def visitFor(self, ast: For, envi):
+        indexVar = self.visit(ast.idx1, envi)
+        expr1 = self.visit(ast.expr1, envi)
+        expr2 = self.visit(ast.expr2, envi)
+        expr3 = self.visit(ast.expr3, envi)
+        if type(expr1) != IntType or type(expr3) != IntType:
+            raise TypeMismatchInStatement(ast)
+        if type(indexVar) != IntType:
+            if type(indexVar) == Unknown:
+                Checker.checkTwoSideType(indexVar, expr1, Assign(ast.idx1, ast.expr1), envi)
+            else:
+                raise TypeMismatchInStatement(ast)
+        if type(expr2) != BoolType:
+            raise TypeMismatchInStatement(ast)
+        
+        varDecl = [self.visit(y, envi) for y in ast.loop[0]]
+        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        stmt = {type(y): self.visit(y, localEnvi) for y in ast.loop[1]}
+        if "Error" in list(stmt.values()):
+            return "Error"
+
+        typeReturn = Symbol.updateParamAndReturnType(stmt, envi, ast)
+        
+        return typeReturn
     
     def visitContinue(self, ast, param):
         return None
@@ -618,11 +649,31 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             
         return typeReturn
     
-    def visitDowhile(self, ast, param):
-        return None
+    def visitDowhile(self, ast: Dowhile, envi):
+        exp = self.visit(ast.exp, envi)
+        if type(exp) != BoolType:
+            raise TypeMismatchInStatement(ast)
+        
+        varDecl = [self.visit(y, envi) for y in ast.sl[0]]
+        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
+        if "Error" in list(stmt.values()):
+            return "Error"
 
-    def visitWhile(self, ast, param):
-        return None
+        typeReturn = Symbol.updateParamAndReturnType(stmt, envi, ast)
+
+    def visitWhile(self, ast: While, envi):
+        exp = self.visit(ast.exp, envi)
+        if type(exp) != BoolType:
+            raise TypeMismatchInStatement(ast)
+        
+        varDecl = [self.visit(y, envi) for y in ast.sl[0]]
+        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
+        if "Error" in list(stmt.values()):
+            return "Error"
+
+        typeReturn = Symbol.updateParamAndReturnType(stmt, envi, ast)
 
     # Call stmt return VoidType, have semi
     def visitCallStmt(self, ast: CallStmt, globalEnvi):
