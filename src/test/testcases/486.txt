@@ -1,0 +1,8 @@
+
+                Var: a = 5, f;
+                Function: main
+                Body:
+                    Var: r = 10., v, d;
+                    printLn() = "truong";
+                EndBody.
+                

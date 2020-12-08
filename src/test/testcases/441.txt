@@ -1,0 +1,15 @@
+
+                Var: a[3][4], c, d=5.5;
+                Function: main
+                Body:
+                    Var: b[2];
+                    a[3 + 2.2][2][4] = d;
+                    Return 1;
+                EndBody.
+
+                Function: foo
+                Parameter: f[2]
+                Body:
+                    Return 6;
+                EndBody.
+                

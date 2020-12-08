@@ -1,0 +1,8 @@
+Var: b;
+                Function: main
+                Body:
+                    Var: x = 5;
+                    While b < 2 Do
+                        x = b +. 2.2;
+                    EndWhile.
+                EndBody.

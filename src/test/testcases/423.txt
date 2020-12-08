@@ -1,0 +1,14 @@
+Var: b;
+                Function: main
+                Body:
+                    Var: x = 2, c, f;
+                    Do
+                        c = 2.2;
+                    While b >. c
+                    EndDo.
+                    For(x = 5, c =/= 2.2, 5) Do
+                        f = 6;
+                    EndFor.
+                    c = f + 2;
+                    Return c;
+                EndBody.

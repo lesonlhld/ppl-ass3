@@ -1,0 +1,9 @@
+
+                Var: x[2];
+                Function: main
+                Body:
+                    Var: a = 3;
+                    x[2 + a] = 4;
+                    x[2] = 5.5;
+                EndBody.
+                

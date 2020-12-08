@@ -1,0 +1,14 @@
+
+                Var: x[2] = {2}, a = -2;
+                Function: main
+                Parameter: a
+                Body:
+                    a = True;
+                    If a Then
+                        Return 5;
+                    Else
+                        b = a;
+                    EndIf.
+                    Return a;
+                EndBody.
+                

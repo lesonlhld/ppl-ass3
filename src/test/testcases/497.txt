@@ -1,0 +1,9 @@
+
+                Var: a;
+                Function: main
+                Body:
+                    While a >. 2.3 Do
+                        Return a*foo(2);
+                    EndWhile.
+                EndBody.
+                

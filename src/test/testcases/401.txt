@@ -1,20 +1,10 @@
 
-        Var: a;
-        Function: foo
-            Body:
-                a = 1.5;
-                bar(a);
-            EndBody.
-                   
-        Function: main
-            Body:
-            a =2.5;
-            foo();
-            EndBody.
-
-        Function: bar
-            Parameter: a
-            Body:
-                a = 3.0;
-
-            EndBody.
+                    Var: a, b, c, d;
+                    Function: main
+                    Parameter: a, e
+                    Body:
+                        Var: o;
+                        a = d;
+                        Return 6.6;
+                    EndBody.
+                

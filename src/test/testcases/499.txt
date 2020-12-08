@@ -1,0 +1,14 @@
+
+                Var: x;
+                Function: main
+                Body:
+                    x = doo();
+                EndBody.
+
+                Function: doo
+                Body:
+                    Var: a;
+                    a = doo1();
+                    Return 33;
+                EndBody.
+                

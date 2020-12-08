@@ -1,0 +1,15 @@
+
+                Var: b;
+                Function: main
+                Body:
+                    foo()[b + 2][3] = 3;
+                    b = 5.2;
+                    Return 3;
+                EndBody.
+
+                Function: foo
+                Body:
+                    Var: c[3];
+                    Return c;
+                EndBody.
+                

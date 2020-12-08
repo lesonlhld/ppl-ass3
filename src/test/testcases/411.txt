@@ -1,0 +1,10 @@
+Var: a;
+                    Function: main
+                    Parameter: b, c
+                    Body:
+                        b = 2;
+                        a = c*.a;
+                        a = c;
+                        b = a*.c;
+                        Return a;
+                    EndBody.

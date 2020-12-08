@@ -1,0 +1,17 @@
+
+                Var: x[2];
+                Function: main
+                Body:
+                    Var: a, c, d;
+                    a = x[2] + 2;
+                    x[2][d] = 5;
+                    c = 6 + int_of_float(5.5);
+                    c = doo(d) + 2.3;
+                EndBody.
+
+                Function: doo
+                Parameter: s
+                Body:
+                    Return 0;
+                EndBody.
+                

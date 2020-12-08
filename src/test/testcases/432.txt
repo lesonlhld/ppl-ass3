@@ -1,0 +1,21 @@
+
+                Var: b;
+                Function: main
+                Body:
+                    Var: x, c;
+                    While b <. 2.2 Do
+                        x = b +. 0.0;
+                        For(i = 5, x <. 4.4, 2) Do
+                            c = i;
+                        EndFor.
+                    EndWhile.
+                    c = c + foo(0.0) * 2.0;
+                    Return x;
+                EndBody.
+
+                Function: foo
+                Parameter: b
+                Body:
+                    Return 3;
+                EndBody.
+                

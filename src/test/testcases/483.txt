@@ -1,0 +1,12 @@
+
+                Var: a = 5, f;
+                Function: main
+                Body:
+                    Var: r = 10., v, d;
+                    v = (4. \. 3.) *. 3.14 *. r *. r *. r;
+                    For( i = 5 , True, 5) Do
+                        f = read();
+                    EndFor.
+                    f = 5;
+                EndBody.
+                

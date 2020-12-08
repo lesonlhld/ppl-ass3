@@ -1,0 +1,11 @@
+Var: a, c;
+                    Function: main
+                    Parameter: b
+                    Body:
+                        Var: i;
+                        c = 2.2;
+                        For (i = 2, i == b, c) Do
+                            a = 6;
+                        EndFor.         
+                        Return a;
+                    EndBody.

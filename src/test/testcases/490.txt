@@ -1,0 +1,10 @@
+
+                Var: a = 5, f;
+                Function: main
+                Body:
+                    Var: r = 10., v = "45", d;
+                    d = float_of_string(v);
+                    f = (r =/= d);
+                    d = string_of_bool(f);
+                EndBody.
+                

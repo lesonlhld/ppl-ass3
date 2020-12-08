@@ -1,0 +1,13 @@
+
+                Var: a = 5, f;
+                Function: main
+                Body:
+                    Var: r = 10., v, d;
+                    v = (4. \. 3.) *. 3.14 *. r *. r *. r;
+                    For( i = 5 , bool_of_string("True"), 5) Do
+                        f = read();
+                    EndFor.
+                    d = 5;
+                    f = string_of_float(d);
+                EndBody.
+                

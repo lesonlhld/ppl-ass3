@@ -1,0 +1,10 @@
+Var: b;
+                Function: main
+                Body:
+                    Var: x;
+                    While b < 2 Do
+                        x = b + 2;
+                    EndWhile.
+                    x = True;
+                    Return x;
+                EndBody.

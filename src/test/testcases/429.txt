@@ -1,0 +1,16 @@
+Var: b;
+                Function: main
+                Body:
+                    Var: x;
+                    While b <. 2.2 Do
+                        x = b +. 0.0;
+                    EndWhile.
+                    b = 2 + foo(x);
+                    Return x;
+                EndBody.
+
+                Function: foo
+                Parameter: b
+                Body:
+                    Return 3;
+                EndBody.

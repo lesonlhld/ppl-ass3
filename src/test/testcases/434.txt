@@ -1,0 +1,13 @@
+
+                Var: b;
+                Function: main
+                Body:
+                    Var: c;
+                    If b < 5 Then
+                        c = 5;
+                    ElseIf c > 5 Then
+                        c = b;
+                    Else c = 2.2;
+                    EndIf.
+                EndBody.
+                

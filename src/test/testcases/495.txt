@@ -1,0 +1,9 @@
+
+                Var: a;
+                Function: main
+                Body:
+                    While a >. 2.3 Do
+                        a = 2 * 2;
+                    EndWhile.
+                EndBody.
+                

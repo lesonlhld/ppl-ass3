@@ -1,0 +1,13 @@
+
+                Var: x[2] = {2}, a = -2;
+                Function: main
+                Body:
+                    a = doo(x[2], 3.3);
+                EndBody.
+
+                Function: doo
+                Parameter: a, b
+                Body:
+                    Return a + b;
+                EndBody.
+                

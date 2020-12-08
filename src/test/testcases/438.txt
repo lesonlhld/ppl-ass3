@@ -1,0 +1,20 @@
+
+                Var: x;
+                Function: foo
+                Parameter: a[5], b
+                Body:
+                    Var: i = 0;
+                    While (i < 5) Do
+                        a[i] = b +. 1.0;
+                        i = i + 1;
+                    EndWhile.
+                    Return 2;
+                EndBody.
+
+                Function: main
+                Body:
+                    Var: c;
+                    x = 10;
+                    x = foo(c, 7);                    
+                EndBody.
+                

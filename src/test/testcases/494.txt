@@ -1,0 +1,12 @@
+
+                Var: a;
+                Function: main
+                Body:
+                    a = True;
+                EndBody.
+
+                Function: doo
+                Body:
+                    a = 5;
+                EndBody.
+                

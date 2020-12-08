@@ -1,0 +1,7 @@
+Var: a = 2;
+                    Function: main
+                    Parameter: b, c
+                    Body:
+                        b = foo();
+                        Return a;
+                    EndBody.

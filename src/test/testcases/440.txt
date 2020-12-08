@@ -1,0 +1,21 @@
+
+                Var: x;
+                Function: fact
+                Parameter: n
+                Body:
+                    Var: a[2] ={3,4};
+                    If n == 0 Then
+                        Return 1;
+                    Else
+                        Return 2;
+                    EndIf.
+                    Return a;
+                EndBody.
+                
+                Function: main
+                Body:
+                    Var: b[2] = {5.5};
+                    x = 6.6;
+                    b[2] = 5.5 +. x +. fact(4)[4];
+                EndBody.
+                

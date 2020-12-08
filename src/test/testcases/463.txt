@@ -1,0 +1,10 @@
+
+                Var: x[2], a[2];
+                Function: main
+                Body:
+                    Var: b[2];
+                    a[3 + foo(2)] = b[2] + 4;
+                    b[3] = foo(a[3]);
+                    foo(a[3]) = 4;
+                EndBody.
+                

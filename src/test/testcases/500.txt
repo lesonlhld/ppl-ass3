@@ -1,0 +1,7 @@
+
+                Var: a = "Truong", b = "Dep", c = "Trai";
+                Function: main
+                Body:
+                    a = b + c;
+                EndBody.
+                

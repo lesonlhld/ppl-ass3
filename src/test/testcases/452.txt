@@ -1,0 +1,8 @@
+
+                Var: x[2];
+                Function: main
+                Body:
+                    Var: a = 3;
+                    x[2 + 3*2.2] = a + foo(123)*a_2; 
+                EndBody.
+                

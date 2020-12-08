@@ -1,0 +1,8 @@
+Var: a = 2;
+                    Function: main
+                    Parameter: b, c
+                    Body:
+                        b = 2.2;
+                        a = 3.3;
+                        Return a;
+                    EndBody.

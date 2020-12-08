@@ -1,0 +1,9 @@
+
+                Var: a = 5, f;
+                Function: main
+                Body:
+                    Var: r = 10., v = True, d;
+                    d = string_of_bool(v);
+                    v = d;
+                EndBody.
+                
