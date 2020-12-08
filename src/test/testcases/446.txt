@@ -1,13 +1,8 @@
 
-                Var: x;
-            Function: main
-            Body:
-                Var: a, b;
-                x  = 3;
-                If bool_of_string("True") Then
-                    a = int_of_string (b);
-                    b = float_of_int (a) +. 2.0;
-                EndIf.
-                b =2 ;
-            EndBody.
-                
+        Function: main 
+        Parameter: n[5],i
+        Body:
+            For (i = 0, i < 10, 1) Do
+                n[i]=n[i]+i;
+            EndFor.
+        EndBody.

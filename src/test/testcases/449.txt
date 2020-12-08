@@ -1,20 +1,11 @@
 
-                Var: x;
-                Function: main
-                Body:
-                    Var: a, b, c;
-                    x  = 3;
-                    If bool_of_string("True") Then
-                        a = int_of_string (b);
-                        c = float_of_int (a) +. 2.0;
-                    EndIf.
-                    c = doo(b);
-                EndBody.
-
-                Function: doo
-                Parameter: a
-                Body:
-                    a = "truong";
-                    Return 2;
-                EndBody.
-                
+        Function: main
+        Parameter: row,col,sum,arr[5][9]
+        Body:
+            Var: sum=0;
+            For( i=0,i<=row,1) Do
+                For(j=0,j<col,2) Do
+                    sum=sum+arr[i][j];
+                EndFor.
+            EndFor.
+        EndBody.

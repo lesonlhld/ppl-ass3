@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(c),BinaryOp(+,Id(f),IntLiteral(2)))
+TypeMismatchInExpression(BinaryOp("\.",Id("n"),IntLiteral(5)))

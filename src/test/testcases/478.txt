@@ -1,8 +1,4 @@
-
-                Var: a = 5;
-                Function: main
-                Body:
-                    Var: r = 10., v;
-                    v = (4. \. 3.) *. 3.14 *. r *. r * r;
-                EndBody.
-                
+Function: main
+        Body:
+            a =-((func1(a)+23) * -func2(4)+arr[3])\. 0.5;
+        EndBody.

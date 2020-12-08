@@ -1,11 +1,5 @@
-Function: main
-                Body:
-                    Var: x;
-                    x = x + foo();
-                EndBody.
-
-                Function: foo
-                Parameter: a,a
-                Body:
-                    Return 2.2;
-                EndBody.
+** This is a single-line comment. **
+** This is a
+* multi-line
+* comment.
+**

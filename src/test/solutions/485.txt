@@ -1,1 +1,1 @@
-Undeclared Identifier: i
+Redeclared(Variable(),"n")

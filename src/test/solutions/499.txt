@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(Id(x),CallExpr(Id(doo),[]))
+TypeMismatchInExpression(BinaryOp("+.",IntLiteral(3),FloatLiteral(1000.0)))

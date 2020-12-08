@@ -1,10 +1,1 @@
-
-                    Var: a, b, c, d;
-                    Function: main
-                    Parameter: a, e
-                    Body:
-                        Var: o;
-                        a = d;
-                        Return 6.6;
-                    EndBody.
-                
+Var: faji342F__324dADS;

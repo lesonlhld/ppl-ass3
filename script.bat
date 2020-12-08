@@ -36,9 +36,9 @@ if exist %CD%\test\solutions\ (
     robocopy %CD%\test\solutions %CD%\src\test\solutionsSample /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
-if exist %CD%\src\test\CheckSuite.txt (
-    echo "Deleting CheckSuite.txt"
-    del %CD%\src\test\CheckSuite.txt /f /q
+if exist %CD%\src\test\CheckSuite_old.py (
+    echo "Deleting CheckSuite_old.py"
+    del %CD%\src\test\CheckSuite_old.py /f /q
 )
 
 if exist %CD%\test\check.py (
@@ -59,6 +59,7 @@ if exist %CD%\test\check.py (
 @REM     echo "Copying ParserSuite.py"
 @REM     robocopy %CD%\test\ %CD%\src\test\ ParserSuite.py /move /NFL /NDL /NJH /NJS /nc /ns /np
 @REM )
+
 
 if exist %CD%\test\TestUtils.py (
     echo "Rename old TestUtils.py to TestUtils_old.py"
@@ -122,11 +123,11 @@ echo "=============================================="
 echo "Testing Check..."
 python run.py test CheckSuite
 
-cd ..
-if exist %CD%\src\test\CheckSuite.txt (
-    robocopy %CD%\src\test\ %CD%\output\ CheckSuite.txt /move /NFL /NDL /NJH /NJS /nc /ns /np
-)
-cd src
+@REM cd ..
+@REM if exist %CD%\src\test\CheckSuite.txt (
+@REM     robocopy %CD%\src\test\ %CD%\output\ CheckSuite.txt /move /NFL /NDL /NJH /NJS /nc /ns /np
+@REM )
+@REM cd src
 
 @REM cd ..
 @REM if exist %CD%\src\test\ParserSuite.txt (
@@ -134,6 +135,15 @@ cd src
 @REM     del %CD%\src\test\LexerSuite.txt /f /q
 @REM )
 @REM cd src
+
+if exist %CD%\test\CheckSuite.py (
+    echo "Rename old CheckSuite.py to CheckSuite_old.py"
+    ren %CD%\test\CheckSuite.py CheckSuite_old.py
+)
+
+if exist %CD%\test\CheckSuite.txt (
+    ren %CD%\test\CheckSuite.txt CheckSuite.py
+)
 
 if exist %CD%\test\solutionsSample\ (
     if exist %CD%\check.py (
@@ -186,7 +196,4 @@ if exist %CD%\src\test\solutionsSample\ (
     robocopy %CD%\src\test\solutionsSample\ %CD%\output\test\solutions /move /NFL /NDL /NJH /NJS /nc /ns /np
 )
 
-if exist %CD%\output\CheckSuite.txt (
-    ren %CD%\output\CheckSuite.txt CheckSuite.py
-)
 ::pause >nul

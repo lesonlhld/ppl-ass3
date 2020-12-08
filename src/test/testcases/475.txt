@@ -1,21 +1,4 @@
-
-                Function: foo
-                Parameter: a[5], b
-                Body:
-                    Var: i = 0;
-                    While (i < 5) Do
-                        a[i] = b +. 1.0;
-                        i = i + 1;
-                    EndWhile.
-                    Return i;
-                EndBody.
-
-                Function: main
-                Body:
-                    Var: a, b[2];
-                    a = foo(b[3], 3.3);
-                    a = 5.5;
-                    Return 5;
-                EndBody.
-
-                
+Function: main
+        Body:
+            Var  : x[123]={   20, 2   ,108  };
+        EndBody.

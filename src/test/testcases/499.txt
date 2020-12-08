@@ -1,14 +1,5 @@
-
-                Var: x;
-                Function: main
-                Body:
-                    x = doo();
-                EndBody.
-
-                Function: doo
-                Body:
-                    Var: a;
-                    a = doo1();
-                    Return 33;
-                EndBody.
-                
+Function: main
+            Parameter: a,b
+            Body:
+                a[3 +. 10e2] = (foo(x) +. 12.e3) *. 0x123 - a[b[2][3]] + 4;
+            EndBody. 

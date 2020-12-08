@@ -1,7 +1,4 @@
-Var: a = 2;
-                    Function: main
-                    Parameter: b, c
-                    Body:
-                        f = 5; 
-                        Return a;
-                    EndBody.
+ 
+        Var: decimal[108], hexadecimal[0X5456A][0x205F], octdecimal[0o413215][0O123];
+        Var: array[5][13456];
+        

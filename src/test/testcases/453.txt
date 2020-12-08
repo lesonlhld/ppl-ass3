@@ -1,9 +1,10 @@
-
-                Var: x[2];
-                Function: main
-                Body:
-                    Var: a = 3;
-                    x[2 + a] = 4;
-                    x[2] = 5.5;
-                EndBody.
-                
+Function: main 
+        Parameter: x
+        Body:
+            While (True) Do
+                While (x>=0) Do
+                    x = x+-1;
+                EndWhile.
+                If ((x<0)) Then Break; EndIf.
+            EndWhile.
+        EndBody.

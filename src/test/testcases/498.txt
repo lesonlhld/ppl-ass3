@@ -1,18 +1,7 @@
-
-                Var: x;
-                Function: main
-                Body:
-                    x = 2;
-                EndBody.
-
-                Function: doo
-                Body:
-                    Var: a;
-                    a = doo1();
-                EndBody.
-
-                Function: doo1
-                Body:
-                    Return 1;
-                EndBody.
-                
+Function: main
+            Parameter: a,b
+            Body:
+                a = "string 1";
+                b = "string 2";
+                Return a+b;
+            EndBody. 

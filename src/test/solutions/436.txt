@@ -1,1 +1,1 @@
-Type Mismatch In Expression: ArrayCell(CallExpr(Id(foo),[]),[BinaryOp(+,Id(b),IntLiteral(2)),IntLiteral(3)])
+TypeMismatchInExpression(BinaryOp("||",FloatLiteral(2.3e-13),BinaryOp("=/=",Id("x"),FloatLiteral(2e-35))))

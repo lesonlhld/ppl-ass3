@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+.,Id(b),FloatLiteral(2.2))
+TypeMismatchInExpression(BinaryOp("==",Id("k"),FloatLiteral(5.6)))

@@ -1,8 +1,8 @@
-Var: a = 2;
-                    Function: main
-                    Parameter: b, c
-                    Body:
-                        b = 2.2;
-                        a = 2.2*.a;
-                        Return a;
-                    EndBody.
+ 
+        Var: x =0;
+        Function: **comment chut da**main 
+        Body:
+            x=20;
+                x=100.0;
+        EndBody.
+        

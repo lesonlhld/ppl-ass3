@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(c),StringLiteral(sss))
+TypeMismatchInExpression(BinaryOp("+.",BinaryOp("*",Id("i"),Id("i")),FloatLiteral(1.5)))

@@ -1,17 +1,2 @@
-
-                Var: a = 5;
-                Function: main
-                Body:
-                    Var: r = 10., v, d;
-                    v = (4. \. 3.) *. 3.14 *. r *. r *. r;
-                    d = doo(r*2, r);
-                    d = 2;
-                EndBody.
-
-                Function: doo
-                Parameter: b, c
-                Body:
-                    b = c;
-                    Return c;
-                EndBody.
-                
+Function: a Parameter: a Body:Var: a=False;EndBody. Function: b Body:EndBody.
+Function: main**Here some too**Parameter: d Body:EndBody.

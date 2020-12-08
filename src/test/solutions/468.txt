@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(d),FloatLiteral(5.5))
+TypeMismatchInStatement(If([(BinaryOp("==",Id("i"),IntLiteral(0)),[],[Return(None)])],([],[])))

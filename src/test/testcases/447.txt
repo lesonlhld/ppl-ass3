@@ -1,13 +1,8 @@
 
-                Var: x;
-                Function: main
-                Body:
-                    Var: a, b, c;
-                    x  = 3;
-                    If bool_of_string("True") Then
-                        a = int_of_string (b);
-                        c = float_of_int (a) +. 2.0;
-                    EndIf.
-                    b = c;
-                EndBody.
-                
+        Var: i=0, k=100;
+        Function: main
+        Body:
+            For (i=12, i < k, i*i) Do
+            goo();
+            EndFor.
+        EndBody.

@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(c),FloatLiteral(2.2))
+TypeMismatchInExpression(ArrayCell(Id("a"),[BinaryOp("+",IntLiteral(3),CallExpr(Id("foo"),[IntLiteral(2),FloatLiteral(2.6)])),BinaryOp("||",Id("b"),BooleanLiteral(True))]))

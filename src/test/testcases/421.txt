@@ -1,13 +1,9 @@
-Var: b;
-                Function: main
-                Body:
-                    Var: x = 2, c, f;
-                    Do
-                        b = x;
-                    While b > c
-                    EndDo.
-                    For(c = 5, c == True, 5) Do
-                        f = 6;
-                    EndFor.
-                    Return c;
-                EndBody.
+Function: main 
+        Parameter: varrr
+        Body:
+            **Do
+                x= x+1;
+            While x>1 
+            EndDo.
+            **
+        EndBody.

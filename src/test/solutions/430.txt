@@ -1,1 +1,1 @@
-Type Mismatch In Statement: For(Id(x),IntLiteral(5),BinaryOp(<.,Id(x),FloatLiteral(4.4)),IntLiteral(2),[],[Assign(Id(c),IntLiteral(5))])
+TypeMismatchInExpression(UnaryOp("-",FloatLiteral(1.5)))

@@ -1,11 +1,7 @@
-Var: a;
-                    Function: main
-                    Parameter: b
-                    Body:
-                        Var: i;
-                        For (i = 2, i == b, 6) Do
-                            a = 6;
-                        EndFor.
-                        b = a +. 2.2;          
-                        Return a;
-                    EndBody.
+
+        Function: main 
+        Parameter: a, b,c[123] ,d[123][234][0]  ,e
+        Body:
+            a=1;
+        EndBody.
+        

@@ -1,9 +1,13 @@
-
-                Var: a;
-                Function: main
-                Body:
-                    While a >. 2.3 Do
-                        a = 2 * 2;
-                    EndWhile.
-                EndBody.
-                
+Function: main
+        Body:
+            m = test2(a,b) + main (x);
+        EndBody.
+        Function: test2
+        Body:
+            Do
+                If(z == 1) Then
+                    x = !a;
+                EndIf.
+            While x
+            EndDo.
+        EndBody.

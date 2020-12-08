@@ -1,17 +1,6 @@
-
-                Var: x[2] = {2}, a = -2;
-                Function: main
-                Parameter: a
-                Body:
-                    a = True;
-                    If a Then
-                        Var: c = 5;
-                        Return 5;
-                    Else
-                        Var: b;
-                        b = a;
-                    EndIf.
-                    c = 5;
-                    Return b;
-                EndBody.
-                
+Function: main 
+                Parameter: x[2][3]
+        Body:
+            Var: i = 0;
+            x[2][3]={{867,345,987},{76,12,744}};
+        EndBody.

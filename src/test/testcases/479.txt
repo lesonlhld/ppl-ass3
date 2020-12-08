@@ -1,17 +1,4 @@
-
-                Var: a = 5;
-                Function: main
-                Body:
-                    Var: r = 10., v, d;
-                    v = (4. \. 3.) *. 3.14 *. r *. r *. r;
-                    d = doo(r, r);
-                    d = 2;
-                EndBody.
-
-                Function: doo
-                Parameter: b, c
-                Body:
-                    b = c;
-                    Return c;
-                EndBody.
-                
+Function: main
+        Body:
+            a =func1(foo(3))+23 - func2(goo(foo(a)));
+        EndBody.

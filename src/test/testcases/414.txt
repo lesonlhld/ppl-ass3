@@ -1,12 +1,5 @@
-Var: a, c;
-                    Function: main
-                    Parameter: b
-                    Body:
-                        Var: i;
-                        c = -5;
-                        For (i = 2, i < b, c) Do
-                            a = 6;
-                        EndFor. 
-                        c = b + 2.2;       
-                        Return a;
-                    EndBody.
+Function: main 
+        Parameter: n, arr[5]
+        Body:
+            Var: r = 10., v;
+        EndBody.

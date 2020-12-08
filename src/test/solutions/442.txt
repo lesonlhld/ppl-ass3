@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(>.,Id(a),IntLiteral(2))
+TypeMismatchInExpression(BinaryOp("!=",Id("b"),BinaryOp("&&",Id("c"),BinaryOp(">",Id("a"),BinaryOp("+",Id("b"),Id("c"))))))

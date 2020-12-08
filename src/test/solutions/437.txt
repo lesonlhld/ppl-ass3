@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(BinaryOp(*.,FloatLiteral(4.4),FloatLiteral(5.4)))
+TypeMismatchInExpression(BinaryOp("%",FloatLiteral(2.5),IntLiteral(3)))

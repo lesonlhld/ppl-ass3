@@ -1,11 +1,7 @@
-Function: main
-                Body:
-                    Var: x, x;
-                    x = x + foo();
-                EndBody.
-
-                Function: foo
-                Parameter: a,a
-                Body:
-                    Return 2.2;
-                EndBody.
+**Function: main 
+        Parameter: x, a
+        Body:
+            While x>1 Do
+                Var: a = 10;
+            EndWhile.
+        EndBody.**

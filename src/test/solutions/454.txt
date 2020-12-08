@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(ArrayCell(Id(x),[IntLiteral(2)]),StringLiteral(true))
+TypeMismatchInExpression(BinaryOp("<.",Id("n"),FloatLiteral(69.96)))

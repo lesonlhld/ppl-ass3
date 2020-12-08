@@ -1,9 +1,6 @@
-
-                Var: a = 5, f;
-                Function: main
-                Body:
-                    Var: r = 10., v, d;
-                    printStrLn(v);
-                    v = 5;
-                EndBody.
+ Function: main
+                        Parameter: a
+                        Body:
+                        Var: x = 2;
+                        EndBody.
                 

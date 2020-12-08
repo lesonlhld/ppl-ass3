@@ -1,11 +1,7 @@
-
-                Var: x[2];
-                Function: main
-                Body:
-                    Var: a, c;
-                    a = x[2] + 2;
-                    x[2][c + 2] = 5;
-                    c = 6 + int_of_float(5.5);
-                    c = True;
-                EndBody.
-                
+Function: main 
+        Parameter: a
+        Body:
+            Do  
+                Return a;
+            While a =/= 2.2 EndDo.
+        EndBody.

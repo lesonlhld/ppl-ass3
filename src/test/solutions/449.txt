@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(IntLiteral(2))
+Redeclared(Variable(),"sum")

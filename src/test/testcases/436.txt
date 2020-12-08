@@ -1,15 +1,6 @@
-
-                Var: b;
-                Function: main
-                Body:
-                    foo()[b + 2][3] = 3;
-                    b = 5.2;
-                    Return 3;
-                EndBody.
-
-                Function: foo
-                Body:
-                    Var: c[3];
-                    Return c;
-                EndBody.
-                
+Function: main 
+        Parameter: a
+        Body:
+        Var: x; 
+            x = (a >=. 2.3e-13 || (x =/= 2e-35));
+        EndBody.

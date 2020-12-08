@@ -1,11 +1,2 @@
-Function: main
-                Body:
-                    Var: x = 2;
-                    x = x + foo(x);
-                EndBody.
-
-                Function: foo
-                Parameter: a
-                Body:
-                    Return c;
-                EndBody.
+Var **test comment**: **bien = "STRING"**
+        ****fu={0X743A5,0o26523,321 **cmt**}****;****

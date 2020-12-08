@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(*,BinaryOp(*.,BinaryOp(*.,BinaryOp(*.,BinaryOp(\.,FloatLiteral(4.0),FloatLiteral(3.0)),FloatLiteral(3.14)),Id(r)),Id(r)),Id(r))
+Undeclared(Identifier(),"a")

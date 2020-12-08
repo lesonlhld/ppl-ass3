@@ -1,20 +1,4 @@
-
-                Var: x[2], a[2];
-                Function: main
-                Body:
-                    Var: b[2];
-                    doo(1,3 ,5.5);
-                EndBody.
-
-                Function: doo
-                Parameter: b, c, d
-                Body:
-                    Var: e;
-                    b = 5;
-                    c = 6;
-                    d = 5.5;
-                    e = "5.3";
-                    c = float_of_int(b) +. float_of_int(c) +. float_of_string(e);
-                    Return;
-                EndBody.
-                
+Function: main
+        Body:
+            iden__TI_FIerOf_Function(a,b_,c+.3.e-2);
+        EndBody.

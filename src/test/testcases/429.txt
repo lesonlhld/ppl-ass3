@@ -1,16 +1,6 @@
-Var: b;
-                Function: main
-                Body:
-                    Var: x;
-                    While b <. 2.2 Do
-                        x = b +. 0.0;
-                    EndWhile.
-                    b = 2 + foo(x);
-                    Return x;
-                EndBody.
-
-                Function: foo
-                Parameter: b
-                Body:
-                    Return 3;
-                EndBody.
+Var: a;
+        Function: main 
+        Parameter: n, arr[3][4][5]
+        Body:
+            a = 3*.4.5\0e-2+arr[3-main("call")];
+        EndBody.

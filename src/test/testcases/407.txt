@@ -1,8 +1,7 @@
-Var: a = 2;
-                    Function: main
-                    Parameter: b, c
-                    Body:
-                        b = 2.2;
-                        a = 3.3;
-                        Return a;
-                    EndBody.
+ 
+        Function: main 
+        Parameter: global_var
+        Body:
+            global_var = 25+6-.2.5%3\100 ; 
+        EndBody.
+        

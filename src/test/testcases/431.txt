@@ -1,19 +1,8 @@
-Var: b;
-                Function: main
-                Body:
-                    Var: x, c;
-                    While b <. 2.2 Do
-                        x = b +. 0.0;
-                        For(i = 5, x <. 4.4, 2) Do
-                            c = i;
-                        EndFor.
-                    EndWhile.
-                    c = i + foo(0.0);
-                    Return x;
-                EndBody.
-
-                Function: foo
-                Parameter: b
-                Body:
-                    Return 3;
-                EndBody.
+Var:c[4],b[108];
+        Function: main 
+        Parameter: i , j, arr[1001]
+        Body:
+        Var:a[2005];
+            a[i] = arr[c[2+j][b[i]*3]] + 4;
+            i = i + 1;
+        EndBody.

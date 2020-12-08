@@ -1,13 +1,6 @@
-
-                Var: b;
-                Function: main
-                Body:
-                    Var: c = 2;
-                    foo() = c;
-                EndBody.
-
-                Function: foo
-                Body:
-                    Return 2;
-                EndBody.
-                
+Function: main
+        Parameter: arr[2222]
+        Body:
+        Var: x,a=0X24211ABC;
+            x=arr[a+6];
+        EndBody.

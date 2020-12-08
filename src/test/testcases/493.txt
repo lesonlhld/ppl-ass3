@@ -1,12 +1,4 @@
-
-                Var: a;
-                Function: main
-                Body:
-                    a = 2.3;
-                EndBody.
-
-                Function: doo
-                Body:
-                    a = 5;
-                EndBody.
-                
+Function: main
+        Body:
+            arr(a + bbb[61.2 *. (x + y)])[2] = b[2][3];
+        EndBody.

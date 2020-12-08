@@ -1,20 +1,4 @@
-
-                Var: x[2], a[2];
-                Function: main
-                Body:
-                    Var: b[2], d = 4;
-                    d = doo(1,3 ,d);
-                EndBody.
-
-                Function: doo
-                Parameter: b, c, d
-                Body:
-                    Var: e, g;
-                    b = 5;
-                    c = 6;
-                    d = 5.5;
-                    e = "5.3";
-                    g = float_of_int(b) +. float_of_int(c + 3.5) +. float_of_string(e);
-                    Return g;
-                EndBody.
-                
+Function: main
+            Body:
+                Return "String";
+            EndBody.

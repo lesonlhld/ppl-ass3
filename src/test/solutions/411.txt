@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(b),BinaryOp(*.,Id(a),Id(c)))
+TypeMismatchInStatement(CallStmt(Id("fact"),[Id("x")]))

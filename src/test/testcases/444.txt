@@ -1,12 +1,11 @@
-
-                Var: x;
-            Function: main
-            Body:
-                Var: a, b;
-                If bool_of_string("True") Then
-                    a = int_of_string (read());
-                    b = float_of_int (a) +. 2.0;
+Function: main
+        Parameter: a, b
+        Body:
+        Var: id[4312][867][9856][867], stringID[108] = "day la \\ 1 chuoi !!",literal = 120000e-1,  array[2][3] = {{867,345,987},{76,12,744}};
+            If n > 10 Then
+                If n <. 20.5 Then Return x;
                 EndIf.
-                b =2 ;
-            EndBody.
-                
+                printStrLn(arg);
+            Else fact(x);
+            EndIf.
+        EndBody.

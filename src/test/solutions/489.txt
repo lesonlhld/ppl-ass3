@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(==,Id(r),Id(d))
+Undeclared(Identifier(),"n")

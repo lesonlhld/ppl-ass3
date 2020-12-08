@@ -242,7 +242,7 @@ class Checker:
         return newEnvi
 
     @staticmethod
-    def updateGlobalEnvi(globalEnvi, localEnvi, exceptList = None):
+    def updateEnvi(globalEnvi, localEnvi, exceptList = None):
         if exceptList == None:
             envi = [x for x in localEnvi if x.isGlobal == True]
             for x in envi:
@@ -509,7 +509,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         Symbol.updateParamAndReturnType(stmts, localEnvi, ast)
 
         # Update global environment
-        Checker.updateGlobalEnvi(globalEnvi, localEnvi)
+        Checker.updateEnvi(globalEnvi, localEnvi)
 
         Symbol.getSymbol(ast.name.name, globalEnvi).updateMember(inHere = False)
 
@@ -597,13 +597,13 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             stmtIf = {type(y): self.visit(y, localEnvi) for y in x[2]}
             
             listReturn.append(Symbol.updateParamAndReturnType(stmtIf, localEnvi, ast))
-            Checker.updateGlobalEnvi(envi, localEnvi, varDeclIf)
+            Checker.updateEnvi(envi, localEnvi, varDeclIf)
         
         varDeclElse = [self.visit(y, envi) for y in ast.elseStmt[0]]
         localEnvi = Checker.checkRedeclared(envi, varDeclElse)
         stmtElse = {type(y): self.visit(y, localEnvi) for y in ast.elseStmt[1]}
         listReturn.append(Symbol.updateParamAndReturnType(stmtElse, localEnvi, ast))
-        Checker.updateGlobalEnvi(envi, localEnvi, varDeclElse)
+        Checker.updateEnvi(envi, localEnvi, varDeclElse)
         
         if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType, Unknown)) for x in listReturn):
             raise TypeMismatchInStatement(ast)
@@ -630,7 +630,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.loop[1]}
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, localEnvi, ast)
-        Checker.updateGlobalEnvi(envi, localEnvi, varDecl)
+        Checker.updateEnvi(envi, localEnvi, varDecl)
         
         return typeReturn
     
@@ -660,7 +660,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             raise TypeMismatchInStatement(ast)
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, localEnvi, ast)
-        Checker.updateGlobalEnvi(envi, localEnvi, varDecl)
+        Checker.updateEnvi(envi, localEnvi, varDecl)
         return typeReturn
 
     def visitWhile(self, ast: While, envi):
@@ -673,7 +673,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, localEnvi, ast)
-        Checker.updateGlobalEnvi(envi, localEnvi, varDecl)
+        Checker.updateEnvi(envi, localEnvi, varDecl)
         return typeReturn
 
     # Call stmt return VoidType, have semi

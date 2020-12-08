@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(Id(a))
+TypeMismatchInStatement(Assign(Id("b"),BinaryOp("+.",CallExpr(Id("float_of_int"),[Id("a")]),FloatLiteral(2.0))))

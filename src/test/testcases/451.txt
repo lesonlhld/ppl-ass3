@@ -1,20 +1,11 @@
-
-                Var: x;
-                Function: main
-                Body:
-                    Var: a, b, c;
-                    x  = 3;
-                    If bool_of_string("True") Then
-                        a = int_of_string (b);
-                        c = float_of_int (a) +. 2.0;
-                    EndIf.
-                    c = doo(a, b);
-                EndBody.
-
-                Function: doo
-                Parameter: a
-                Body:
-                    a = "truong";
-                    Return 2;
-                EndBody.
-                
+Function: main 
+        Body:
+            Var: x=20;
+            While True Do
+                If x==0 Then Break;
+                ElseIf x%2==0 Then
+                    x=x\2;
+                Else printStrLn("Error");
+                EndIf.
+            EndWhile.
+        EndBody.

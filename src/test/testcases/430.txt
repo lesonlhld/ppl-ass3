@@ -1,19 +1,7 @@
-Var: b;
-                Function: main
-                Body:
-                    Var: x, c;
-                    While b <. 2.2 Do
-                        x = b +. 0.0;
-                        For(x = 5, x <. 4.4, 2) Do
-                            c = 5;
-                        EndFor.
-                    EndWhile.
-                    b = 2 + foo(x);
-                    Return x;
-                EndBody.
 
-                Function: foo
-                Parameter: b
-                Body:
-                    Return 3;
-                EndBody.
+        Var: a[5];
+        Function: main 
+        Parameter: x
+        Body:
+            x = -(-15.e-1+(-.45.1*.2.3)*(35+108+a[4]));
+        EndBody.

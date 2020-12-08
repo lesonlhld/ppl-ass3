@@ -1,1 +1,1 @@
-Redeclared Variable: x
+TypeMismatchInExpression(CallExpr(Id("main"),[IntLiteral(123)]))

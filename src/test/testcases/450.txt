@@ -1,20 +1,9 @@
-
-                Var: x;
-                Function: main
-                Body:
-                    Var: a, b, c;
-                    x  = 3;
-                    If bool_of_string("True") Then
-                        a = int_of_string (b);
-                        c = float_of_int (a) +. 2.0;
-                    EndIf.
-                    c = doo(a);
-                EndBody.
-
-                Function: doo
-                Parameter: a
-                Body:
-                    a = "truong";
-                    Return 2;
-                EndBody.
-                
+Function: main
+        Body:
+            Var: i = 0,k=10;
+            While i !=k Do
+            Var:a[5],b, c = "Hello";
+                a[i] = b + i + int_of_string();
+                i = i + 1;
+            EndWhile.
+        EndBody.

@@ -1,9 +1,6 @@
-
-                Var: a;
-                Function: main
-                Body:
-                    While a >. 2.3 Do
-                        Return a*foo(2);
-                    EndWhile.
-                EndBody.
-                
+Function: main 
+        Body:
+            For (a = 1, a <= len(str),1 ) Do
+                writeln(str[a]);
+            EndFor.
+        EndBody.

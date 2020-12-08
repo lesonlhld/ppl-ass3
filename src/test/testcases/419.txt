@@ -1,12 +1,5 @@
-Function: main
-                Body:
-                    Var: x;
-                    x = x + foo();
-                EndBody.
-
-                Function: foo
-                Parameter: a
-                Body:
-                    Var: a;
-                    Return 2.2;
-                EndBody.
+Function: main 
+        Body:
+            Var: a = 100, b;
+            b = (6\2)*8*b* **b**b*b;
+        EndBody.

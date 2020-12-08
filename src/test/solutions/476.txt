@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[ArrayCell(Id(b),[IntLiteral(3)]),Id(a)])
+Undeclared(Identifier(),"x")

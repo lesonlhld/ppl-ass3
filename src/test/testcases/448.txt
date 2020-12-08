@@ -1,14 +1,8 @@
 
-                Var: x;
-                Function: main
-                Body:
-                    Var: a, b, c;
-                    x  = 3;
-                    If bool_of_string("True") Then
-                        a = int_of_string (b);
-                        c = float_of_int (a) +. 2.0;
-                    EndIf.
-                    b = "turong";
-                    c = "sss";
-                EndBody.
-                
+        Function: main
+        Body:
+        Var: i , x;
+            For (i = 1, i <= x*x,i*i+.1.5)
+            Do x=x+1;
+            EndFor.
+        EndBody.

@@ -1,9 +1,11 @@
-
-                Var: a;
-                Function: main
-                Body:
-                    While a >. 2.3 Do
-                        Return c;
-                    EndWhile.
-                EndBody.
-                
+Function: main 
+        Body:
+            While x>1 Do
+                For (i = 100,True, i-1) Do
+                    If a<3 Then
+                        Break;
+                    EndIf.
+                    a = a -1;
+                EndFor.
+            EndWhile.
+        EndBody.

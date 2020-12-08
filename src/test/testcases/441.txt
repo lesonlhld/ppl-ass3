@@ -1,15 +1,12 @@
-
-                Var: a[3][4], c, d=5.5;
-                Function: main
-                Body:
-                    Var: b[2];
-                    a[3 + 2.2][2][4] = d;
-                    Return 1;
-                EndBody.
-
-                Function: foo
-                Parameter: f[2]
-                Body:
-                    Return 6;
-                EndBody.
-                
+Function: main
+        Parameter: n
+        Body:
+        Var: a, b;
+            If bool_of_string("True") Then
+                a = int_of_string (read ());
+            ElseIf n =/= 1.08 Then
+                b = float_of_int (a) +. 2.0;
+            ElseIf False Then
+                Return n;
+            EndIf.
+        EndBody.
