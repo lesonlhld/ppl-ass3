@@ -592,9 +592,10 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     def visitAssign(self, ast: Assign, envi):
         lhsType = self.visit(ast.lhs, envi)
         rhsType = self.visit(ast.rhs, envi)
+        
         if "TypeCannotBeInferred" in [lhsType, rhsType]:
             raise TypeCannotBeInferred(ast)
-        if type(lhsType) == VoidType or (type(ast.lhs) == CallExpr and type(lhsType) == Unknown): # StringType
+        if type(lhsType) == VoidType or (type(ast.lhs) == CallExpr and (type(lhsType) == Unknown or type(lhsType) == ArrayType)) or (type(ast.lhs) == ArrayCell and type(ast.lhs.arr) == CallExpr and type(ast.rhs) == Id and type(rhsType) == ArrayType): # StringType
             raise TypeMismatchInStatement(ast)
         
         typeReturn = Checker.checkMatchType(lhsType, rhsType, ast, envi)

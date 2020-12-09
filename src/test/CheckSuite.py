@@ -98,12 +98,23 @@ Var: m, n[10];
         
     def test_407(self):
         """Created automatically"""
-        input = r""" Function: main
-        Parameter: var
+        input = r"""
+        Function: foo
+        Parameter: x
         Body:
+            Var: a[5]={1,2,3,4};
+            Return a;
+        EndBody.
+        Function: main
+        Body:
+            Var: a[5]={1,2,3,4};
+            Var: b[4];
+            Var: c;
+            foo(3)[5] = a[1];
+            foo(3)[5]=b;
         EndBody.
         """
-        expect = str()
+        expect = str(TypeMismatchInStatement(Assign(ArrayCell(CallExpr(Id("foo"),[IntLiteral(3)]),[IntLiteral(5)]),Id("b"))))
         self.assertTrue(TestChecker.test(input,expect,407))
         
     def test_408(self):
