@@ -330,7 +330,7 @@ class Checker:
                 rightName = ast.rhs.method.name
 
             if type(left) == Unknown and type(right) == Unknown:
-                raise TypeCannotBeInferred(ast)
+                return "TypeCannotBeInferred"
             elif type(left) == Unknown and type(right) != Unknown and type(right) != ArrayType:
                 left = right
                 typeReturn = Checker.updateSideType("left", right, ast.lhs, envi)
@@ -344,7 +344,7 @@ class Checker:
         elif type(ast) in [CallExpr, CallStmt]:
             for i in range(len(left)):
                 if type(left[i]) == Unknown and type(right[i]) == Unknown:
-                    raise TypeCannotBeInferred(ast)
+                    return "TypeCannotBeInferred"
                 elif type(left[i]) == Unknown and type(right[i]) != Unknown and type(right[i]) != ArrayType:
                     left[i] = right[i]
                 elif type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown:
@@ -391,7 +391,7 @@ class Checker:
             rhs = right.eletype
             typeReturn = Checker.checkTwoSideType(lhs, rhs, ast, envi)
         elif ArrayType in [type(left), type(right)] and Unknown in [type(left), type(right)]:
-            raise TypeCannotBeInferred(ast)
+            return "TypeCannotBeInferred"
         elif ArrayType in [type(left), type(right)]:
             lhs = left.eletype if type(left) == ArrayType else left
             rhs = right.eletype if type(right) == ArrayType else right
@@ -405,7 +405,10 @@ class Checker:
     def checkParamType(actualParameters, formaParameters, ast, envi):
         if len(actualParameters) != len(formaParameters):
             return False
-        formaParameters, actualParameters = Checker.checkTwoSideType(formaParameters, actualParameters, ast, envi)
+        returnVal = Checker.checkTwoSideType(formaParameters, actualParameters, ast, envi)
+        if "TypeCannotBeInferred" == returnVal:
+            return "TypeCannotBeInferred"
+        formaParameters, actualParameters = returnVal
         
         for a, b in zip(formaParameters, actualParameters):
             if Unknown not in [type(a), type(b)] and type(a) != type(b) and type(a) != ArrayType and type(b) == ArrayType and type(b.eletype) != Unknown and type(a) != type(b.eletype):
@@ -426,12 +429,15 @@ class Checker:
             typeReturn = symbol.mtype.restype
         
         formaParameters = symbol.mtype.intype
-        if not Checker.checkParamType(actualParameters, formaParameters, ast, envi):
+        checkParam = Checker.checkParamType(actualParameters, formaParameters, ast, envi)
+        if not checkParam:
             if type(ast) == CallStmt:
                 raise TypeMismatchInStatement(ast)
             else:
                 raise TypeMismatchInExpression(ast)
         
+        if "TypeCannotBeInferred" == checkParam:
+            return "TypeCannotBeInferred"
         varType = MType(formaParameters, typeReturn)
         symbol.updateMember(mtype = varType)
 
@@ -517,7 +523,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     # Return Type of expression
     def visitBinaryOp(self, ast: BinaryOp, param):
         leftType = self.visit(ast.left, param)
+        if "TypeCannotBeInferred" == leftType:
+            return "TypeCannotBeInferred"
         rightType = self.visit(ast.right, param)
+        if "TypeCannotBeInferred" == rightType:
+            return "TypeCannotBeInferred"
 
         if ast.op in ['+', '-', '*', '\\', '%']:
             typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType(), IntType())
@@ -551,6 +561,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         symbol = Symbol.getSymbol(ast.method.name, globalEnvi)
         paramType = [self.visit(x, globalEnvi) for x in ast.param]
         typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
+        if "TypeCannotBeInferred" == typeReturn:
+            return "TypeCannotBeInferred"
 
         return typeReturn
 
@@ -579,10 +591,14 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     def visitAssign(self, ast: Assign, envi):
         lhsType = self.visit(ast.lhs, envi)
         rhsType = self.visit(ast.rhs, envi)
+        if "TypeCannotBeInferred" in [lhsType, rhsType]:
+            raise TypeCannotBeInferred(ast)
         if type(lhsType) == VoidType or (type(ast.lhs) == CallExpr and type(lhsType) == Unknown): # StringType
             raise TypeMismatchInStatement(ast)
         
         typeReturn = Checker.checkMatchType(lhsType, rhsType, ast, envi)
+        if typeReturn == "TypeCannotBeInferred":
+            raise TypeCannotBeInferred(ast)
         
         return typeReturn
 
@@ -605,7 +621,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         listReturn.append(Symbol.updateParamAndReturnType(stmtElse, localEnvi, ast))
         Checker.updateEnvi(envi, localEnvi, varDeclElse)
         
-        if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType, Unknown)) for x in listReturn):
+        if not all(isinstance(x, (StringType, BoolType, IntType, FloatType, ArrayType, Unknown, VoidType)) for x in listReturn):
             raise TypeMismatchInStatement(ast)
         
         return listReturn[0]
@@ -683,7 +699,9 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         paramType = [self.visit(x, globalEnvi) for x in ast.param]
         
         typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
-
+        
+        if "TypeCannotBeInferred" == typeReturn:
+            return "TypeCannotBeInferred"
         return typeReturn
 
     # Visit literal

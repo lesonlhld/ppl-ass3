@@ -1,4 +1,4 @@
 Function: main
         Body:
-            iden__TI_FIerOf_Function(a,b_,c+.3.e-2);
+            printStr(string_of_bool(!bool_of_string("False")&&!True));
         EndBody.

@@ -1,6 +1,6 @@
 Function: main
         Body:
-            a[12] = {  };
-            x[45]={{{{{}}}}};
+            Var: a[12] = { 5 };
+            Var: x[45]={{{{{5}}}}};
 
         EndBody.

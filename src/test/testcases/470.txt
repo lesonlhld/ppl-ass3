@@ -1,7 +1,7 @@
 
             Function: main
             Body:
-            If str == "Chung Xon" Then
+            If "str" == "Chung Xon" Then
                 Return True;
             Else
                 Return False;

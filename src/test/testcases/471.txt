@@ -1,5 +1,12 @@
 
+        Var: a;
         Function: main 
         Body:
-        foo=a+2;
+        Var: a;
+        Return int_of_float(a+.2.5)+foo(int_of_float(a));
+        EndBody.
+        Function: foo
+        Parameter: x
+        Body:
+        Return x == a;
         EndBody.
