@@ -1,6 +1,10 @@
-Function: main 
-        Parameter: a
+
+        Function: main
         Body:
-        Var: x; 
-            x = (a >=. 2.3e-13 || (x =/= 2e-35));
+            Var: x=1;
+            If x > 10 Then
+                x=25+6-.2.5%3\100*x;
+            Else
+                x=x+2;
+            EndIf.
         EndBody.

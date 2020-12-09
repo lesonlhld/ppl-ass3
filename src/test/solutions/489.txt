@@ -1,1 +1,1 @@
-Undeclared(Identifier(),"n")
+TypeMismatchInExpression(CallExpr(Id("func"),[IntLiteral(123)]))

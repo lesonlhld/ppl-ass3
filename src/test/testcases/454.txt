@@ -1,13 +1,5 @@
-Function: main 
-        Parameter: n
+
+        Function: main
         Body:
-            While True Do
-                Whilen>=1 Do
-                    Whilen<.69.96 Do
-                        While n%3==1 Do
-                            n = n \ 5;
-                        EndWhile
-                    .EndWhile.
-                EndWhile.
-            EndWhile.
+            While True Do printStrLn("Hello World"); EndWhile.
         EndBody.

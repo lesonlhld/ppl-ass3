@@ -1,8 +1,9 @@
  
-        Var: x =0;
-        Function: **comment chut da**main 
+        Var: x;
+        Function: main
+        Parameter: i
         Body:
-            x=20;
-                x=100.0;
+            If x==i Then Break;
+            EndIf. 
         EndBody.
         

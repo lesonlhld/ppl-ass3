@@ -1,1 +1,1 @@
-Undeclared(Identifier(),"a")
+TypeMismatchInExpression(BinaryOp("+",Id("a"),Id("b")))

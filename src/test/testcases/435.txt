@@ -1,6 +1,6 @@
-Function: main
-        Parameter: arr[2222]
+Function: main 
+        Parameter: a
         Body:
-        Var: x,a=0X24211ABC;
-            x=arr[a+6];
+        Var: x; 
+            x = (a >=. 2.3e-13 || (x =/= 2e-35));
         EndBody.

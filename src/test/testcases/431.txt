@@ -1,8 +1,11 @@
-Var:c[4],b[108];
+
+        Var:var;
         Function: main 
-        Parameter: i , j, arr[1001]
+        Parameter: a
         Body:
-        Var:a[2005];
-            a[i] = arr[c[2+j][b[i]*3]] + 4;
-            i = i + 1;
+        Var: variable;
+            While (True) Do
+            Var: logic;
+                logic=a&&var||!variable;
+            EndWhile.
         EndBody.

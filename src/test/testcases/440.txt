@@ -1,9 +1,12 @@
-Function: main 
+Function: main
+        Parameter: n
         Body:
-            Var: a;
-                If bool_of_string("True") Then
-                Var: b;
-                    a = int_of_string (b);
-                    b = float_of_int (a) +. 2.0;
-                EndIf.
+        Var: a, b;
+            If bool_of_string("True") Then
+                a = int_of_string (read ());
+            ElseIf n =/= 1.08 Then
+                b = float_of_int (a) +. 2.0;
+            ElseIf False Then
+                Return n;
+            EndIf.
         EndBody.

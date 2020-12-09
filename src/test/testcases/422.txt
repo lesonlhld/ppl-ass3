@@ -1,5 +1,1 @@
-Function: main 
-        Body:
-            Do0=1; While True
-            EndDo.
-        EndBody.
+Var: a =True;Function:main Parameter:x,b Body:If!a Thenb=2; ElseWhile(x>0)DoBreak;EndWhile.EndIf.EndBody.

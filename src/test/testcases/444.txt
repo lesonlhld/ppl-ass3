@@ -1,11 +1,9 @@
-Function: main
-        Parameter: a, b
+
+        Function: main
         Body:
-        Var: id[4312][867][9856][867], stringID[108] = "day la \\ 1 chuoi !!",literal = 120000e-1,  array[2][3] = {{867,345,987},{76,12,744}};
-            If n > 10 Then
-                If n <. 20.5 Then Return x;
-                EndIf.
-                printStrLn(arg);
-            Else fact(x);
-            EndIf.
+        Var: i = 0, a;
+            For (i = 0, i < 10, 2) Do
+                a= int_of_float(float_of_string(read()));
+                Return a;
+            EndFor.
         EndBody.

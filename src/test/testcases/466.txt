@@ -1,4 +1,8 @@
-Function: main
+Function: main 
+        Parameter: n
         Body:
-            printStr(string_of_bool(!bool_of_string("False")&&!True));
+            Var: t=False;
+            If n<100 Then t=True;
+            EndIf.
+            Return t;
         EndBody.

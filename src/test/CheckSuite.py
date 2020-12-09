@@ -6,12 +6,6 @@ from AST import *
 class CheckSuite(unittest.TestCase):
     def test_401(self):
         """Created automatically"""
-        input = r"""Var: faji342F__324dADS;"""
-        expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,401))
-        
-    def test_402(self):
-        """Created automatically"""
         input = r""" 
         Var: a = 5;
 Var: b[2][3] = {{2,3,4},{4,5,6}};
@@ -19,44 +13,78 @@ Var: c, d = 6, e, f;
 Var: m, n[10];
         """
         expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,402))
+        self.assertTrue(TestChecker.test(input,expect,401))
         
-    def test_403(self):
+    def test_402(self):
         """Created automatically"""
         input = r""" 
         Var: decimal[108], hexadecimal[0X5456A][0x205F], octdecimal[0o413215][0O123];
         Var: array[5][13456];
         """
         expect = str(NoEntryPoint())
+        self.assertTrue(TestChecker.test(input,expect,402))
+        
+    def test_403(self):
+        """Created automatically"""
+        input = r""" 
+        Var: dsa[432][0X364][0o35721], b = 20.e5, c = "mot con vit xoe ra 2 \n cai canh";
+        Function: main
+        Parameter: a[5][4]
+        Body:
+            Var: i = 0;
+            While (i < 5) Do
+                Var: j = 0;
+                While ((j % 5) == 2) Do
+                    a[i] = b +. 1.0;
+                    j = j + -i;
+                EndWhile.
+            EndWhile.
+            Return c;
+        EndBody.
+        """
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,403))
         
     def test_404(self):
         """Created automatically"""
         input = r""" 
-        Var: dsa[432][0X364][0o35721], b = 20.e5, c = "mot con vit xoe ra 2 \n cai canh";
+        Var: a = True, d = "string\b";
+        **this  is comment**
+        Function: main
+        Parameter: a[123], b , x
+        Body:
+        Var:y;
+            Do
+            Var:y; 
+            y = y + 1;
+                main(a,y,d);
+            While (x+y) > 3 EndDo.
+        EndBody.
         """
-        expect = str(NoEntryPoint())
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,404))
         
     def test_405(self):
         """Created automatically"""
         input = r""" 
-        Var: x = {**comment trong array**{34221}, {"fsd\\h" **cmt**},2};
+        Var **COMMENT**: ****id = 465632
+        **dsfhfsdhjnc^#%#@@~!**;
+    Var: sss;Function: main
+    Body:
+        Var: a = 123;
+        If a % 3 == 0 Then
+            printStrLn("a % 3 == 0");
+        ElseIf a % 3 == 1 Then
+            printStrLn("a % 3 == 1");
+        Else
+            printStrLn("a % 3 == 2");
+        EndIf.
+    EndBody.
         """
-        expect = str(NoEntryPoint())
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,405))
         
     def test_406(self):
-        """Created automatically"""
-        input = r""" 
-        Var **COMMENT**: ****id = 465632
-        **dsfhfsdhjnc^#%#@@~!**;
-    Var: sss;
-        """
-        expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,406))
-        
-    def test_407(self):
         """Created automatically"""
         input = r""" 
         Function: main 
@@ -66,9 +94,9 @@ Var: m, n[10];
         EndBody.
         """
         expect = str(TypeMismatchInExpression(BinaryOp("%",FloatLiteral(2.5),IntLiteral(3))))
-        self.assertTrue(TestChecker.test(input,expect,407))
+        self.assertTrue(TestChecker.test(input,expect,406))
         
-    def test_408(self):
+    def test_407(self):
         """Created automatically"""
         input = r""" Function: main
         Parameter: var
@@ -76,9 +104,9 @@ Var: m, n[10];
         EndBody.
         """
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,408))
+        self.assertTrue(TestChecker.test(input,expect,407))
         
-    def test_409(self):
+    def test_408(self):
         """Created automatically"""
         input = r""" 
         Var: x =0;
@@ -89,12 +117,12 @@ Var: m, n[10];
         EndBody.
         """
         expect = str(TypeMismatchInStatement(Assign(Id("x"),FloatLiteral(100.0))))
-        self.assertTrue(TestChecker.test(input,expect,409))
+        self.assertTrue(TestChecker.test(input,expect,408))
         
-    def test_410(self):
+    def test_409(self):
         """Created automatically"""
         input = r""" 
-        Var: x =2;
+        Var: x;
         Function: main
         Parameter: i
         Body:
@@ -103,9 +131,9 @@ Var: m, n[10];
         EndBody.
         """
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,410))
+        self.assertTrue(TestChecker.test(input,expect,409))
         
-    def test_411(self):
+    def test_410(self):
         """Created automatically"""
         input = r"""
         Var: x;
@@ -124,21 +152,22 @@ x = 10;
 fact (x);
 EndBody."""
         expect = str(TypeMismatchInStatement(CallStmt(Id("fact"),[Id("x")])))
-        self.assertTrue(TestChecker.test(input,expect,411))
+        self.assertTrue(TestChecker.test(input,expect,410))
         
-    def test_412(self):
+    def test_411(self):
         """Created automatically"""
         input = r"""
         Function: main 
         Parameter: a, b,c[123] ,d[123][234][0]  ,e
         Body:
+        Var: z={};
             a=1;
         EndBody.
         """
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,412))
+        self.assertTrue(TestChecker.test(input,expect,411))
         
-    def test_413(self):
+    def test_412(self):
         """Created automatically"""
         input = r"""
         Var: n;
@@ -157,19 +186,25 @@ EndBody."""
         Body:
         EndBody."""
         expect = str()
+        self.assertTrue(TestChecker.test(input,expect,412))
+        
+    def test_413(self):
+        """Created automatically"""
+        input = r"""
+                Function: foo
+                Parameter: x
+                Body:
+                EndBody.
+                Function: main
+                Body:
+                    Var: x, y = 0.5;
+                    foo(x);
+                    y = foo(x);
+                EndBody."""
+        expect = str(TypeCannotBeInferred(CallStmt(Id("foo"),[Id("x")])))
         self.assertTrue(TestChecker.test(input,expect,413))
         
     def test_414(self):
-        """Created automatically"""
-        input = r"""Function: main 
-        Parameter: n, arr[5]
-        Body:
-            Var: r = 10., v;
-        EndBody."""
-        expect = str()
-        self.assertTrue(TestChecker.test(input,expect,414))
-        
-    def test_415(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -181,18 +216,18 @@ EndBody."""
             EndDo.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,415))
+        self.assertTrue(TestChecker.test(input,expect,414))
         
-    def test_416(self):
+    def test_415(self):
         """Created automatically"""
         input = r"""**sau day la 1 ham \\ main\n**
 Function:**het y r** main ** test ne;**
 **cmt tum lum ~!$()>?:{}**    Body:Var: a=**235**865;
     EndBody **Body**."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,416))
+        self.assertTrue(TestChecker.test(input,expect,415))
         
-    def test_417(self):
+    def test_416(self):
         """Created automatically"""
         input = r"""** This is a single-line comment. **
 ** This is a
@@ -200,21 +235,23 @@ Function:**het y r** main ** test ne;**
 * comment.
 **"""
         expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,417))
+        self.assertTrue(TestChecker.test(input,expect,416))
         
-    def test_418(self):
+    def test_417(self):
         """Created automatically"""
-        input = r"""**Function: main 
+        input = r"""
+        **Function: main 
         Parameter: x, a
         Body:
             While x>1 Do
                 Var: a = 10;
             EndWhile.
-        EndBody.**"""
+        EndBody.**
+        """
         expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,418))
+        self.assertTrue(TestChecker.test(input,expect,417))
         
-    def test_419(self):
+    def test_418(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -222,30 +259,43 @@ Function:**het y r** main ** test ne;**
             b = (6\2)*8*b* **b**b*b;
         EndBody."""
         expect = str()
+        self.assertTrue(TestChecker.test(input,expect,418))
+        
+    def test_419(self):
+        """Created automatically"""
+        input = r"""Var **test comment**: **bien = "STRING"**
+        ****fu={0X743A5,0o26523,321 **cmt**},i****;****
+        Function: main
+            Body:
+            Var:x,y,j;
+                For (i=0, True, 1) Do
+                    x = y + 1;
+                EndFor.
+                
+                For (j=1, True, main()) Do
+                    y = x + 1;
+                EndFor.
+            EndBody.
+            """
+        expect = str(TypeMismatchInStatement(For(Id("j"),IntLiteral(1),BooleanLiteral(True),CallExpr(Id("main"),[]),([],[Assign(Id("y"),BinaryOp("+",Id("x"),IntLiteral(1)))]))))
         self.assertTrue(TestChecker.test(input,expect,419))
         
     def test_420(self):
         """Created automatically"""
-        input = r"""Var **test comment**: **bien = "STRING"**
-        ****fu={0X743A5,0o26523,321 **cmt**}****;****"""
-        expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,420))
-        
-    def test_421(self):
-        """Created automatically"""
         input = r"""Function: main 
         Parameter: varrr
         Body:
-            **Do
-                x= x+1;
+            Var: x =1;
+            Do
+                Var: x =1.5;
+                x= x+.1.5;
             While x>1 
             EndDo.
-            **
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,421))
+        self.assertTrue(TestChecker.test(input,expect,420))
         
-    def test_422(self):
+    def test_421(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -253,15 +303,15 @@ Function:**het y r** main ** test ne;**
             EndDo.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,422))
+        self.assertTrue(TestChecker.test(input,expect,421))
         
-    def test_423(self):
+    def test_422(self):
         """Created automatically"""
         input = r"""Var: a =True;Function:main Parameter:x,b Body:If!a Thenb=2; ElseWhile(x>0)DoBreak;EndWhile.EndIf.EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,423))
+        self.assertTrue(TestChecker.test(input,expect,422))
         
-    def test_424(self):
+    def test_423(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n
@@ -274,9 +324,9 @@ Function:**het y r** main ** test ne;**
         EndBody.
         """
         expect = str(TypeMismatchInExpression(BinaryOp("\.",Id("n"),IntLiteral(5))))
-        self.assertTrue(TestChecker.test(input,expect,424))
+        self.assertTrue(TestChecker.test(input,expect,423))
         
-    def test_425(self):
+    def test_424(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -286,9 +336,9 @@ Function:**het y r** main ** test ne;**
             EndIf.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("==",Id("k"),FloatLiteral(5.6))))
-        self.assertTrue(TestChecker.test(input,expect,425))
+        self.assertTrue(TestChecker.test(input,expect,424))
         
-    def test_426(self):
+    def test_425(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n
@@ -297,9 +347,9 @@ Function:**het y r** main ** test ne;**
             a[3+foo(3)] = a[b[2][3]] + 4;
         EndBody."""
         expect = str(TypeMismatchInExpression(VarDecl(Id("b"),[2,3],IntLiteral(5))))
-        self.assertTrue(TestChecker.test(input,expect,426))
+        self.assertTrue(TestChecker.test(input,expect,425))
         
-    def test_427(self):
+    def test_426(self):
         """Created automatically"""
         input = r"""
         Var: a,b,c,d;
@@ -310,9 +360,9 @@ Function:**het y r** main ** test ne;**
             x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,427))
+        self.assertTrue(TestChecker.test(input,expect,426))
         
-    def test_428(self):
+    def test_427(self):
         """Created automatically"""
         input = r"""
         Var: x, y[1][3]={{{12,1}, {12., 12e3}},{23}, {13,32}};
@@ -325,9 +375,9 @@ Function:**het y r** main ** test ne;**
             x = var && (ilv <. nvh);
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("!=",BinaryOp("==",Id("x"),IntLiteral(123)),Id("xonxon"))))
-        self.assertTrue(TestChecker.test(input,expect,428))
+        self.assertTrue(TestChecker.test(input,expect,427))
         
-    def test_429(self):
+    def test_428(self):
         """Created automatically"""
         input = r"""Var: a;
         Function: main 
@@ -336,9 +386,9 @@ Function:**het y r** main ** test ne;**
             a = 3*.4.5\0e-2+arr[3-main("call")];
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("*.",IntLiteral(3),FloatLiteral(4.5))))
-        self.assertTrue(TestChecker.test(input,expect,429))
+        self.assertTrue(TestChecker.test(input,expect,428))
         
-    def test_430(self):
+    def test_429(self):
         """Created automatically"""
         input = r"""
         Var: a[5];
@@ -348,9 +398,9 @@ Function:**het y r** main ** test ne;**
             x = -(-15.e-1+(-.45.1*.2.3)*(35+108+a[4]));
         EndBody."""
         expect = str(TypeMismatchInExpression(UnaryOp("-",FloatLiteral(1.5))))
-        self.assertTrue(TestChecker.test(input,expect,430))
+        self.assertTrue(TestChecker.test(input,expect,429))
         
-    def test_431(self):
+    def test_430(self):
         """Created automatically"""
         input = r"""Var:c[4],b[108];
         Function: main 
@@ -361,9 +411,9 @@ Function:**het y r** main ** test ne;**
             i = i + 1;
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,431))
+        self.assertTrue(TestChecker.test(input,expect,430))
         
-    def test_432(self):
+    def test_431(self):
         """Created automatically"""
         input = r"""
         Var:var;
@@ -377,9 +427,9 @@ Function:**het y r** main ** test ne;**
             EndWhile.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,432))
+        self.assertTrue(TestChecker.test(input,expect,431))
         
-    def test_433(self):
+    def test_432(self):
         """Created automatically"""
         input = r"""
         Var: a,c,d;
@@ -400,9 +450,9 @@ Function:**het y r** main ** test ne;**
                 EndBody.
                 """
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,433))
+        self.assertTrue(TestChecker.test(input,expect,432))
         
-    def test_434(self):
+    def test_433(self):
         """Created automatically"""
         input = r"""
         Var: a[143];
@@ -417,9 +467,9 @@ Function:**het y r** main ** test ne;**
             Return 2;
         EndBody."""
         expect = str(TypeMismatchInExpression(ArrayCell(Id("a"),[BinaryOp("+",IntLiteral(3),CallExpr(Id("foo"),[IntLiteral(2),FloatLiteral(2.6)])),BinaryOp("||",Id("b"),BooleanLiteral(True))])))
-        self.assertTrue(TestChecker.test(input,expect,434))
+        self.assertTrue(TestChecker.test(input,expect,433))
         
-    def test_435(self):
+    def test_434(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: arr[2222]
@@ -428,9 +478,9 @@ Function:**het y r** main ** test ne;**
             x=arr[a+6];
         EndBody."""
         expect = str(TypeCannotBeInferred(Assign(Id("x"),ArrayCell(Id("arr"),[BinaryOp("+",Id("a"),IntLiteral(6))]))))
-        self.assertTrue(TestChecker.test(input,expect,435))
+        self.assertTrue(TestChecker.test(input,expect,434))
         
-    def test_436(self):
+    def test_435(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: a
@@ -439,9 +489,9 @@ Function:**het y r** main ** test ne;**
             x = (a >=. 2.3e-13 || (x =/= 2e-35));
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("||",FloatLiteral(2.3e-13),BinaryOp("=/=",Id("x"),FloatLiteral(2e-35)))))
-        self.assertTrue(TestChecker.test(input,expect,436))
+        self.assertTrue(TestChecker.test(input,expect,435))
         
-    def test_437(self):
+    def test_436(self):
         """Created automatically"""
         input = r"""
         Function: main
@@ -454,9 +504,9 @@ Function:**het y r** main ** test ne;**
             EndIf.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("%",FloatLiteral(2.5),IntLiteral(3))))
-        self.assertTrue(TestChecker.test(input,expect,437))
+        self.assertTrue(TestChecker.test(input,expect,436))
         
-    def test_438(self):
+    def test_437(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: naybingeohuhu
@@ -465,9 +515,9 @@ Var: r = 10., v;
 v = (4. \. 3.) *. 3.14 *. r *. r *. r;
 EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,438))
+        self.assertTrue(TestChecker.test(input,expect,437))
         
-    def test_439(self):
+    def test_438(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n,a[3], b[2][3], c[1]
@@ -475,9 +525,9 @@ EndBody."""
         c[2] = {{1,3},{1,5,7}};
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,439))
+        self.assertTrue(TestChecker.test(input,expect,438))
         
-    def test_440(self):
+    def test_439(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -489,9 +539,9 @@ EndBody."""
                 EndIf.
         EndBody."""
         expect = str(TypeMismatchInStatement(Assign(Id("b"),BinaryOp("+.",CallExpr(Id("float_of_int"),[Id("a")]),FloatLiteral(2.0)))))
-        self.assertTrue(TestChecker.test(input,expect,440))
+        self.assertTrue(TestChecker.test(input,expect,439))
         
-    def test_441(self):
+    def test_440(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: n
@@ -506,9 +556,9 @@ EndBody."""
             EndIf.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,441))
+        self.assertTrue(TestChecker.test(input,expect,440))
         
-    def test_442(self):
+    def test_441(self):
         """Created automatically"""
         input = r"""
         Var: x, a,b ,c;
@@ -522,9 +572,9 @@ EndBody."""
             EndIf.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("!=",Id("b"),BinaryOp("&&",Id("c"),BinaryOp(">",Id("a"),BinaryOp("+",Id("b"),Id("c")))))))
-        self.assertTrue(TestChecker.test(input,expect,442))
+        self.assertTrue(TestChecker.test(input,expect,441))
         
-    def test_443(self):
+    def test_442(self):
         """Created automatically"""
         input = r"""
         Var: i;
@@ -540,9 +590,9 @@ EndBody."""
             EndIf.
             EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,443))
+        self.assertTrue(TestChecker.test(input,expect,442))
         
-    def test_444(self):
+    def test_443(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: a, b
@@ -556,9 +606,9 @@ EndBody."""
             EndIf.
         EndBody."""
         expect = str(TypeMismatchInExpression(VarDecl(Id("stringID"),[108],StringLiteral("day la \\\\ 1 chuoi !!"))))
-        self.assertTrue(TestChecker.test(input,expect,444))
+        self.assertTrue(TestChecker.test(input,expect,443))
         
-    def test_445(self):
+    def test_444(self):
         """Created automatically"""
         input = r"""
         Function: main
@@ -570,9 +620,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,445))
+        self.assertTrue(TestChecker.test(input,expect,444))
         
-    def test_446(self):
+    def test_445(self):
         """Created automatically"""
         input = r"""
         Function: main 
@@ -583,9 +633,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,446))
+        self.assertTrue(TestChecker.test(input,expect,445))
         
-    def test_447(self):
+    def test_446(self):
         """Created automatically"""
         input = r"""
         Var: i=0, k=100;
@@ -596,9 +646,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str(Undeclared(Function(),"goo"))
-        self.assertTrue(TestChecker.test(input,expect,447))
+        self.assertTrue(TestChecker.test(input,expect,446))
         
-    def test_448(self):
+    def test_447(self):
         """Created automatically"""
         input = r"""
         Function: main
@@ -609,9 +659,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("+.",BinaryOp("*",Id("i"),Id("i")),FloatLiteral(1.5))))
-        self.assertTrue(TestChecker.test(input,expect,448))
+        self.assertTrue(TestChecker.test(input,expect,447))
         
-    def test_449(self):
+    def test_448(self):
         """Created automatically"""
         input = r"""
         Function: main
@@ -625,9 +675,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str(Redeclared(Variable(),"sum"))
-        self.assertTrue(TestChecker.test(input,expect,449))
+        self.assertTrue(TestChecker.test(input,expect,448))
         
-    def test_450(self):
+    def test_449(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -639,9 +689,9 @@ EndBody."""
             EndWhile.
         EndBody."""
         expect = str(TypeMismatchInExpression(CallExpr(Id("int_of_string"),[])))
-        self.assertTrue(TestChecker.test(input,expect,450))
+        self.assertTrue(TestChecker.test(input,expect,449))
         
-    def test_451(self):
+    def test_450(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -655,9 +705,9 @@ EndBody."""
             EndWhile.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,451))
+        self.assertTrue(TestChecker.test(input,expect,450))
         
-    def test_452(self):
+    def test_451(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -665,9 +715,9 @@ EndBody."""
             While i < 5 Do Return; EndWhile.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,452))
+        self.assertTrue(TestChecker.test(input,expect,451))
         
-    def test_453(self):
+    def test_452(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: x
@@ -680,9 +730,9 @@ EndBody."""
             EndWhile.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,453))
+        self.assertTrue(TestChecker.test(input,expect,452))
         
-    def test_454(self):
+    def test_453(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n
@@ -698,9 +748,9 @@ EndBody."""
             EndWhile.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("<.",Id("n"),FloatLiteral(69.96))))
-        self.assertTrue(TestChecker.test(input,expect,454))
+        self.assertTrue(TestChecker.test(input,expect,453))
         
-    def test_455(self):
+    def test_454(self):
         """Created automatically"""
         input = r"""
         Function: main
@@ -708,9 +758,9 @@ EndBody."""
             While True Do printStrLn("Hello World"); EndWhile.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,455))
+        self.assertTrue(TestChecker.test(input,expect,454))
         
-    def test_456(self):
+    def test_455(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: a
@@ -723,9 +773,9 @@ EndBody."""
             EndDo.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,456))
+        self.assertTrue(TestChecker.test(input,expect,455))
         
-    def test_457(self):
+    def test_456(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: x,a,b
@@ -735,9 +785,9 @@ EndBody."""
             EndDo.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("<",Id("x"),FloatLiteral(100000000.0))))
-        self.assertTrue(TestChecker.test(input,expect,457))
+        self.assertTrue(TestChecker.test(input,expect,456))
         
-    def test_458(self):
+    def test_457(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: a
@@ -747,9 +797,9 @@ EndBody."""
             While a =/= 2.2 EndDo.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,458))
+        self.assertTrue(TestChecker.test(input,expect,457))
         
-    def test_459(self):
+    def test_458(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: x
@@ -762,9 +812,9 @@ EndBody."""
             
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,459))
+        self.assertTrue(TestChecker.test(input,expect,458))
         
-    def test_460(self):
+    def test_459(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -775,9 +825,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("*.",Id("i"),FloatLiteral(2.0))))
-        self.assertTrue(TestChecker.test(input,expect,460))
+        self.assertTrue(TestChecker.test(input,expect,459))
         
-    def test_461(self):
+    def test_460(self):
         """Created automatically"""
         input = r"""
         Function: foo
@@ -795,9 +845,9 @@ EndBody."""
             EndFor.
         EndBody."""
         expect = str(TypeMismatchInStatement(CallStmt(Id("foo"),[IntLiteral(1)])))
-        self.assertTrue(TestChecker.test(input,expect,461))
+        self.assertTrue(TestChecker.test(input,expect,460))
         
-    def test_462(self):
+    def test_461(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -805,9 +855,9 @@ EndBody."""
             Break;
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,462))
+        self.assertTrue(TestChecker.test(input,expect,461))
         
-    def test_463(self):
+    def test_462(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: x,y
@@ -821,9 +871,9 @@ EndBody."""
             Return a + b;
         EndBody."""
         expect = str(TypeMismatchInStatement(CallStmt(Id("foo"),[BinaryOp("+",IntLiteral(2),Id("x")),BinaryOp("\.",FloatLiteral(4.0),Id("y"))])))
-        self.assertTrue(TestChecker.test(input,expect,463))
+        self.assertTrue(TestChecker.test(input,expect,462))
         
-    def test_464(self):
+    def test_463(self):
         """Created automatically"""
         input = r"""
         Function: call
@@ -836,10 +886,10 @@ EndBody."""
         Var: a, var, arr[5];
             call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
         EndBody."""
-        expect = str()
-        self.assertTrue(TestChecker.test(input,expect,464))
+        expect = str(TypeCannotBeInferred(CallStmt(Id("call"),[Id("a"),IntLiteral(876),BinaryOp("*.",Id("var"),FloatLiteral(6.5)),ArrayCell(Id("arr"),[IntLiteral(3)]),BooleanLiteral(True),StringLiteral("chuoi~~\\n")])))
+        self.assertTrue(TestChecker.test(input,expect,463))
         
-    def test_465(self):
+    def test_464(self):
         """Created automatically"""
         input = r"""Var: callnotinfunction;
         Function: main
@@ -847,18 +897,18 @@ EndBody."""
             goo(x,y*2,z+3.00000003);
             EndBody."""
         expect = str(Undeclared(Function(),"goo"))
-        self.assertTrue(TestChecker.test(input,expect,465))
+        self.assertTrue(TestChecker.test(input,expect,464))
         
-    def test_466(self):
+    def test_465(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
             printStr(string_of_bool(!bool_of_string("False")&&!True));
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,466))
+        self.assertTrue(TestChecker.test(input,expect,465))
         
-    def test_467(self):
+    def test_466(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n
@@ -869,9 +919,9 @@ EndBody."""
             Return t;
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,467))
+        self.assertTrue(TestChecker.test(input,expect,466))
         
-    def test_468(self):
+    def test_467(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: i
@@ -880,18 +930,18 @@ EndBody."""
             EndIf.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,468))
+        self.assertTrue(TestChecker.test(input,expect,467))
         
-    def test_469(self):
+    def test_468(self):
         """Created automatically"""
         input = r"""Function: main
             Body:
                 Return "String";
             EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,469))
+        self.assertTrue(TestChecker.test(input,expect,468))
         
-    def test_470(self):
+    def test_469(self):
         """Created automatically"""
         input = r"""
             Function: main
@@ -903,9 +953,9 @@ EndBody."""
                 EndIf.
             EndBody."""
         expect = str(TypeMismatchInExpression(BinaryOp("==",StringLiteral("str"),StringLiteral("Chung Xon"))))
-        self.assertTrue(TestChecker.test(input,expect,470))
+        self.assertTrue(TestChecker.test(input,expect,469))
         
-    def test_471(self):
+    def test_470(self):
         """Created automatically"""
         input = r"""
         Var: a;
@@ -920,9 +970,9 @@ EndBody."""
         Return x == a;
         EndBody."""
         expect = str(TypeMismatchInStatement(Return(BinaryOp("==",Id("x"),Id("a")))))
-        self.assertTrue(TestChecker.test(input,expect,471))
+        self.assertTrue(TestChecker.test(input,expect,470))
         
-    def test_472(self):
+    def test_471(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: x[123]
@@ -933,9 +983,9 @@ EndBody."""
             printStrLn(string_of_int(x[2]));
         EndBody."""
         expect = str(TypeMismatchInExpression(CallExpr(Id("string_of_int"),[ArrayCell(Id("x"),[IntLiteral(2)])])))
-        self.assertTrue(TestChecker.test(input,expect,472))
+        self.assertTrue(TestChecker.test(input,expect,471))
         
-    def test_473(self):
+    def test_472(self):
         """Created automatically"""
         input = r"""Function: main 
                 Parameter: x[2][3]
@@ -945,33 +995,48 @@ EndBody."""
             printStrLn(string_of_int(x[2]));
         EndBody."""
         expect = str()
+        self.assertTrue(TestChecker.test(input,expect,472))
+        
+    def test_473(self):
+        """Created automatically"""
+        input = r"""
+        Var: x;
+        Function: main
+            Parameter: j, brr[1000]
+            Body:
+                Var: x=0,i;
+                For (i=0,True,i) Do
+                    Var:x=1;
+                    Do
+                        Var:x=2;
+                    While1==0
+                    EndDo.
+                    IfTrueThen
+                        Var:x=3;
+                    EndIf.
+                EndFor.
+            EndBody."""
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,473))
         
     def test_474(self):
-        """Created automatically"""
-        input = r"""
-        Var: stringinarray, x[123]={"STRING","aRraY1","Array2"};"""
-        expect = str(NoEntryPoint())
-        self.assertTrue(TestChecker.test(input,expect,474))
-        
-    def test_475(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
             Var  : x[123]={   20, 2   ,108  };
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,475))
+        self.assertTrue(TestChecker.test(input,expect,474))
         
-    def test_476(self):
+    def test_475(self):
         """Created automatically"""
         input = r"""Function: main
             Body:Var: x[123]={"duwat73\r \t", "@#&\n rwFEW54",54312,10.e13, 0.123, 543.0e-6  ,{"xe mau xanh"},"xe mau do"};
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,476))
+        self.assertTrue(TestChecker.test(input,expect,475))
         
-    def test_477(self):
+    def test_476(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -980,9 +1045,9 @@ EndBody."""
 
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,477))
+        self.assertTrue(TestChecker.test(input,expect,476))
         
-    def test_478(self):
+    def test_477(self):
         """Created automatically"""
         input = r"""
         Var: arr[5];
@@ -1008,9 +1073,9 @@ EndBody."""
         Return z;
         EndBody."""
         expect = str(TypeMismatchInExpression(UnaryOp("-",CallExpr(Id("func2"),[Id("a")]))))
-        self.assertTrue(TestChecker.test(input,expect,478))
+        self.assertTrue(TestChecker.test(input,expect,477))
         
-    def test_479(self):
+    def test_478(self):
         """Created automatically"""
         input = r"""
         Function: func2 
@@ -1053,16 +1118,16 @@ EndBody."""
         EndBody.
         """
         expect = str(TypeMismatchInExpression(BinaryOp("==",Id("x"),BinaryOp("&&",BinaryOp("||",BooleanLiteral(False),BooleanLiteral(True)),BinaryOp(">",Id("a"),BinaryOp("+",Id("b"),Id("c")))))))
-        self.assertTrue(TestChecker.test(input,expect,479))
+        self.assertTrue(TestChecker.test(input,expect,478))
         
-    def test_480(self):
+    def test_479(self):
         """Created automatically"""
         input = r"""Function: a Parameter: a Body:Var: a=False;EndBody. Function: b Body:EndBody.
 Function: main**Here some too**Parameter: d Body:EndBody."""
         expect = str(Redeclared(Variable(),"a"))
-        self.assertTrue(TestChecker.test(input,expect,480))
+        self.assertTrue(TestChecker.test(input,expect,479))
         
-    def test_481(self):
+    def test_480(self):
         """Created automatically"""
         input = r"""Function: main 
         Parameter: n,a,b
@@ -1077,9 +1142,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         EndBody.
         """
         expect = str(TypeMismatchInExpression(BinaryOp("&&",BinaryOp("||",UnaryOp("!",BinaryOp("&&",Id("b"),Id("c"))),UnaryOp("!",BinaryOp("&&",Id("a"),Id("b")))),BinaryOp("+",Id("i"),IntLiteral(1)))))
-        self.assertTrue(TestChecker.test(input,expect,481))
+        self.assertTrue(TestChecker.test(input,expect,480))
         
-    def test_482(self):
+    def test_481(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -1092,9 +1157,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             EndDo.
         EndBody."""
         expect = str(TypeMismatchInStatement(While(IntLiteral(1),([],[CallStmt(Id("foo"),[BinaryOp("+",IntLiteral(2),Id("x")),BinaryOp("\.",FloatLiteral(4.0),Id("y"))]),CallStmt(Id("goo"),[])]))))
-        self.assertTrue(TestChecker.test(input,expect,482))
+        self.assertTrue(TestChecker.test(input,expect,481))
         
-    def test_483(self):
+    def test_482(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: a[5], b
@@ -1108,9 +1173,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         Return x[1][1];
         EndBody."""
         expect = str(TypeMismatchInStatement(Return(ArrayCell(Id("x"),[IntLiteral(1),IntLiteral(1)]))))
-        self.assertTrue(TestChecker.test(input,expect,483))
+        self.assertTrue(TestChecker.test(input,expect,482))
         
-    def test_484(self):
+    def test_483(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: n
@@ -1125,9 +1190,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         Return factorial;
         EndBody."""
         expect = str(TypeMismatchInStatement(CallStmt(Id("read"),[])))
-        self.assertTrue(TestChecker.test(input,expect,484))
+        self.assertTrue(TestChecker.test(input,expect,483))
         
-    def test_485(self):
+    def test_484(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: n
@@ -1154,9 +1219,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
     Return 0;
     EndBody."""
         expect = str(Undeclared(Function(),"print"))
-        self.assertTrue(TestChecker.test(input,expect,485))
+        self.assertTrue(TestChecker.test(input,expect,484))
         
-    def test_486(self):
+    def test_485(self):
         """Created automatically"""
         input = r"""Function: main
         Parameter: octalNumber
@@ -1179,9 +1244,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
     Return x * pow(x-1,y);
     EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,486))
+        self.assertTrue(TestChecker.test(input,expect,485))
         
-    def test_487(self):
+    def test_486(self):
         """Created automatically"""
         input = r""" 
         Function: func2 
@@ -1224,9 +1289,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         EndBody.
                 """
         expect = str(TypeCannotBeInferred(Assign(Id("a"),BinaryOp("-",BinaryOp("+",CallExpr(Id("func1"),[CallExpr(Id("func2"),[IntLiteral(3)])]),IntLiteral(23)),CallExpr(Id("foo"),[CallExpr(Id("goo"),[CallExpr(Id("func1"),[Id("a")])])])))))
-        self.assertTrue(TestChecker.test(input,expect,487))
+        self.assertTrue(TestChecker.test(input,expect,486))
         
-    def test_488(self):
+    def test_487(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -1236,9 +1301,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             EndIf.
         EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,488))
+        self.assertTrue(TestChecker.test(input,expect,487))
         
-    def test_489(self):
+    def test_488(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
@@ -1249,9 +1314,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             EndIf.
         EndBody."""
         expect = str(Undeclared(Identifier(),"n"))
-        self.assertTrue(TestChecker.test(input,expect,489))
+        self.assertTrue(TestChecker.test(input,expect,488))
         
-    def test_490(self):
+    def test_489(self):
         """Created automatically"""
         input = r"""Var: a[2] = {True,{2,3}}, str = "string",c,d;
         Function: func
@@ -1270,9 +1335,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             Return 0;
         EndBody."""
         expect = str(TypeMismatchInExpression(CallExpr(Id("func"),[IntLiteral(123)])))
-        self.assertTrue(TestChecker.test(input,expect,490))
+        self.assertTrue(TestChecker.test(input,expect,489))
         
-    def test_491(self):
+    def test_490(self):
         """Created automatically"""
         input = r"""** this is a comment **
         Var: a[2] = {True,{2,3}}, str = "string";
@@ -1291,9 +1356,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             Return 0;
         EndBody."""
         expect = str(Undeclared(Identifier(),"j"))
-        self.assertTrue(TestChecker.test(input,expect,491))
+        self.assertTrue(TestChecker.test(input,expect,490))
         
-    def test_492(self):
+    def test_491(self):
         """Created automatically"""
         input = r"""Var: a = 5;
 
@@ -1314,9 +1379,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             EndIf.
         EndBody."""
         expect = str(TypeMismatchInStatement(Return(CallExpr(Id("string_of_int"),[Id("a")]))))
-        self.assertTrue(TestChecker.test(input,expect,492))
+        self.assertTrue(TestChecker.test(input,expect,491))
         
-    def test_493(self):
+    def test_492(self):
         """Created automatically"""
         input = r"""Function: main
                     Parameter: x
@@ -1328,9 +1393,9 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                         Return result;
                     EndBody."""
         expect = str()
-        self.assertTrue(TestChecker.test(input,expect,493))
+        self.assertTrue(TestChecker.test(input,expect,492))
         
-    def test_494(self):
+    def test_493(self):
         """Created automatically"""
         input = r"""
             Function: sqrt
@@ -1350,10 +1415,10 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                     x = i + n;
                 EndFor.
             EndBody."""
-        expect = str(TypeMismatchInStatement(For(Id("i"),IntLiteral(0),BinaryOp("<",Id("i"),CallExpr(Id("sqrt"),[Id("n")])),IntLiteral(2),([],[Assign(Id("x"),BinaryOp("+",Id("i"),Id("n")))]))))
-        self.assertTrue(TestChecker.test(input,expect,494))
+        expect = str()
+        self.assertTrue(TestChecker.test(input,expect,493))
         
-    def test_495(self):
+    def test_494(self):
         """Created automatically"""
         input = r"""Function: main
         Body:
@@ -1369,36 +1434,45 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             EndDo.
         EndBody."""
         expect = str(Undeclared(Identifier(),"m"))
-        self.assertTrue(TestChecker.test(input,expect,495))
+        self.assertTrue(TestChecker.test(input,expect,494))
         
-    def test_496(self):
+    def test_495(self):
         """Created automatically"""
         input = r"""Function: main 
         Body:
+        Var:x;
             While x>1 Do
+            Var: i,a = 4;
                 For (i = 100,True, i-1) Do
-                    If a<3 Then
+                    If -a<-3 Then
                         Break;
                     EndIf.
                     a = a -1;
                 EndFor.
             EndWhile.
         EndBody."""
-        expect = str(Undeclared(Identifier(),"x"))
+        expect = str()
+        self.assertTrue(TestChecker.test(input,expect,495))
+        
+    def test_496(self):
+        """Created automatically"""
+        input = r"""
+        Function: main
+        Parameter: a[123], b, c[13][14][15]
+        Body:
+        Var: y;
+            If a[12] > b Then
+                Var: x;
+                Do
+                    a = b + 3; 
+                    c[2][3] = int_of_float(c[4][2]+.10.2*.main(a,b,c))+a[2+int_of_float(main({2},a[3],a))+int_of_float(c[4])]; 
+                While (x == y)  EndDo.
+            EndIf.
+        EndBody."""
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,496))
         
     def test_497(self):
-        """Created automatically"""
-        input = r"""Function: main 
-        Body:
-            For (a = 1, a <= len(str),1 <2) Do
-                writeln(str[a]);
-            EndFor.
-        EndBody."""
-        expect = str(Undeclared(Identifier(),"a"))
-        self.assertTrue(TestChecker.test(input,expect,497))
-        
-    def test_498(self):
         """Created automatically"""
         input = r"""Function: main
             Parameter: a,b
@@ -1408,29 +1482,33 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                 Return a+b;
             EndBody. """
         expect = str(TypeMismatchInExpression(BinaryOp("+",Id("a"),Id("b"))))
-        self.assertTrue(TestChecker.test(input,expect,498))
+        self.assertTrue(TestChecker.test(input,expect,497))
         
-    def test_499(self):
+    def test_498(self):
         """Created automatically"""
         input = r"""Function: main
             Parameter: a,b
             Body:
-                a[3.5 +. 10e2] = (foo(x) +. 12.e3) *. 0x123 - a[b[2][3]] + 4;
+                a[10e2] = (foo(x) +. 12.e3) *. 0x123 - a[b[2][3]] + 4;
             EndBody. """
-        expect = str(TypeMismatchInExpression(BinaryOp("+.",IntLiteral(3),FloatLiteral(1000.0))))
-        self.assertTrue(TestChecker.test(input,expect,499))
+        expect = str(TypeMismatchInExpression(ArrayCell(Id("a"),[FloatLiteral(1000.0)])))
+        self.assertTrue(TestChecker.test(input,expect,498))
         
-    def test_500(self):
+    def test_499(self):
         """Created automatically"""
         input = r""" 
             Function: main 
             Body:
                 Var: x, y[1][3]={{{12,1}, {12., 12e3}},{23}, {13,32}};
-                Var: b = True, c = False;
+                Var: b = True, c = False,i;
                 For (i = 0, i < 10, 2) Do
                     For (i = 1, i < x*x , i + 1 ) Do
-                        If(z == False) Then
-                            x = haha();
+                    Var: a,z;
+                    Var:j;
+                        If(z && False) Then
+                            Break;
+                        ElseIf 1 Then
+                            a=a-1;
                         EndIf.
                         For( j = 1, j < x*x ,j + 1) Do
                             Do
@@ -1442,10 +1520,10 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                 EndFor.
             EndBody.
             """
-        expect = str(Undeclared(Identifier(),"i"))
-        self.assertTrue(TestChecker.test(input,expect,500))
+        expect = str(TypeMismatchInStatement(If([(BinaryOp("&&",Id("z"),BooleanLiteral(False)),[],[Break()]),(IntLiteral(1),[],[Assign(Id("a"),BinaryOp("-",Id("a"),IntLiteral(1)))])],([],[]))))
+        self.assertTrue(TestChecker.test(input,expect,499))
         
-    def test_501(self):
+    def test_500(self):
         """Created automatically"""
         input = r""" 
             Var: b;
@@ -1465,5 +1543,5 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                 EndBody.
             """
         expect = str(TypeCannotBeInferred(Assign(Id("a"),BinaryOp("+",Id("a"),CallExpr(Id("foo"),[Id("x")])))))
-        self.assertTrue(TestChecker.test(input,expect,501))
+        self.assertTrue(TestChecker.test(input,expect,500))
         

@@ -1,3 +1,14 @@
  
-        Var: dsa[432][0X364][0o35721], b = 20.e5, c = "mot con vit xoe ra 2 \n cai canh";
+        Var: a = True, d = "string\b";
+        **this  is comment**
+        Function: main
+        Parameter: a[123], b , x
+        Body:
+        Var:y;
+            Do
+            Var:y; 
+            y = y + 1;
+                main(a,y,d);
+            While (x+y) > 3 EndDo.
+        EndBody.
         

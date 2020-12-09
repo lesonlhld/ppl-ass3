@@ -1,7 +1,7 @@
-Function: main
-        Parameter: x,a,b
+Function: main 
+        Parameter: a
         Body:
-            Do x = a + b;
-            While(x<1000.e5)
-            EndDo.
+            Do  
+                Return a;
+            While a =/= 2.2 EndDo.
         EndBody.

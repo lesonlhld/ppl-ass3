@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("+",Id("a"),Id("b")))
+TypeMismatchInExpression(ArrayCell(Id("a"),[FloatLiteral(1000.0)]))

@@ -29,6 +29,8 @@ class Type(ABC):
             dimen1 = len(literal.value)
             dimen2 = 0
             dimen3 = 0
+            if dimen1 == 0:
+                return ArrayType([0],Unknown())
             for x in literal.value:
                 varType = varType1 = Type.getTypeFromLiteral(x)
                 if type(varType1) == ArrayType:
@@ -162,7 +164,7 @@ class Symbol:
         if len(var.varDimen) > 0:
             if not all(isinstance(x, int) for x in var.varDimen):
                 raise TypeMismatchInExpression(var)
-
+            
             init = Type.getTypeFromLiteral(var.varInit)
             if type(init) == ArrayType:
                 # if var.varDimen != init.dimen:
@@ -175,7 +177,6 @@ class Symbol:
             
         else:
             varType = Type.getTypeFromLiteral(var.varInit)
-
         kind = Variable()
         return Symbol(name, varType, kind)
 
@@ -608,15 +609,19 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             conditionalExprIf = self.visit(x[0], envi)
             if type(conditionalExprIf) != BoolType:
                 raise TypeMismatchInStatement(ast)
+
             varDeclIf = [self.visit(y, envi) for y in x[1]]
-            localEnvi = Checker.checkRedeclared(envi, varDeclIf)
+            localEnvi = Checker.checkRedeclared([], varDeclIf)
+            localEnvi = Checker.mergedEnvi(envi, localEnvi)
+            
             stmtIf = {type(y): self.visit(y, localEnvi) for y in x[2]}
             
             listReturn.append(Symbol.updateParamAndReturnType(stmtIf, localEnvi, ast))
             Checker.updateEnvi(envi, localEnvi, varDeclIf)
         
         varDeclElse = [self.visit(y, envi) for y in ast.elseStmt[0]]
-        localEnvi = Checker.checkRedeclared(envi, varDeclElse)
+        localEnvi = Checker.checkRedeclared([], varDeclElse)
+        localEnvi = Checker.mergedEnvi(envi, localEnvi)
         stmtElse = {type(y): self.visit(y, localEnvi) for y in ast.elseStmt[1]}
         listReturn.append(Symbol.updateParamAndReturnType(stmtElse, localEnvi, ast))
         Checker.updateEnvi(envi, localEnvi, varDeclElse)
@@ -629,20 +634,23 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     def visitFor(self, ast: For, envi):
         indexVar = self.visit(ast.idx1, envi)
         expr1 = self.visit(ast.expr1, envi)
-        expr2 = self.visit(ast.expr2, envi)
-        expr3 = self.visit(ast.expr3, envi)
-        if type(expr1) != IntType or type(expr3) != IntType:
+        if type(expr1) != IntType:
             raise TypeMismatchInStatement(ast)
         if type(indexVar) != IntType:
             if type(indexVar) == Unknown:
                 Checker.checkTwoSideType(indexVar, expr1, Assign(ast.idx1, ast.expr1), envi)
             else:
                 raise TypeMismatchInStatement(ast)
+        expr2 = self.visit(ast.expr2, envi)
         if type(expr2) != BoolType:
+            raise TypeMismatchInStatement(ast)
+        expr3 = self.visit(ast.expr3, envi)
+        if type(expr3) != IntType:
             raise TypeMismatchInStatement(ast)
         
         varDecl = [self.visit(y, envi) for y in ast.loop[0]]
-        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        localEnvi = Checker.checkRedeclared([], varDecl)
+        localEnvi = Checker.mergedEnvi(envi, localEnvi)
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.loop[1]}
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, localEnvi, ast)
@@ -668,7 +676,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     
     def visitDowhile(self, ast: Dowhile, envi):        
         varDecl = [self.visit(y, envi) for y in ast.sl[0]]
-        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        localEnvi = Checker.checkRedeclared([], varDecl)
+        localEnvi = Checker.mergedEnvi(envi, localEnvi)
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
 
         exp = self.visit(ast.exp, envi)
@@ -685,7 +694,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             raise TypeMismatchInStatement(ast)
         
         varDecl = [self.visit(y, envi) for y in ast.sl[0]]
-        localEnvi = Checker.checkRedeclared(envi, varDecl)
+        localEnvi = Checker.checkRedeclared([], varDecl)
+        localEnvi = Checker.mergedEnvi(envi, localEnvi)
         stmt = {type(y): self.visit(y, localEnvi) for y in ast.sl[1]}
 
         typeReturn = Symbol.updateParamAndReturnType(stmt, localEnvi, ast)
@@ -700,8 +710,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         
         typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
         
-        if "TypeCannotBeInferred" == typeReturn:
-            return "TypeCannotBeInferred"
+        if typeReturn == "TypeCannotBeInferred":
+            raise TypeCannotBeInferred(ast)
         return typeReturn
 
     # Visit literal

@@ -1,11 +1,5 @@
-Function: main 
+Function: main
         Body:
-            Var: x=20;
-            While True Do
-                If x==0 Then Break;
-                ElseIf x%2==0 Then
-                    x=x\2;
-                Else printStrLn("Error");
-                EndIf.
-            EndWhile.
+        Var:i = 10;
+            While i < 5 Do Return; EndWhile.
         EndBody.

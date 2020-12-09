@@ -1,2 +1,12 @@
-Function: a Parameter: a Body:Var: a=False;EndBody. Function: b Body:EndBody.
-Function: main**Here some too**Parameter: d Body:EndBody.
+Function: main 
+        Parameter: n,a,b
+        Body:
+            Var: i = 0,c;
+            While i!=423 Do
+                i = i + 3; **cmt**
+                If i==212 Then Break;
+                a = (!(b && c)||!(a&&b)&&(i+1)==234); 
+                EndIf.
+            EndWhile.
+        EndBody.
+        

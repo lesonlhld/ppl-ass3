@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("==",StringLiteral("str"),StringLiteral("Chung Xon")))
+TypeMismatchInStatement(Return(BinaryOp("==",Id("x"),Id("a"))))

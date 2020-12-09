@@ -1,1 +1,1 @@
-TypeMismatchInStatement(Return(BinaryOp("==",Id("x"),Id("a"))))
+TypeMismatchInExpression(CallExpr(Id("string_of_int"),[ArrayCell(Id("x"),[IntLiteral(2)])]))

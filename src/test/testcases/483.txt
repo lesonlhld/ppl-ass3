@@ -1,11 +1,12 @@
 Function: main
-        Parameter: a[5], b
+        Parameter: n
         Body:
-        Var: x = {{1,2,3}, **Comment here** "abc"};
-        Var: i = 0;
-        While (i < 5) Do
-        If i == 3 ThenReturn 1;EndIf.
-        i = i + 1;
-        EndWhile.
-        Return x[1][1];
+        Var:factorial=1;
+        printStr("Enter integer: ");
+        read();
+        For (i=0, i<=n, 1) Do
+            factorial=factorial*i;
+        EndFor.
+        printStrLn(string_of_int(factorial));
+        Return factorial;
         EndBody.

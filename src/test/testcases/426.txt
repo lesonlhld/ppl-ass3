@@ -1,6 +1,8 @@
-Function: main 
+
+        Var: a,b,c,d;
+        Function: main 
         Parameter: n
         Body:
-            Var: a = {1,2,3}, b[2][3] = 5, c[2] = {{1,3},{3,5,7}};
-            a[3+foo(3)] = a[b[2][3]] + 4;
+        Var: x;
+            x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
         EndBody.

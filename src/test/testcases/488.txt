@@ -1,7 +1,8 @@
 Function: main 
         Body:
-        Var: n;
             If n == 0 Then
-                Break;
+                x = 3;
+            ElseIf x != 2 Then
+                check = False;
             EndIf.
         EndBody.

@@ -1,5 +1,7 @@
  
-        Var **COMMENT**: ****id = 465632
-        **dsfhfsdhjnc^#%#@@~!**;
-    Var: sss;
+        Function: main 
+        Parameter: global_var
+        Body:
+            global_var = 25+6-.2.5%3\100 ; 
+        EndBody.
         

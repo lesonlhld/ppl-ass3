@@ -1,18 +1,12 @@
 
-        Var: a,c,d;
+        Var: a[143];
         Function: main
-        Parameter: b
+        Parameter: n,b[15]
         Body:
-        Var: d;
-            a = -1082000;
-            b = -0X123BCD;
-            c = -0o21345;
-            d = -a;
-            c = -call(a);
+            a[a[3 + foo(2,2.6)][b||True]][b[b[1+0x369]]] = a[b[2][b[12E-9]*3]] + 4;
         EndBody.
-        Function: call
-                Parameter: s
-                Body:
-                    Return 0;
-                EndBody.
-                
+        Function: foo
+        Parameter: a,b
+        Body:
+            Return 2;
+        EndBody.

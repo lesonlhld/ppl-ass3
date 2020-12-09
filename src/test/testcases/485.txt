@@ -1,24 +1,20 @@
 Function: main
-        Parameter: n
+        Parameter: octalNumber
         Body:
-            Var: t1 = 0, t2 = 1, nextTerm = 0;
-            print("Enter the number of terms: ");
-            getline(n);
-            print("Fibonacci Series: ");
-            For (i = 1, i <= n, 1) Do
-                If(i == 1) Then
-                printStr(" " + t1);
-                Continue;
-                EndIf.
-            If(i == 2) Then
-                printStr( t2+" ");
-        Continue;
-        EndIf.
-        nextTerm = t1 + t2;
-        t1 = t2;
-        t2 = nextTerm;
-        
-        printStr(nextTerm + " ");
-    EndFor.
-    Return 0;
+        Var: decimalNumber = 0, i = 0, rem;
+        While (octalNumber != 0) Do
+            rem = octalNumber % 10;
+            octalNumber =octalNumber \ 10;
+            decimalNumber =decimalNumber  + rem * pow(8,i);
+            i=i+1;
+        EndWhile.
+    Return decimalNumber;
+    EndBody.
+    Function: pow
+    Parameter: x,y
+    Body:
+    If x == 0 Then
+    Return 1;
+    EndIf.
+    Return x * pow(x-1,y);
     EndBody.

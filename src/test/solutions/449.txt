@@ -1,1 +1,1 @@
-Redeclared(Variable(),"sum")
+TypeMismatchInExpression(CallExpr(Id("int_of_string"),[]))

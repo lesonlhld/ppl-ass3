@@ -1,8 +1,6 @@
 Function: main 
-        Parameter: n
+        Parameter: i
         Body:
-            Var: t=False;
-            If n<100 Then t=True;
+            If i==0 Then Return;
             EndIf.
-            Return t;
         EndBody.

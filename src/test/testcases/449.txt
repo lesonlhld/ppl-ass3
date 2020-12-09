@@ -1,11 +1,9 @@
-
-        Function: main
-        Parameter: row,col,sum,arr[5][9]
+Function: main
         Body:
-            Var: sum=0;
-            For( i=0,i<=row,1) Do
-                For(j=0,j<col,2) Do
-                    sum=sum+arr[i][j];
-                EndFor.
-            EndFor.
+            Var: i = 0,k=10;
+            While i !=k Do
+            Var:a[5],b, c = "Hello";
+                a[i] = b + i + int_of_string();
+                i = i + 1;
+            EndWhile.
         EndBody.

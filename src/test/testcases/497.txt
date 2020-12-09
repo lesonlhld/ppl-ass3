@@ -1,6 +1,7 @@
-Function: main 
-        Body:
-            For (a = 1, a <= len(str),1 ) Do
-                writeln(str[a]);
-            EndFor.
-        EndBody.
+Function: main
+            Parameter: a,b
+            Body:
+                a = "string 1";
+                b = "string 2";
+                Return a+b;
+            EndBody. 

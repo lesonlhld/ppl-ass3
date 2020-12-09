@@ -1,1 +1,0 @@
-TypeMismatchInStatement(Assign(Id("x"),FloatLiteral(100.0)))

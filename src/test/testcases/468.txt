@@ -1,6 +1,4 @@
-Function: main 
-        Parameter: i
-        Body:
-            If i==0 Then Return;
-            EndIf.
-        EndBody.
+Function: main
+            Body:
+                Return "String";
+            EndBody.

@@ -1,7 +1,8 @@
-
-        Var: a[5];
+Var:c[4],b[108];
         Function: main 
-        Parameter: x
+        Parameter: i , j, arr[1001]
         Body:
-            x = -(-15.e-1+(-.45.1*.2.3)*(35+108+a[4]));
+        Var:a[2005];
+            a[i] = arr[c[2+j][b[i]*3]] + 4;
+            i = i + 1;
         EndBody.

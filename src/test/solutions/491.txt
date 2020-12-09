@@ -1,1 +1,1 @@
-Undeclared(Identifier(),"j")
+TypeMismatchInStatement(Return(CallExpr(Id("string_of_int"),[Id("a")])))

@@ -1,7 +1,5 @@
-**Function: main 
-        Parameter: x, a
+Function: main 
         Body:
-            While x>1 Do
-                Var: a = 10;
-            EndWhile.
-        EndBody.**
+            Var: a = 100, b;
+            b = (6\2)*8*b* **b**b*b;
+        EndBody.

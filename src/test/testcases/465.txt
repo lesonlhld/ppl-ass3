@@ -1,5 +1,4 @@
-Var: callnotinfunction;
-        Function: main
+Function: main
         Body:
-            goo(x,y*2,z+3.00000003);
-            EndBody.
+            printStr(string_of_bool(!bool_of_string("False")&&!True));
+        EndBody.

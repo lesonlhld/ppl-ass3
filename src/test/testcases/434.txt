@@ -1,12 +1,6 @@
-
-        Var: a[143];
-        Function: main
-        Parameter: n,b[15]
+Function: main
+        Parameter: arr[2222]
         Body:
-            a[a[3 + foo(2,2.6)][b||True]][b[b[1+0x369]]] = a[b[2][b[12E-9]*3]] + 4;
-        EndBody.
-        Function: foo
-        Parameter: a,b
-        Body:
-            Return 2;
+        Var: x,a=0X24211ABC;
+            x=arr[a+6];
         EndBody.

@@ -1,5 +1,11 @@
-Function: main
+Function: main 
+        Parameter: x,y
         Body:
-            Continue;
-            Break;
+            foo(2 + x, 4. \. y);
+            goo();
+        EndBody.
+        Function: foo
+        Body:
+            Var: a, c;
+            Return a + b;
         EndBody.

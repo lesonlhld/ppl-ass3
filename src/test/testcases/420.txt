@@ -1,2 +1,10 @@
-Var **test comment**: **bien = "STRING"**
-        ****fu={0X743A5,0o26523,321 **cmt**}****;****
+Function: main 
+        Parameter: varrr
+        Body:
+            Var: x =1;
+            Do
+                Var: x =1.5;
+                x= x+.1.5;
+            While x>1 
+            EndDo.
+        EndBody.

@@ -1,7 +1,10 @@
 Function: main 
-        Parameter: a
+        Parameter: x
         Body:
-            Do  
-                Return a;
-            While a =/= 2.2 EndDo.
+            While x >= 1 Do
+            Var: y;
+                If y<100 Then Break;
+                EndIf.
+            EndWhile.
+            
         EndBody.

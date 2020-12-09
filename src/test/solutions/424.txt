@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("\.",Id("n"),IntLiteral(5)))
+TypeMismatchInExpression(BinaryOp("==",Id("k"),FloatLiteral(5.6)))

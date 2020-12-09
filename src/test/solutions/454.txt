@@ -1,1 +1,0 @@
-TypeMismatchInExpression(BinaryOp("<.",Id("n"),FloatLiteral(69.96)))

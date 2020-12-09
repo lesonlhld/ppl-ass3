@@ -1,8 +1,7 @@
-Function: main
-        Parameter: x[123]
+Function: main 
+                Parameter: x[2][3]
         Body:
             Var: i = 0;
-            x[3]={996.24,712.464,216.454};
-            printStrLn(string_of_float(x[2]));
+            x[2][3]={{867,345,987},{76,12,744}};
             printStrLn(string_of_int(x[2]));
         EndBody.

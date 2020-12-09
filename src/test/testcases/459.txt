@@ -1,10 +1,8 @@
-Function: main 
-        Parameter: x
+Function: main
         Body:
-            While x >= 1 Do
-            Var: y;
-                If y<100 Then Break;
+        Var:i=0;
+            For (i=0, i!=9, (i*.2.0)) Do
+                If i>=10 Then Break;
                 EndIf.
-            EndWhile.
-            
+            EndFor.
         EndBody.

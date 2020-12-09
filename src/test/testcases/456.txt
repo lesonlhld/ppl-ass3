@@ -1,10 +1,7 @@
 Function: main
-        Parameter: a
+        Parameter: x,a,b
         Body:
-            Do
-                While a<100 Do
-                    a=a-30;
-                EndWhile.
-            While (a>.1.5)
+            Do x = a + b;
+            While(x<1000.e5)
             EndDo.
         EndBody.

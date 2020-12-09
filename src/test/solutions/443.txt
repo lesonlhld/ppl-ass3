@@ -1,0 +1,1 @@
+TypeMismatchInExpression(VarDecl(Id("stringID"),[108],StringLiteral("day la \\\\ 1 chuoi !!")))

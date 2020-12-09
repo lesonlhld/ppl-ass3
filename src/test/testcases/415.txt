@@ -1,9 +1,4 @@
-Function: main
-        Body:
-            Var: i = 0;
-            Do
-                Var: k = 10;
-                i = i + 1;
-            While i <= 10 
-            EndDo.
-        EndBody.
+**sau day la 1 ham \\ main\n**
+Function:**het y r** main ** test ne;**
+**cmt tum lum ~!$()>?:{}**    Body:Var: a=**235**865;
+    EndBody **Body**.

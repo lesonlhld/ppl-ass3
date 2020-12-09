@@ -1,16 +1,18 @@
-** this is a comment **
-        Var: a[2] = {True,{2,3}}, str = "string";
-        Function: func
-        Body:
-            If (a + 5) && (j-6) || (k*7) Then
-                ** this is another comment **
-                a[i] = b +. 1.0;
-                b = i - b * a -. b \ c - -.d;
-            EndIf.
-            Return a+func();
-        EndBody.
+Var: a = 5;
+
         Function: main
+        Parameter: a
         Body:
-            func();
-            Return 0;
+        Var:b[2];
+            If bool_of_string ("True") Then
+                a = int_of_string (read ());
+                b = float_of_int (a) +. 2.0;
+            ElseIf a == 5 Then
+                a = a + main(123);
+            ElseIf a == 6 Then
+                a = a * 2;
+                Return string_of_int(a);
+                Break;
+            Else Continue;
+            EndIf.
         EndBody.

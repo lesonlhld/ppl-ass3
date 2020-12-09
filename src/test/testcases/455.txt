@@ -1,5 +1,10 @@
-
-        Function: main
+Function: main
+        Parameter: a
         Body:
-            While True Do printStrLn("Hello World"); EndWhile.
+            Do
+                While a<100 Do
+                    a=a-30;
+                EndWhile.
+            While (a>.1.5)
+            EndDo.
         EndBody.

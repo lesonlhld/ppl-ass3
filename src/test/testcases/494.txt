@@ -1,20 +1,13 @@
-
-        Var: n;
-            Function: main
-            Parameter: x
-            Body:
-            n = int_of_string(read());
-                Var: i;
-                For (i = 0, i < sqrt(n), 2) Do
-                    x = i + n;
-                EndFor.
-            EndBody.
-            Function: sqrt
-            Parameter: x
-            Body:
-                Var: i;
-            While (i*i) < x Do
-                    i = i - -1;
-                EndWhile.
-                Return i-1;
-                EndBody.
+Function: main
+        Body:
+            m = test2(a,b) + main (x);
+        EndBody.
+        Function: test2
+        Body:
+            Do
+                If(z == 1) Then
+                    x = !a;
+                EndIf.
+            While x
+            EndDo.
+        EndBody.

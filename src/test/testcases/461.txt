@@ -1,15 +1,5 @@
-
-        Function: foo
+Function: main
         Body:
-            Var: c[3];
-            Return c;
-        EndBody.
-        Function: main 
-        Body:
-        Var: i;
-            For (i=0, i!=9, i) Do
-                If i==10 Then Continue;
-                EndIf.
-                foo(1);
-            EndFor.
+            Continue;
+            Break;
         EndBody.

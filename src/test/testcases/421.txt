@@ -1,9 +1,5 @@
 Function: main 
-        Parameter: varrr
         Body:
-            **Do
-                x= x+1;
-            While x>1 
+            Do0=1; While True
             EndDo.
-            **
         EndBody.

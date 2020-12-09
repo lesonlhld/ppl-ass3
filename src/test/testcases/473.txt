@@ -1,7 +1,17 @@
-Function: main 
-                Parameter: x[2][3]
-        Body:
-            Var: i = 0;
-            x[2][3]={{867,345,987},{76,12,744}};
-            printStrLn(string_of_int(x[2]));
-        EndBody.
+
+        Var: x;
+        Function: main
+            Parameter: j, brr[1000]
+            Body:
+                Var: x=0,i;
+                For (i=0,True,i) Do
+                    Var:x=1;
+                    Do
+                        Var:x=2;
+                    While1==0
+                    EndDo.
+                    IfTrueThen
+                        Var:x=3;
+                    EndIf.
+                EndFor.
+            EndBody.

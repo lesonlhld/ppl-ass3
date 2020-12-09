@@ -1,11 +1,5 @@
-
-        Function: call
-        Parameter: a, b, c, d, e,f
-        Body:
-            Return f;
-        EndBody.
+Var: callnotinfunction;
         Function: main
         Body:
-        Var: a, var, arr[5];
-            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
-        EndBody.
+            goo(x,y*2,z+3.00000003);
+            EndBody.

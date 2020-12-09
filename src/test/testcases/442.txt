@@ -1,11 +1,13 @@
 
-        Var: x, a,b ,c;
-        Function: main 
+        Var: i;
+        Function: main
         Body:
-        Var:a,b,c;
-            If (x == (b!=c && (a > b + c))) Then Return;
-            ElseIf (x=="Chung Xon@@") Then Break;
-            Else 
-            x="successful";
+        Var: n;
+            If i <. 4.5 Then
+                printStrLn(string_of_float(i));
+            ElseIf n > 10 Then 
+                Break;
+            Else
+                int_of_float(i)=int_of_float(i)-1;
             EndIf.
-        EndBody.
+            EndBody.

@@ -1,10 +1,6 @@
-
-        Var: x, y[1][3]={{{12,1}, {12., 12e3}},{23}, {13,32}};
+Var: a;
         Function: main 
-        Parameter: xonxon
+        Parameter: n, arr[3][4][5]
         Body:
-            Var: var;
-            Var: ilv, nvh;
-            var = (x==123)!= xonxon ;
-            x = var && (ilv <. nvh);
+            a = 3*.4.5\0e-2+arr[3-main("call")];
         EndBody.

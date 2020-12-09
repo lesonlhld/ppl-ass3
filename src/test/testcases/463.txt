@@ -1,11 +1,11 @@
-Function: main 
-        Parameter: x,y
+
+        Function: call
+        Parameter: a, b, c, d, e,f
         Body:
-            foo(2 + x, 4. \. y);
-            goo();
+            Return f;
         EndBody.
-        Function: foo
+        Function: main
         Body:
-            Var: a, c;
-            Return a + b;
+        Var: a, var, arr[5];
+            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
         EndBody.

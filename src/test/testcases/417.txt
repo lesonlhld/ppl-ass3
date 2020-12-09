@@ -1,5 +1,9 @@
-** This is a single-line comment. **
-** This is a
-* multi-line
-* comment.
-**
+
+        **Function: main 
+        Parameter: x, a
+        Body:
+            While x>1 Do
+                Var: a = 10;
+            EndWhile.
+        EndBody.**
+        

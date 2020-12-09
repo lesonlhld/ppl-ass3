@@ -1,5 +1,9 @@
-Function: main 
-        Parameter: n, arr[5]
+Function: main
         Body:
-            Var: r = 10., v;
+            Var: i = 0;
+            Do
+                Var: k = 10;
+                i = i + 1;
+            While i <= 10 
+            EndDo.
         EndBody.

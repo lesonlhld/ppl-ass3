@@ -1,1 +1,1 @@
-Undeclared(Identifier(),"i")
+TypeCannotBeInferred(Assign(Id("a"),BinaryOp("+",Id("a"),CallExpr(Id("foo"),[Id("x")]))))

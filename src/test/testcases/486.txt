@@ -1,20 +1,40 @@
-Function: main
-        Parameter: octalNumber
+ 
+        Function: func2 
+        Parameter: n
+        Body: 
+            If n == 0 Then
+                Return 1;
+            Else
+                Return n * func2 (n - 1);
+            EndIf.
+        EndBody.
+        Function: main
         Body:
-        Var: decimalNumber = 0, i = 0, rem;
-        While (octalNumber != 0) Do
-            rem = octalNumber % 10;
-            octalNumber =octalNumber \ 10;
-            decimalNumber =decimalNumber  + rem * pow(8,i);
-            i=i+1;
-        EndWhile.
-    Return decimalNumber;
-    EndBody.
-    Function: pow
-    Parameter: x,y
-    Body:
-    If x == 0 Then
-    Return 1;
-    EndIf.
-    Return x * pow(x-1,y);
-    EndBody.
+        Var: a;
+            a =func1(func2(3))+23 - foo(goo(func1(a)));
+        EndBody.
+        Function: goo 
+        Parameter: n
+        Body: ** Xin chao**
+        Var: string = "Xin chao";
+        Return 108;
+        EndBody.
+        Function: func1
+        Parameter: x
+        Body:
+        Var: a, b, c;
+            If(x == ((False||True) && (a > b + c))) Then
+                a = b - c;
+            Else
+                a = b + c;
+                x = True;
+            EndIf.
+        EndBody.
+        Function: foo 
+        Parameter: n
+        Body: 
+            While(1) Do
+                n = True;
+            EndWhile.
+        EndBody.
+                

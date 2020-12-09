@@ -1,8 +1,8 @@
 
-        Function: main 
-        Parameter: n[5],i
+        Var: i=0, k=100;
+        Function: main
         Body:
-            For (i = 0, i < 10, 1) Do
-                n[i]=n[i]+i;
+            For (i=12, i < k, i*i) Do
+            goo();
             EndFor.
         EndBody.

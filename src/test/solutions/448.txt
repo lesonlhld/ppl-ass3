@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("+.",BinaryOp("*",Id("i"),Id("i")),FloatLiteral(1.5)))
+Redeclared(Variable(),"sum")

@@ -1,7 +1,16 @@
 
-        Function: main 
-        Parameter: a, b,c[123] ,d[123][234][0]  ,e
+        Var: n;
+        Function: fact
+        Parameter: themdauchamphay
         Body:
-            a=1;
+            If n == 0 Then
+                Return 1;
+            ElseIf (n>0) Then
+                Return n * fact (n - 1);
+            Else
+                Return n;
+            EndIf.
         EndBody.
-        
+        Function: main
+        Body:
+        EndBody.

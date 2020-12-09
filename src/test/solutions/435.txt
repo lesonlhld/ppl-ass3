@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(Id("x"),ArrayCell(Id("arr"),[BinaryOp("+",Id("a"),IntLiteral(6))])))
+TypeMismatchInExpression(BinaryOp("||",FloatLiteral(2.3e-13),BinaryOp("=/=",Id("x"),FloatLiteral(2e-35))))

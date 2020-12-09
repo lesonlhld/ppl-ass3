@@ -1,2 +1,4 @@
-
-        Var: stringinarray, x[123]={"STRING","aRraY1","Array2"};
+Function: main
+        Body:
+            Var  : x[123]={   20, 2   ,108  };
+        EndBody.

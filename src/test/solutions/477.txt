@@ -1,0 +1,1 @@
+TypeMismatchInExpression(UnaryOp("-",CallExpr(Id("func2"),[Id("a")])))
