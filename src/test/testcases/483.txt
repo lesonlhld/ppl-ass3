@@ -7,4 +7,5 @@ Function: main
         If i == 3 ThenReturn 1;EndIf.
         i = i + 1;
         EndWhile.
+        Return x[1][1];
         EndBody.

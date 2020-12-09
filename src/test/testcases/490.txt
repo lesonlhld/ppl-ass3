@@ -1,10 +1,11 @@
-Var: a[2] = {True,{2,3}}, str = "string";
+Var: a[2] = {True,{2,3}}, str = "string",c,d;
         Function: func
         Body:
-            If (a + 5) && (j-6) || (k*7) Then
+        Var: j,k=2,b=1.1234e-3,i;
+            If (((a + 5) * (j-6)) !=0) || ((k*7) >=100) Then
                
-                a[i] = b +. 1.0;
-                b = i - b * a -. b \ c - -.d;
+                a[i] = int_of_float(b +. 1.0);
+                b = float_of_int(i - int_of_float(b) * a) -. b \. c -. -.d;
             EndIf.
             Return a+func(123);
         EndBody.

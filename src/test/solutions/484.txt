@@ -1,1 +1,1 @@
-Undeclared(Function(),"print")
+TypeMismatchInStatement(CallStmt(Id("read"),[]))

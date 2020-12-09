@@ -1,1 +1,1 @@
-TypeMismatchInExpression(CallExpr(Id("main"),[IntLiteral(123)]))
+TypeMismatchInStatement(Return(CallExpr(Id("string_of_int"),[Id("a")])))

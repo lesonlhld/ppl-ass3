@@ -1,24 +1,24 @@
 Function: main
         Parameter: n
         Body:
-            Var: n, t1 = 0, t2 = 1, nextTerm = 0;
+            Var: t1 = 0, t2 = 1, nextTerm = 0;
             print("Enter the number of terms: ");
             getline(n);
             print("Fibonacci Series: ");
             For (i = 1, i <= n, 1) Do
                 If(i == 1) Then
-                print(" " + t1);
+                printStr(" " + t1);
                 Continue;
                 EndIf.
             If(i == 2) Then
-                print( t2+" ");
+                printStr( t2+" ");
         Continue;
         EndIf.
         nextTerm = t1 + t2;
         t1 = t2;
         t2 = nextTerm;
         
-        print(nextTerm + " ");
+        printStr(nextTerm + " ");
     EndFor.
     Return 0;
     EndBody.

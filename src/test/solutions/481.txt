@@ -1,1 +1,1 @@
-Undeclared(Function(),"fact")
+TypeMismatchInExpression(BinaryOp("&&",BinaryOp("||",UnaryOp("!",BinaryOp("&&",Id("b"),Id("c"))),UnaryOp("!",BinaryOp("&&",Id("a"),Id("b")))),BinaryOp("+",Id("i"),IntLiteral(1))))

@@ -1,16 +1,17 @@
 Var: a = 5;
 
         Function: main
-        Parameter: a,b[2]
+        Parameter: a
         Body:
+        Var:b[2];
             If bool_of_string ("True") Then
                 a = int_of_string (read ());
                 b = float_of_int (a) +. 2.0;
             ElseIf a == 5 Then
                 a = a + main(123);
-                Return a;
             ElseIf a == 6 Then
-                a = a *. 2;
+                a = a * 2;
+                Return string_of_int(a);
                 Break;
             Else Continue;
             EndIf.

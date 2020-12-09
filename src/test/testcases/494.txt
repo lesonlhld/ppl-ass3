@@ -1,10 +1,20 @@
 
+        Var: n;
             Function: main
-            Parameter: n,x
+            Parameter: x
             Body:
+            n = int_of_string(read());
                 Var: i;
                 For (i = 0, i < sqrt(n), 2) Do
                     x = i + n;
-                    print(x\2);
                 EndFor.
             EndBody.
+            Function: sqrt
+            Parameter: x
+            Body:
+                Var: i;
+            While (i*i) < x Do
+                    i = i - -1;
+                EndWhile.
+                Return i-1;
+                EndBody.
