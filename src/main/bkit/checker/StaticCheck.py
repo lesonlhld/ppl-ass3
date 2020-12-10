@@ -167,8 +167,6 @@ class Symbol:
             
             init = Type.getTypeFromLiteral(var.varInit)
             if type(init) == ArrayType:
-                # if var.varDimen != init.dimen:
-                #     raise TypeCannotBeInferred(var)
                 varType = ArrayType(var.varDimen, init.eletype)
             elif type(init) == Unknown:
                 varType = ArrayType(var.varDimen, init)
@@ -331,7 +329,7 @@ class Checker:
                 rightName = ast.rhs.method.name
 
             if type(left) == Unknown and type(right) == Unknown:
-                return "TypeCannotBeInferred"
+                raise TypeCannotBeInferred(ast)
             elif type(left) == Unknown and type(right) != Unknown and type(right) != ArrayType:
                 left = right
                 typeReturn = Checker.updateSideType("left", right, ast.lhs, envi)
@@ -345,7 +343,7 @@ class Checker:
         elif type(ast) in [CallExpr, CallStmt]:
             for i in range(len(left)):
                 if type(left[i]) == Unknown and type(right[i]) == Unknown:
-                    return "TypeCannotBeInferred"
+                    raise TypeCannotBeInferred(ast)
                 elif type(left[i]) == Unknown and type(right[i]) != Unknown and type(right[i]) != ArrayType:
                     left[i] = right[i]
                 elif type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown:
@@ -392,7 +390,7 @@ class Checker:
             rhs = right.eletype
             typeReturn = Checker.checkTwoSideType(lhs, rhs, ast, envi)
         elif ArrayType in [type(left), type(right)] and Unknown in [type(left), type(right)]:
-            return "TypeCannotBeInferred"
+            raise TypeCannotBeInferred(ast)
         elif ArrayType in [type(left), type(right)]:
             lhs = left.eletype if type(left) == ArrayType else left
             rhs = right.eletype if type(right) == ArrayType else right
@@ -407,8 +405,6 @@ class Checker:
         if len(actualParameters) != len(formaParameters):
             return False
         returnVal = Checker.checkTwoSideType(formaParameters, actualParameters, ast, envi)
-        if "TypeCannotBeInferred" == returnVal:
-            return "TypeCannotBeInferred"
         formaParameters, actualParameters = returnVal
         
         for a, b in zip(formaParameters, actualParameters):
@@ -437,8 +433,6 @@ class Checker:
             else:
                 raise TypeMismatchInExpression(ast)
         
-        if "TypeCannotBeInferred" == checkParam:
-            return "TypeCannotBeInferred"
         varType = MType(formaParameters, typeReturn)
         symbol.updateMember(mtype = varType)
 
@@ -524,12 +518,10 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     # Return Type of expression
     def visitBinaryOp(self, ast: BinaryOp, param):
         leftType = self.visit(ast.left, param)
-        if "TypeCannotBeInferred" == leftType:
-            return "TypeCannotBeInferred"
         rightType = self.visit(ast.right, param)
-        if "TypeCannotBeInferred" == rightType:
-            return "TypeCannotBeInferred"
 
+        if ArrayType in [type(leftType), type(rightType)]:
+            raise TypeMismatchInExpression(ast)
         if ast.op in ['+', '-', '*', '\\', '%']:
             typeReturn = Checker.checkTwoSideType(leftType, rightType, ast, param, IntType(), IntType())
         elif ast.op in ['+.', '-.', '*.', '\\.']:
@@ -562,8 +554,6 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         symbol = Symbol.getSymbol(ast.method.name, globalEnvi)
         paramType = [self.visit(x, globalEnvi) for x in ast.param]
         typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
-        if "TypeCannotBeInferred" == typeReturn:
-            return "TypeCannotBeInferred"
 
         return typeReturn
 
@@ -571,10 +561,9 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         arrType = self.visit(ast.arr, envi)
         idxType = [self.visit(i, envi) for i in ast.idx]
         
-        # if (type(ast.arr) == CallExpr and type(Symbol.getSymbol(ast.arr.method.name, envi).mtype.restype) in [ArrayType, Unknown]):
-        #     pass
-        # elif (type(ast.arr) == CallExpr and type(Symbol.getSymbol(ast.arr.method.name, envi).mtype.restype) not in [ArrayType, Unknown]) or type(arrType) != ArrayType:
-        if type(arrType) != ArrayType:
+        if type(arrType) != ArrayType and type(ast.arr) == CallExpr:
+            raise TypeCannotBeInferred(ast)
+        elif type(arrType) != ArrayType:
             raise TypeMismatchInExpression(ast)
         for x in range(len(idxType)):
             if type(idxType[x]) == Unknown:
@@ -585,22 +574,27 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
         if not all((isinstance(x, IntType) if type(x) != ArrayType else isinstance(x.eletype, IntType)) for x in idxType):
             raise TypeMismatchInExpression(ast)
-        return arrType
+        
+        return arrType.eletype
     
 
     # Visit statement
     def visitAssign(self, ast: Assign, envi):
-        lhsType = self.visit(ast.lhs, envi)
-        rhsType = self.visit(ast.rhs, envi)
-        
-        if "TypeCannotBeInferred" in [lhsType, rhsType]:
+        try:
+            lhsType = self.visit(ast.lhs, envi)
+        except TypeCannotBeInferred:
             raise TypeCannotBeInferred(ast)
+        try:
+            rhsType = self.visit(ast.rhs, envi)
+        except TypeCannotBeInferred:
+            raise TypeCannotBeInferred(ast)
+
+        if ArrayType in [type(lhsType), type(rhsType)] and ArrayLiteral not in [type(ast.lhs), type(ast.rhs)]:
+            raise TypeMismatchInStatement(ast)
         if type(lhsType) == VoidType or (type(ast.lhs) == CallExpr and (type(lhsType) == Unknown or type(lhsType) == ArrayType)) or (type(ast.lhs) == ArrayCell and type(ast.lhs.arr) == CallExpr and type(ast.rhs) == Id and type(rhsType) == ArrayType): # StringType
             raise TypeMismatchInStatement(ast)
         
         typeReturn = Checker.checkMatchType(lhsType, rhsType, ast, envi)
-        if typeReturn == "TypeCannotBeInferred":
-            raise TypeCannotBeInferred(ast)
         
         return typeReturn
 
@@ -711,8 +705,6 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         
         typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
         
-        if typeReturn == "TypeCannotBeInferred":
-            raise TypeCannotBeInferred(ast)
         return typeReturn
 
     # Visit literal

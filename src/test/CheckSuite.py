@@ -477,7 +477,7 @@ Function:**het y r** main ** test ne;**
         Body:
             Return 2;
         EndBody."""
-        expect = str(TypeMismatchInExpression(ArrayCell(Id("a"),[BinaryOp("+",IntLiteral(3),CallExpr(Id("foo"),[IntLiteral(2),FloatLiteral(2.6)])),BinaryOp("||",Id("b"),BooleanLiteral(True))])))
+        expect = str(TypeMismatchInExpression(BinaryOp("||",Id("b"),BooleanLiteral(True))))
         self.assertTrue(TestChecker.test(input,expect,433))
         
     def test_434(self):
@@ -535,7 +535,7 @@ EndBody."""
         Body:a = {1,2,3}; b[2][3] = 5;
         c[2] = {{1,3},{1,5,7}};
         EndBody."""
-        expect = str()
+        expect = str(TypeCannotBeInferred(Assign(ArrayCell(Id("c"),[IntLiteral(2)]),ArrayLiteral([ArrayLiteral([IntLiteral(1),IntLiteral(3)]),ArrayLiteral([IntLiteral(1),IntLiteral(5),IntLiteral(7)])]))))
         self.assertTrue(TestChecker.test(input,expect,438))
         
     def test_439(self):
@@ -989,7 +989,7 @@ EndBody."""
         Parameter: x[123]
         Body:
             Var: i = 0;
-            x[3]={996.24,712.464,216.454};
+            x={996.24,712.464,216.454};
             printStrLn(string_of_float(x[2]));
             printStrLn(string_of_int(x[2]));
         EndBody."""
@@ -1005,7 +1005,7 @@ EndBody."""
             x[2][3]={{867,345,987},{76,12,744}};
             printStrLn(string_of_int(x[2]));
         EndBody."""
-        expect = str()
+        expect = str(TypeCannotBeInferred(Assign(ArrayCell(Id("x"),[IntLiteral(2),IntLiteral(3)]),ArrayLiteral([ArrayLiteral([IntLiteral(867),IntLiteral(345),IntLiteral(987)]),ArrayLiteral([IntLiteral(76),IntLiteral(12),IntLiteral(744)])]))))
         self.assertTrue(TestChecker.test(input,expect,472))
         
     def test_473(self):
@@ -1083,7 +1083,7 @@ EndBody."""
         EndWhile.
         Return z;
         EndBody."""
-        expect = str(TypeMismatchInExpression(UnaryOp("-",CallExpr(Id("func2"),[Id("a")]))))
+        expect = str(TypeCannotBeInferred(Assign(Id("a"),BinaryOp("\.",CallExpr(Id("float_of_int"),[UnaryOp("-",BinaryOp("+",BinaryOp("*",UnaryOp("-",BinaryOp("+",CallExpr(Id("func1"),[IntLiteral(4)]),IntLiteral(23))),UnaryOp("-",CallExpr(Id("func2"),[Id("a")]))),ArrayCell(Id("arr"),[IntLiteral(3)])))]),FloatLiteral(0.5)))))
         self.assertTrue(TestChecker.test(input,expect,477))
         
     def test_478(self):
@@ -1345,7 +1345,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             func();
             Return 0;
         EndBody."""
-        expect = str(TypeMismatchInExpression(CallExpr(Id("func"),[IntLiteral(123)])))
+        expect = str(TypeMismatchInExpression(BinaryOp("+",Id("a"),IntLiteral(5))))
         self.assertTrue(TestChecker.test(input,expect,489))
         
     def test_490(self):
@@ -1366,7 +1366,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             func();
             Return 0;
         EndBody."""
-        expect = str(Undeclared(Identifier(),"j"))
+        expect = str(TypeMismatchInExpression(BinaryOp("+",Id("a"),IntLiteral(5))))
         self.assertTrue(TestChecker.test(input,expect,490))
         
     def test_491(self):
@@ -1389,7 +1389,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             Else Continue;
             EndIf.
         EndBody."""
-        expect = str(TypeMismatchInStatement(Return(CallExpr(Id("string_of_int"),[Id("a")]))))
+        expect = str(TypeMismatchInStatement(Assign(Id("b"),BinaryOp("+.",CallExpr(Id("float_of_int"),[Id("a")]),FloatLiteral(2.0)))))
         self.assertTrue(TestChecker.test(input,expect,491))
         
     def test_492(self):
@@ -1480,7 +1480,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
                 While (x == y)  EndDo.
             EndIf.
         EndBody."""
-        expect = str()
+        expect = str(TypeMismatchInStatement(Assign(Id("a"),BinaryOp("+",Id("b"),IntLiteral(3)))))
         self.assertTrue(TestChecker.test(input,expect,496))
         
     def test_497(self):
