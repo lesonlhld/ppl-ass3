@@ -61,7 +61,7 @@ Var: m, n[10];
             While (x+y) > 3 EndDo.
         EndBody.
         """
-        expect = str()
+        expect = str(TypeMismatchInExpression(BinaryOp("+",Id("x"),Id("y"))))
         self.assertTrue(TestChecker.test(input,expect,404))
         
     def test_405(self):
@@ -303,7 +303,7 @@ Function:**het y r** main ** test ne;**
             While x>1 
             EndDo.
         EndBody."""
-        expect = str()
+        expect = str(TypeMismatchInExpression(BinaryOp(">",Id("x"),IntLiteral(1))))
         self.assertTrue(TestChecker.test(input,expect,420))
         
     def test_421(self):
@@ -783,7 +783,7 @@ EndBody."""
             While (a>.1.5)
             EndDo.
         EndBody."""
-        expect = str()
+        expect = str(TypeMismatchInExpression(BinaryOp(">.",Id("a"),FloatLiteral(1.5))))
         self.assertTrue(TestChecker.test(input,expect,455))
         
     def test_456(self):
@@ -999,7 +999,7 @@ EndBody."""
             printStrLn(string_of_float(x[2]));
             printStrLn(string_of_int(x[2]));
         EndBody."""
-        expect = str(TypeMismatchInExpression(CallExpr(Id("string_of_int"),[ArrayCell(Id("x"),[IntLiteral(2)])])))
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,471))
         
     def test_472(self):
