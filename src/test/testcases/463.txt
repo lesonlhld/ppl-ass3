@@ -6,6 +6,6 @@
         EndBody.
         Function: main
         Body:
-        Var: a, var, arr[5];
-            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
+        Var: a, var, arr[5]={1};
+            a = call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n") +1;
         EndBody.

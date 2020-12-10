@@ -1,0 +1,1 @@
+TypeCannotBeInferred(CallStmt(Id("call"),[Id("a"),IntLiteral(876),BinaryOp("*.",Id("var"),FloatLiteral(6.5)),ArrayCell(Id("arr"),[IntLiteral(3)]),BooleanLiteral(True),StringLiteral("chuoi~~\\n")]))

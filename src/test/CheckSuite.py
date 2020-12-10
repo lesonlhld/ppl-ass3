@@ -549,7 +549,7 @@ EndBody."""
                     b = float_of_int (a) +. 2.0;
                 EndIf.
         EndBody."""
-        expect = str(TypeMismatchInStatement(Assign(Id("b"),BinaryOp("+.",CallExpr(Id("float_of_int"),[Id("a")]),FloatLiteral(2.0)))))
+        expect = str(Undeclared(Function(),"float_of_int"))
         self.assertTrue(TestChecker.test(input,expect,439))
         
     def test_440(self):
@@ -566,7 +566,7 @@ EndBody."""
                 Return n;
             EndIf.
         EndBody."""
-        expect = str()
+        expect = str(Undeclared(Function(),"float_of_int"))
         self.assertTrue(TestChecker.test(input,expect,440))
         
     def test_441(self):
@@ -860,12 +860,18 @@ EndBody."""
         
     def test_461(self):
         """Created automatically"""
-        input = r"""Function: main
+        input = r"""
+        Function: call
+        Parameter: a, b, c, d, e,f
         Body:
-            Continue;
-            Break;
+            Return f;
+        EndBody.
+        Function: main
+        Body:
+        Var: a, var, arr[5]={1};
+            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
         EndBody."""
-        expect = str()
+        expect = str(TypeCannotBeInferred(CallStmt(Id("call"),[Id("a"),IntLiteral(876),BinaryOp("*.",Id("var"),FloatLiteral(6.5)),ArrayCell(Id("arr"),[IntLiteral(3)]),BooleanLiteral(True),StringLiteral("chuoi~~\\n")])))
         self.assertTrue(TestChecker.test(input,expect,461))
         
     def test_462(self):
@@ -894,10 +900,10 @@ EndBody."""
         EndBody.
         Function: main
         Body:
-        Var: a, var, arr[5];
-            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
+        Var: a, var, arr[5]={1};
+            a = call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n") +1;
         EndBody."""
-        expect = str(TypeCannotBeInferred(CallStmt(Id("call"),[Id("a"),IntLiteral(876),BinaryOp("*.",Id("var"),FloatLiteral(6.5)),ArrayCell(Id("arr"),[IntLiteral(3)]),BooleanLiteral(True),StringLiteral("chuoi~~\\n")])))
+        expect = str(TypeCannotBeInferred(Assign(Id("a"),BinaryOp("+",CallExpr(Id("call"),[Id("a"),IntLiteral(876),BinaryOp("*.",Id("var"),FloatLiteral(6.5)),ArrayCell(Id("arr"),[IntLiteral(3)]),BooleanLiteral(True),StringLiteral("chuoi~~\\n")]),IntLiteral(1)))))
         self.assertTrue(TestChecker.test(input,expect,463))
         
     def test_464(self):
@@ -914,7 +920,7 @@ EndBody."""
         """Created automatically"""
         input = r"""Function: main
         Body:
-            printStr(string_of_bool(!bool_of_string("False")&&!True));
+            print(string_of_bool(!bool_of_string("False")&&!True));
         EndBody."""
         expect = str()
         self.assertTrue(TestChecker.test(input,expect,465))
@@ -1083,7 +1089,7 @@ EndBody."""
         EndWhile.
         Return z;
         EndBody."""
-        expect = str(TypeCannotBeInferred(Assign(Id("a"),BinaryOp("\.",CallExpr(Id("float_of_int"),[UnaryOp("-",BinaryOp("+",BinaryOp("*",UnaryOp("-",BinaryOp("+",CallExpr(Id("func1"),[IntLiteral(4)]),IntLiteral(23))),UnaryOp("-",CallExpr(Id("func2"),[Id("a")]))),ArrayCell(Id("arr"),[IntLiteral(3)])))]),FloatLiteral(0.5)))))
+        expect = str(Undeclared(Function(),"float_of_int"))
         self.assertTrue(TestChecker.test(input,expect,477))
         
     def test_478(self):
@@ -1192,7 +1198,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         Parameter: n
         Body:
         Var:factorial=1;
-        printStr("Enter integer: ");
+        print("Enter integer: ");
         read();
         For (i=0, i<=n, 1) Do
             factorial=factorial*i;
@@ -1208,28 +1214,28 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
         input = r"""Function: main
         Parameter: n
         Body:
-            Var: t1 = 0, t2 = 1, nextTerm = 0;
+            Var: t1 = 0, t2 = 1, nextTerm = 0, i;
             print("Enter the number of terms: ");
-            getline(n);
+            n = int_of_string(read());
             print("Fibonacci Series: ");
             For (i = 1, i <= n, 1) Do
                 If(i == 1) Then
-                printStr(" " + t1);
+                print(string_of_int(t1));
                 Continue;
                 EndIf.
             If(i == 2) Then
-                printStr( t2+" ");
+                print("t2");
         Continue;
         EndIf.
         nextTerm = t1 + t2;
         t1 = t2;
         t2 = nextTerm;
         
-        printStr(nextTerm + " ");
+        print(string_of_int(nextTerm));
     EndFor.
     Return 0;
     EndBody."""
-        expect = str(Undeclared(Function(),"print"))
+        expect = str()
         self.assertTrue(TestChecker.test(input,expect,484))
         
     def test_485(self):
@@ -1389,7 +1395,7 @@ Function: main**Here some too**Parameter: d Body:EndBody."""
             Else Continue;
             EndIf.
         EndBody."""
-        expect = str(TypeMismatchInStatement(Assign(Id("b"),BinaryOp("+.",CallExpr(Id("float_of_int"),[Id("a")]),FloatLiteral(2.0)))))
+        expect = str(Undeclared(Function(),"float_of_int"))
         self.assertTrue(TestChecker.test(input,expect,491))
         
     def test_492(self):

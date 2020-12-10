@@ -1,5 +1,11 @@
-Function: main
+
+        Function: call
+        Parameter: a, b, c, d, e,f
         Body:
-            Continue;
-            Break;
+            Return f;
+        EndBody.
+        Function: main
+        Body:
+        Var: a, var, arr[5]={1};
+            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
         EndBody.

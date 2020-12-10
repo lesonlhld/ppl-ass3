@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(Id("a"),BinaryOp("\.",CallExpr(Id("float_of_int"),[UnaryOp("-",BinaryOp("+",BinaryOp("*",UnaryOp("-",BinaryOp("+",CallExpr(Id("func1"),[IntLiteral(4)]),IntLiteral(23))),UnaryOp("-",CallExpr(Id("func2"),[Id("a")]))),ArrayCell(Id("arr"),[IntLiteral(3)])))]),FloatLiteral(0.5))))
+Undeclared(Function(),"float_of_int")
