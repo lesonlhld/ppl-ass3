@@ -1,10 +1,29 @@
 
-        Var: x, y[1][3]={{{12,1}, {12., 12e3}},{23}, {13,32}};
-        Function: main 
-        Parameter: xonxon
-        Body:
-            Var: var;
-            Var: ilv, nvh;
-            var = (x==123)!= xonxon ;
-            x = var && (ilv <. nvh);
-        EndBody.
+        
+        
+        Var: a = 5;
+Var: b[2][3] = {{2,3,4},{4,5,6}};
+Var: c[2][3] , d = 6, e, f;
+Var: m, n[1];
+        
+                
+
+        Function: main
+            Parameter: main[1]
+                   Body:
+                   EndBody.
+                   
+
+        Function: foo
+                   Body:
+                   b = bar(b);
+                    b = bar(c);
+                    c = {{2.0,3.0,4.0},{4.0,5.0,6.0}};
+                   EndBody.
+
+        Function: bar
+            Parameter: bar[2][3]
+            Body:
+            EndBody.
+                   
+                   

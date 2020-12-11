@@ -1,5 +1,12 @@
 
+        Var: x;
         Function: main
-        Body:
-            While True Do printStrLn("Hello World"); EndWhile.
-        EndBody.
+            Body:
+                x = x + foo(x);
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return 1;
+            EndBody.

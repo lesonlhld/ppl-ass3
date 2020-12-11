@@ -1,1 +1,1 @@
-Type Mismatch In Expression: VarDecl(Id(stringID),[108],StringLiteral(day la \\ 1 chuoi !!))
+Type Mismatch In Statement: Assign(Id(x),CallExpr(Id(foo),[IntLiteral(1)]))

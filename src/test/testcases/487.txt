@@ -1,7 +1,8 @@
-Function: main 
-        Body:
-        Var: n;
-            If n == 0 Then
-                Break;
-            EndIf.
-        EndBody.
+
+        Var: z;
+        Function: main
+            Body:
+                Var: x[2][3];
+                x[x[0][1]][x[1][0]] = 1.1;
+                Return;
+            EndBody.

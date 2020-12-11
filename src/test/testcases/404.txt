@@ -1,14 +1,29 @@
- 
-        Var: a = True, d = "string\b";
-        **this  is comment**
-        Function: main
-        Parameter: a[123], b , x
-        Body:
-        Var:y;
-            Do
-            Var:y; 
-            y = y + 1;
-                main(a,y,d);
-            While (x+y) > 3 EndDo.
-        EndBody.
+
         
+
+
+        Var: a = 5;
+        Var: b[2][3] = {{2,3,4},{4,5,6}};
+        Var: c, d = 6, e, f;
+        Var: m, n[10];
+        
+                Function: foo
+                   Body: 
+                   EndBody.
+
+
+                Function: main
+                   Body: 
+                   EndBody.
+                   
+                Function: bar
+                   Body: 
+                   EndBody.
+
+                Function: b
+                   Body: 
+                   EndBody.
+                
+                   
+                   
+                   

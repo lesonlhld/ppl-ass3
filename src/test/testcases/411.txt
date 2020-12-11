@@ -1,8 +1,18 @@
 
-        Function: main 
-        Parameter: a, b,c[123] ,d[123][234][0]  ,e
-        Body:
-        Var: z[0]={};
-            a=1;
-        EndBody.
         
+        
+
+
+        Function: main
+            Body:
+            EndBody.
+                   
+        Function: bar
+            Parameter: n[10], int_of_string, a
+            Body:
+                int_of_string = a;
+            EndBody.
+
+                   
+                   
+                   

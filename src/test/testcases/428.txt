@@ -1,6 +1,29 @@
-Var: a;
-        Function: main 
-        Parameter: n, arr[3][4][5]
-        Body:
-            a = 3*.4.5\0e-2+arr[3-main("call")];
-        EndBody.
+
+        
+        
+        Var: a = 5;
+Var: b[2][3] = {{2,3,4},{4,5,6}};
+Var: c[2][3] , d = 6, e, f;
+Var: m, n[1];
+        
+                
+
+        Function: main
+            Parameter: main[1]
+                   Body:
+                   EndBody.
+                   
+
+        Function: foo
+                   Body:
+                   b = bar(b);
+                c = bar(b);
+                    c = {{2.0,3.0,4.0},{4.0,5.0,6.0}};
+                   EndBody.
+
+        Function: bar
+            Parameter: bar[2][3]
+            Body:
+            EndBody.
+                   
+                   

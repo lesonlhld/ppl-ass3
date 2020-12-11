@@ -1,4 +1,12 @@
-Function: main
-        Body:
-            Var  : x[123]={   20, 2   ,108  };
-        EndBody.
+
+        Function: foo
+            Parameter: x, y
+            Body:
+                Var: z;
+                z = foo( float_of_int(y) +. foo(1.1, 1.1) , int_of_float(foo(x, 1)) );
+                Return z;
+            EndBody.
+        Function: main
+            Body:
+                Return;
+            EndBody.

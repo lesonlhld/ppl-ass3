@@ -1,8 +1,12 @@
 
+        Var: x;
+        Function: foo
+            Parameter: x
+            Body:
+                Return 1;
+            EndBody.
         Function: main
-        Body:
-        Var: i , x;
-            For (i = 1, i <= x*x,i*i+.1.5)
-            Do x=x+1;
-            EndFor.
-        EndBody.
+            Body:
+                x = foo(10) +. 1.1;
+                Return;
+            EndBody.

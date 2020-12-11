@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(int_of_string),[])
+Type Mismatch In Statement: CallStmt(Id(foo),[CallExpr(Id(goo),[])])

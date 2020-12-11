@@ -1,9 +1,25 @@
 
-        **Function: main 
-        Parameter: x, a
-        Body:
-            While x>1 Do
-                Var: a = 10;
-            EndWhile.
-        EndBody.**
         
+        
+        Var: a;
+
+
+        Function: main
+            Body:
+                a = 3.0;
+            EndBody.
+
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                int_of_string = 3 + a;
+
+            EndBody.
+
+        
+                   
+        
+
+                   
+                   
+                   

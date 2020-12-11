@@ -1,9 +1,25 @@
-Function: main
-                    Parameter: x
-                    Body:
-                    Var: i, result;
-                        For (i = 1, i <= x*x*x,i + x ) Do
-                            result = i * i + i \ --1 % i--i;
-                        EndFor.
-                        Return result;
-                    EndBody.
+Var: string_list[4] = {"","","",""};
+        Function: get_string_list
+            Parameter: list[4]
+                Body:
+                    Var : str_input = "", i;
+                    For (i = 0 , i < 4, 1) Do
+                        str_input = read();
+                        list[i] = str_input;
+                    EndFor.
+                    Return list;
+                EndBody.
+        Function: print_string_list
+            Parameter: list[4]
+                Body:
+                    Var: i;
+                    For (i = 0 , i < 4, 1) Do
+                        printStrLn(list[i]);
+                    EndFor.
+                    Return;
+                EndBody.
+        Function: main
+            Body:
+                print_string_list(get_string_list(string_list));
+                Return;
+            EndBody.

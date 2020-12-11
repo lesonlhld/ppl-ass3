@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[Id(x)])
+Type Mismatch In Statement: Assign(Id(a),FloatLiteral(3.0))

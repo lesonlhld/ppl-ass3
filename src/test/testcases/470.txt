@@ -1,12 +1,13 @@
 
-        Var: a;
-        Function: main 
-        Body:
-        Var: a;
-        Return int_of_float(a+.2.5)+foo(int_of_float(a));
-        EndBody.
         Function: foo
-        Parameter: x
-        Body:
-        Return x == a;
-        EndBody.
+            Parameter: x, y, z
+            Body:
+                Return False;
+            EndBody.
+        Function: main
+            Body:
+                Var: x, y;
+                x = foo(True, 1, foo(x, y, False));
+                x = y;
+                Return;
+            EndBody.

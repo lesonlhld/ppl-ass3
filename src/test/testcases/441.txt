@@ -1,11 +1,14 @@
 
-        Var: x, a,b ,c;
-        Function: main 
-        Body:
-        Var:a,b,c;
-            If (x == (b!=c && (a > b + c))) Then Return;
-            ElseIf (x=="Chung Xon@@") Then Break;
-            Else 
-            x="successful";
-            EndIf.
-        EndBody.
+        Var: x;
+        Function: main
+            Parameter: x
+            Body:
+                Var: y, a = True;
+                y = !a && foo(x)[1];
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return {True, False};
+            EndBody.

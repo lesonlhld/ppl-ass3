@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Return(Id(f))
+Type Mismatch In Expression: CallExpr(Id(foo),[IntLiteral(1)])

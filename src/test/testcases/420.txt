@@ -1,10 +1,35 @@
-Function: main 
-        Parameter: varrr
-        Body:
-            Var: x =1;
-            Do
-                Var: x =1.5;
-                x= x+.1.5;
-            While x>1 
-            EndDo.
-        EndBody.
+
+        
+        
+        Var: a = 5;
+        Var: b, c[10];
+        
+                
+
+        Function: main
+            Parameter: main
+                   Body:
+            
+                   EndBody.
+                   
+
+        Function: foo
+                   Body: 
+
+
+                   EndBody.
+
+        Function: bar
+            Parameter: bar
+            Body:
+                bar = 5.0;
+                a = b + bar;
+            EndBody.
+
+        
+                   
+        
+
+                   
+                   
+                   

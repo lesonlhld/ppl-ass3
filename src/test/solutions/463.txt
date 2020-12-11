@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Return(Id(f))
+Type Mismatch In Statement: CallStmt(Id(main),[IntLiteral(1),FloatLiteral(1.1),ArrayLiteral(IntLiteral(1),IntLiteral(2))])

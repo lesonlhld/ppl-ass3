@@ -1,4 +1,22 @@
-**sau day la 1 ham \\ main\n**
-Function:**het y r** main ** test ne;**
-**cmt tum lum ~!$()>?:{}**    Body:Var: a=**235**865;
-    EndBody **Body**.
+
+        
+        
+        Var: a;
+
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                a = int_of_string;
+
+            EndBody.
+
+        Function: main
+            Body:
+                a = 1;
+            EndBody.
+                   
+        
+
+                   
+                   
+                   

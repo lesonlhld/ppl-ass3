@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(BinaryOp(==,Id(x),Id(a)))
+Type Cannot Be Inferred: Assign(Id(x),CallExpr(Id(foo),[BooleanLiteral(true),IntLiteral(1),CallExpr(Id(foo),[Id(x),Id(y),BooleanLiteral(false)])]))

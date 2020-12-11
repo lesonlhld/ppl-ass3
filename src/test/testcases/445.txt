@@ -1,8 +1,13 @@
 
-        Function: main 
-        Parameter: n[5],i
-        Body:
-            For (i = 0, i < 10, 1) Do
-                n[i]=n[i]+i;
-            EndFor.
-        EndBody.
+        Var: x;
+        Function: main
+            Body:
+                foo(1);
+                foo(foo(10));
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return;
+            EndBody.

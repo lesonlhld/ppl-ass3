@@ -1,14 +1,35 @@
-Var **test comment**: **bien = "STRING"**
-        ****fu[3]={0X743A5,0o26523,321 **cmt**},i****;****
-        Function: main
-            Body:
-            Var:x,y,j;
-                For (i=0, True, 1) Do
-                    x = y + 1;
-                EndFor.
+
+        
+        
+        Var: a = 5;
+        Var: b, c[10];
+        
                 
-                For (j=1, True, main()) Do
-                    y = x + 1;
-                EndFor.
-            EndBody.
+
+        Function: main
+            Parameter: main
+                   Body:
             
+                   EndBody.
+                   
+
+        Function: foo
+                   Body: 
+
+
+                   EndBody.
+
+        Function: bar
+            Parameter: bar
+            Body:
+                bar = 5.0;
+                a = bar + bar;
+            EndBody.
+
+        
+                   
+        
+
+                   
+                   
+                   

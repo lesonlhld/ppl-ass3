@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(ArrayCell(Id(c),[IntLiteral(2)]),ArrayLiteral(ArrayLiteral(IntLiteral(1),IntLiteral(3)),ArrayLiteral(IntLiteral(1),IntLiteral(5),IntLiteral(7))))
+Type Cannot Be Inferred: Assign(Id(x),Id(y))

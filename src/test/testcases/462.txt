@@ -1,11 +1,13 @@
-Function: main 
-        Parameter: x,y
-        Body:
-            foo(2 + x, 4. \. y);
-            goo();
-        EndBody.
+
+        Var: x[2][2] = {{1.1, 2.2},{3.3, 4.4}};
+        Function: main
+            Body:
+                x = foo(x);
+                Return;
+            EndBody.
         Function: foo
-        Body:
-            Var: a, c;
-            Return a + b;
-        EndBody.
+            Parameter: y[2][2]
+            Body:
+                Return {{1,2},{3,4}};
+            EndBody.
+            

@@ -1,6 +1,10 @@
-Function: main 
-        Parameter: a
-        Body:
-        Var: x; 
-            x = (a >=. 2.3e-13 || (x =/= 2e-35));
-        EndBody.
+
+        Var: x;
+        Function: main
+            Body:
+                Var: x,y,z;
+                Var: t;
+                t = !x && y || !z;
+                t = !x + 1;
+                Return;
+            EndBody.

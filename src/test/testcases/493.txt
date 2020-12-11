@@ -1,18 +1,19 @@
 
-            Function: sqrt
+        Function: sqrt
             Parameter: x
             Body:
-                Var: i;
-            While (i*i) < x Do
-                    i = i - -1;
-                EndWhile.
-                Return i-1;
+                Return 1.1;
             EndBody.
-            Function: main
-            Parameter: n,x
+        Function: radius
+            Parameter: x, y
             Body:
-                Var: i;
-                For (i = 0, i < sqrt(n), 2) Do
-                    x = i + n;
-                EndFor.
+                Var: radius;
+                radius = sqrt(x*.x +. y*.y);
+                Return radius;
+            EndBody.
+        Function: main
+            Body:
+                Var : x = 3.5e0, y = 4.6e-0;
+                printStrLn(string_of_float(radius(x, y)));
+                Return;
             EndBody.

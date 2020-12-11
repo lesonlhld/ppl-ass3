@@ -1,11 +1,11 @@
 
-        Function: call
-        Parameter: a, b, c, d, e,f
-        Body:
-            Return f;
-        EndBody.
         Function: main
-        Body:
-        Var: a, var, arr[5]={1};
-            a = call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n") +1;
-        EndBody.
+            Parameter: x, y, z[2]
+            Body:
+                While (x > int_of_float(z[x])) Do
+                    y = z[1];
+                    main(1, 1.1, {1,2});
+                EndWhile.
+                Return;
+            EndBody.
+            

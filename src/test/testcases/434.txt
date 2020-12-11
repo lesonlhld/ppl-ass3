@@ -1,6 +1,10 @@
-Function: main
-        Parameter: arr[2222]
-        Body:
-        Var: x,a=0X24211ABC;
-            x=arr[a+6];
-        EndBody.
+
+        Var: x;
+        Function: main
+            Body:
+                Var: x,y,z;
+                x = (1 + 2 *3 \ 4 % 5) * 6;
+                y = 1.1 *. 2.2 +. 3.3 -. 4.4 \. 5.5;
+                z = x + y;
+                Return;
+            EndBody.

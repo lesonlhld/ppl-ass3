@@ -1,4 +1,17 @@
-Function: main
+
+        Function: foo
+            Parameter: x
             Body:
-                Return "String";
+                x = 1;
+                Return {1,2};
+            EndBody.
+        Function: main
+            Body:
+                foo(goo(1)[0])[0] = foo(1)[1];
+                Return;
+            EndBody.
+        Function: goo
+            Parameter: x
+            Body:
+                Return {0};
             EndBody.

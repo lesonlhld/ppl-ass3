@@ -1,8 +1,27 @@
- 
-        Var: x =0;
-        Function: **comment chut da**main 
-        Body:
-            x=20;
-                x=100.0;
-        EndBody.
+
         
+
+
+        Var: a = 5;
+        Var: b[2][3] = {{2,3,4},{4,5,6}};
+        Var: c, d = 6, e, f;
+        Var: m, n[10];
+        
+        Function: foo
+            Body:
+            EndBody.
+
+
+        Function: main
+            Body:
+            EndBody.
+                   
+        Function: bar
+            Parameter: bar, a, b[2][3], m, n[10], int_of_string, bar
+            Body:
+                Var: c, d = 6, e, f, printStr;
+            EndBody.
+
+                   
+                   
+                   

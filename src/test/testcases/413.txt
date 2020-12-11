@@ -1,11 +1,19 @@
 
-                Function: foo
-                Parameter: x
-                Body:
-                EndBody.
-                Function: main
-                Body:
-                    Var: x, y = 0.5;
-                    foo(x);
-                    y = foo(x);
-                EndBody.
+        
+        
+        Var: a = 5;
+
+        Function: main
+            Body:
+            EndBody.
+                   
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                a = 3.0;
+
+            EndBody.
+
+                   
+                   
+                   

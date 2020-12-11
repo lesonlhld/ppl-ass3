@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(main),[Id(a),Id(y),Id(d)])
+Redeclared Function: b

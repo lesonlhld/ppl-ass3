@@ -1,10 +1,7 @@
-Function: main
-        Body:
-            Do
-                While(1) Do
-                foo (2 + x, 4. \. y);
-                goo ();
-            EndWhile.
-            While(1)
-            EndDo.
-        EndBody.
+
+        Function: main
+            Body:
+                For (x = 5, True, 1) Do
+                EndFor.
+                Return;
+            EndBody.

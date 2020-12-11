@@ -1,1 +1,1 @@
-Undeclared Function: goo
+Type Mismatch In Statement: Return(IntLiteral(1))

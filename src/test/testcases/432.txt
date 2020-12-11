@@ -1,18 +1,33 @@
 
-        Var: a,c,d;
-        Function: main
-        Parameter: b
-        Body:
-        Var: d;
-            a = -1082000;
-            b = -0X123BCD;
-            c = -0o21345;
-            d = -a;
-            c = -call(a);
-        EndBody.
-        Function: call
-                Parameter: s
-                Body:
-                    Return 0;
-                EndBody.
+        
+        
+        Var: a = 5;
+Var: b[2][3] = {{2,3,4},{4,5,6}};
+Var: c[2][3] , d = 6, e, f;
+Var: m, n[1];
+        
                 
+
+        
+                   
+
+        Function: main
+                   Body:
+                   b = bar(a);
+                   n = {1.0};
+                   bar(a)[e][f] = 3;
+                   f = n[bar(a)[e][foo(n)]];
+
+                   EndBody.
+
+        Function: foo
+            Parameter: foo[1]
+                   Body:
+                   EndBody.
+
+        Function: bar
+            Parameter: bar
+            Body:
+            EndBody.
+                   
+                   

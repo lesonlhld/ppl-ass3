@@ -1,12 +1,11 @@
 
-        Var: a[143];
+        Var: x;
         Function: main
-        Parameter: n,b[15]
-        Body:
-            a[a[3 + foo(2,2.6)][b||True]][b[b[1+0x369]]] = a[b[2][b[12E-9]*3]] + 4;
-        EndBody.
-        Function: foo
-        Parameter: a,b
-        Body:
-            Return 2;
-        EndBody.
+            Body:
+                Var: x, y = 1e3, z = 10;
+                z = - z;
+                x = !!x;
+                y = -. -. -.y;
+                x = !(-x);
+                Return;
+            EndBody.

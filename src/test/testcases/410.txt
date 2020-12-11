@@ -1,16 +1,31 @@
 
-        Var: x;
-Function: fact
-Parameter: n
-Body:
-If n == 0 Then
-Return 1;
-Else
-Return n * fact (n - 1);
-EndIf.
-EndBody.
-Function: main
-Body:
-x = 10;
-fact (x);
-EndBody.
+        
+
+
+        Var: a = 5;
+        Var: b[2][3] = {{2,3,4},{4,5,6}};
+        Var: c, d = 6, e, f;
+        Var: m, n[10];
+        
+        Function: foo
+            Parameter: foo, a, b[2][3], m, n[10], int_of_string, x
+            Body:
+                Var: c, d = 6, e, f, printStr;
+            EndBody.
+
+
+        Function: main
+            Body:
+                Var: c, d = 6, e, f, printStr, x;
+            EndBody.
+                   
+        Function: bar
+            Parameter: bar, a, b[2][3], m, n[10], int_of_string
+            Body:
+                Var: c, d = 6, e, f, printStr;
+                x = 1;
+            EndBody.
+
+                   
+                   
+                   

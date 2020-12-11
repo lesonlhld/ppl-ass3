@@ -1,5 +1,23 @@
-** This is a single-line comment. **
-** This is a
-* multi-line
-* comment.
-**
+
+        
+        
+        Var: a;
+
+        Function: bar
+            Parameter: n[10], int_of_string
+            Body:
+                int_of_string = 3.0;
+                int_of_string = a;
+
+            EndBody.
+
+        Function: main
+            Body:
+                a = 1;
+            EndBody.
+                   
+        
+
+                   
+                   
+                   

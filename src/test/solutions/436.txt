@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(%,FloatLiteral(2.5),IntLiteral(3))
+Type Mismatch In Statement: Assign(Id(x),BinaryOp(>=,Id(t),Id(z)))

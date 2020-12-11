@@ -1,9 +1,18 @@
 
-            Function: main
+        Function: foo
+            Parameter: x
             Body:
-            If "str" == "Chung Xon" Then
-                Return True;
-            Else
-                Return False;
-                EndIf.
+                x = 1;
+                Return;
+            EndBody.
+        Function: main
+            Body:
+                Var: x;
+                foo(goo(x));
+                Return;
+            EndBody.
+        Function: goo
+            Parameter: x
+            Body:
+                Return 1;
             EndBody.

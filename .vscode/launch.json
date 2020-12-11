@@ -10,6 +10,18 @@
             "startRule": "program",
             "printParseTree": true,
             "visualParseTree": true
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "args": [
+                "test",
+                "CheckSuite"
+            ],
+            "console": "integratedTerminal",
+            "env": { "PYTHONPATH": "${workspaceRoot}"}
         }
     ]
 }

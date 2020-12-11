@@ -209,8 +209,9 @@ class Symbol:
     def getNowSymbol(listSymbol):
         for x in listSymbol:
             if x.inHere == True:
+                Checker.checkUndeclared(listSymbol, x.name, Function())
                 return x
-        Checker.checkUndeclared(listSymbol, name, Function())
+        
 
     @staticmethod
     def updateParamType(envi, ast):
@@ -397,7 +398,7 @@ class Checker:
                         raise TypeMismatchInStatement(ast)
                 elif (type(left[i]) != Unknown and type(left[i]) != ArrayType and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown and type(left[i]) == type(right[i].eletype)):
                     pass
-                elif type(left[i]) != type(right[i]):
+                elif type(left[i]) != type(right[i]) or (type(left[i]) == ArrayType and type(right[i]) == ArrayType and type(left[i].eletype) != Unknown and type(right[i].eletype) != Unknown and type(left[i].eletype) != type(right[i].eletype)):
                     if type(ast) == CallExpr:
                         raise TypeMismatchInExpression(ast)
                     else:
@@ -551,7 +552,6 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             z = self.visit(y, localEnvi)
             if type(y) == Return:
                 listReturn.append(z)
-                
         Symbol.updateReturnType(listReturn, localEnvi, ast)
 
         # Update global environment

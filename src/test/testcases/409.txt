@@ -1,9 +1,29 @@
- 
-        Var: x;
-        Function: main
-        Parameter: i
-        Body:
-            If x==i Then Break;
-            EndIf. 
-        EndBody.
+
         
+
+
+        Var: a = 5;
+        Var: b[2][3] = {{2,3,4},{4,5,6}};
+        Var: c, d = 6, e, f;
+        Var: m, n[10];
+        
+        Function: foo
+            Parameter: foo, a, b[2][3], m, n[10], int_of_string
+            Body:
+                Var: c, d = 6, e, f, printStr;
+            EndBody.
+
+
+        Function: main
+            Body:
+            EndBody.
+                   
+        Function: bar
+            Parameter: bar, a, b[2][3], m, n[10], int_of_string
+            Body:
+                Var: c, d = 6, e, f, printStr, d;
+            EndBody.
+
+                   
+                   
+                   
