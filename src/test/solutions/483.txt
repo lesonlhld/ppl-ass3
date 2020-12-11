@@ -1,1 +1,1 @@
-TypeMismatchInStatement(CallStmt(Id("read"),[]))
+Undeclared Identifier: z

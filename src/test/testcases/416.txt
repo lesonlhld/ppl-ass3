@@ -1,5 +1,1 @@
-** This is a single-line comment. **
-** This is a
-* multi-line
-* comment.
-**
+Program([FuncDecl(Id(main)[],([][CallExpr(Id(foo),[])]))])

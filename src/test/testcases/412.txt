@@ -1,16 +1,4 @@
-
-        Var: n;
-        Function: fact
-        Parameter: themdauchamphay
-        Body:
-            If n == 0 Then
-                Return 1;
-            ElseIf (n>0) Then
-                Return n * fact (n - 1);
-            Else
-                Return n;
-            EndIf.
-        EndBody.
-        Function: main
-        Body:
-        EndBody.
+Function: main 
+                    Body:
+                        printStrLn(read(4));
+                    EndBody.

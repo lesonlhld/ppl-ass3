@@ -1,8 +1,11 @@
-Function: main 
-        Parameter: n
-        Body:
-            Var: t=False;
-            If n<100 Then t=True;
-            EndIf.
-            Return t;
-        EndBody.
+
+                Function: foo
+                Parameter: x,y
+                Body:
+                    foo (2 + x, 4. \. y);
+                    foo(x,y);
+                EndBody. 
+                Function: main
+                Body:
+                EndBody.           
+                

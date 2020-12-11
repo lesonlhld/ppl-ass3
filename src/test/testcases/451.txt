@@ -1,5 +1,9 @@
-Function: main
-        Body:
-        Var:i = 10;
-            While i < 5 Do Return; EndWhile.
-        EndBody.
+
+                Function: main
+                Body:
+                    Var: x=1,y;
+                    While (x)
+                    Do
+                    EndWhile.
+                EndBody.
+            

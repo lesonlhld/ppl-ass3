@@ -1,1 +1,1 @@
-TypeMismatchInExpression(VarDecl(Id("b"),[2,3],IntLiteral(5)))
+Redeclared Variable: x

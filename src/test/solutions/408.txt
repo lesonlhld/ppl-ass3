@@ -1,1 +1,1 @@
-TypeMismatchInStatement(Assign(Id("x"),FloatLiteral(100.0)))
+Type Mismatch In Statement: CallStmt(Id(foo),[FloatLiteral(1.0),FloatLiteral(2.0)])

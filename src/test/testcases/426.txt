@@ -1,8 +1,9 @@
 
-        Var: a,b,c,d;
-        Function: main 
-        Parameter: n
-        Body:
-        Var: x;
-            x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
-        EndBody.
+                Var:x;
+                Function: main
+                Body:
+                    Var:x;
+                    Var:main;
+                    Var:x[5]={1,2,3,4,5};
+                EndBody.
+            

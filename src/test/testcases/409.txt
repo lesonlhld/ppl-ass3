@@ -1,9 +1,11 @@
- 
-        Var: x;
-        Function: main
-        Parameter: i
-        Body:
-            If x==i Then Break;
-            EndIf. 
-        EndBody.
-        
+
+            Function: main
+            Parameter: x,y
+            Body:
+                y=0.5;
+                For(x=1,x==1,x+1) Do
+                EndFor.
+                For(y=1,y==1,y+1) Do
+                EndFor.
+            EndBody.    
+            

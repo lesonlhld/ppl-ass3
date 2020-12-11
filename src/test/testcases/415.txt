@@ -1,4 +1,1 @@
-**sau day la 1 ham \\ main\n**
-Function:**het y r** main ** test ne;**
-**cmt tum lum ~!$()>?:{}**    Body:Var: a=**235**865;
-    EndBody **Body**.
+Program([FuncDecl(Id(main)[],([][CallStmt(Id(printStrLn),[])]))])

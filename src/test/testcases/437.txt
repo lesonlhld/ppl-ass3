@@ -1,6 +1,10 @@
-Function: main 
-        Parameter: naybingeohuhu
-        Body:
-Var: r = 10., v;
-v = (4. \. 3.) *. 3.14 *. r *. r *. r;
-EndBody.
+
+                
+                Function: main
+                Body:
+                    Var:x;
+                    If x Then
+                        Var:y;
+                    EndIf.
+                EndBody.
+            

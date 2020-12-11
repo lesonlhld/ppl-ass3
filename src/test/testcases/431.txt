@@ -1,11 +1,6 @@
-
-        Var:var;
-        Function: main 
-        Parameter: a
-        Body:
-        Var: variable;
-            While (True) Do
-            Var: logic;
-                logic=a&&var||!variable;
-            EndWhile.
-        EndBody.
+               
+                Function: main
+                Body:
+                    foo();
+                EndBody.
+            

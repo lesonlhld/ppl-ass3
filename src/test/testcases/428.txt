@@ -1,6 +1,8 @@
-Var: a;
-        Function: main 
-        Parameter: n, arr[3][4][5]
-        Body:
-            a = 3*.4.5\0e-2+arr[3-main("call")];
-        EndBody.
+
+                
+                Function: main
+                Parameter: x
+                Body:
+                    Var:x;
+                EndBody.
+            

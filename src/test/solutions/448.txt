@@ -1,1 +1,1 @@
-Redeclared(Variable(),"sum")
+Type Mismatch In Statement: For(Id(x),UnaryOp(!,BooleanLiteral(true)),BinaryOp(>,Id(x),IntLiteral(1)),BinaryOp(+,IntLiteral(0),IntLiteral(1)),[],[])

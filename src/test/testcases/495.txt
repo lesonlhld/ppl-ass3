@@ -1,13 +1,20 @@
-Function: main 
-        Body:
-        Var:x;
-            While x>1 Do
-            Var: i,a = 4;
-                For (i = 100,True, i-1) Do
-                    If -a<-3 Then
-                        Break;
-                    EndIf.
-                    a = a -1;
-                EndFor.
-            EndWhile.
-        EndBody.
+
+        Function : print
+            Parameter : x
+            Body:
+                Return;
+            EndBody.
+
+            Function: m
+            Body:
+                Var : value = 12345;
+                Return value;
+            EndBody.
+
+            Function: main
+            Parameter : x, y
+            Body: 
+                print(m); 
+                Return 0;
+            EndBody.
+            

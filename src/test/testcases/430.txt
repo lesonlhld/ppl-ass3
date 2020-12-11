@@ -1,8 +1,8 @@
-Var:c[4],b[108];
-        Function: main 
-        Parameter: i , j, arr[1001]
-        Body:
-        Var:a[2005];
-            a[i] = arr[c[2+j][b[i]*3]] + 4;
-            i = i + 1;
-        EndBody.
+
+                Var:x;
+                Function: main
+                Parameter: x
+                Body:
+                    x=foo;
+                EndBody.
+            

@@ -1,1 +1,0 @@
-TypeMismatchInStatement(For(Id("j"),IntLiteral(1),BooleanLiteral(True),CallExpr(Id("main"),[]),([],[Assign(Id("y"),BinaryOp("+",Id("x"),IntLiteral(1)))])))

@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(Id("a"),BinaryOp("+",Id("a"),CallExpr(Id("foo"),[Id("x")]))))
+Type Mismatch In Statement: CallStmt(Id(main),[IntLiteral(2)])

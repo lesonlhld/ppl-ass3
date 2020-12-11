@@ -1,18 +1,13 @@
 
-        Var: a,c,d;
-        Function: main
-        Parameter: b
-        Body:
-        Var: d;
-            a = -1082000;
-            b = -0X123BCD;
-            c = -0o21345;
-            d = -a;
-            c = -call(a);
-        EndBody.
-        Function: call
-                Parameter: s
+                Function: main
+                Parameter: x,y,a
                 Body:
-                    Return 0;
+                    y = a +foo(x);
                 EndBody.
-                
+
+                Function: foo
+                Parameter: x
+                Body:
+
+                EndBody.
+            

@@ -1,1 +1,1 @@
-NoEntryPoint()
+Undeclared Function: foo
