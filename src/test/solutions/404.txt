@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[FloatLiteral(2.5)])
+Type Cannot Be Inferred: CallStmt(Id(main),[Id(a),Id(y),Id(d)])

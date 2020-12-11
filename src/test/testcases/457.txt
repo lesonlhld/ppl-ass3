@@ -1,11 +1,7 @@
-                
-                Function: main
-                Body:
-                    Var: x;
-                    If x Then
-                        Return 1;
-                    Else
-                        Return 1.5;
-                    EndIf.
-                EndBody.
-            
+Function: main 
+        Parameter: a
+        Body:
+            Do  
+                Return a;
+            While a =/= 2.2 EndDo.
+        EndBody.

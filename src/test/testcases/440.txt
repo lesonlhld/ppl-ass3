@@ -1,10 +1,12 @@
-                
-                Function: main
-                Body:
-                    Var: x;
-                    For (x=1, x>1 , x+1) Do
-                        Var:y;
-                    EndFor.
-                EndBody.
-
-            
+Function: main
+        Parameter: n
+        Body:
+        Var: a, b;
+            If bool_of_string("True") Then
+                a = int_of_string (read ());
+            ElseIf n =/= 1.08 Then
+                b = float_of_int (a) +. 2.0;
+            ElseIf False Then
+                Return n;
+            EndIf.
+        EndBody.

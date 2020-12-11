@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[Id(x),Id(y)])
+Type Mismatch In Expression: BinaryOp(||,FloatLiteral(2.3e-13),BinaryOp(=/=,Id(x),FloatLiteral(2e-35)))

@@ -1,11 +1,7 @@
-
-                Function: main
-                Body:
-                    Var:x;
-                    x = 1+foo();
-                EndBody.
-                Function: foo
-                Body:
-                    Return 1.5;
-                EndBody.
-            
+Function: main
+        Parameter: x,a,b
+        Body:
+            Do x = a + b;
+            While(x<1000.e5)
+            EndDo.
+        EndBody.

@@ -1,12 +1,13 @@
-
-        Var: x;
-        Function: main 
-            Parameter: x[5]
-            Body:
-                x = {1.,2.,3.,4.,5.};
-            EndBody.
-        Function: foo
-            Body:
-                x = 2;
-            EndBody.
-        
+Function: main
+        Body:
+            m = test2(a,b) + main (x);
+        EndBody.
+        Function: test2
+        Body:
+            Do
+                If(z == 1) Then
+                    x = !a;
+                EndIf.
+            While x
+            EndDo.
+        EndBody.

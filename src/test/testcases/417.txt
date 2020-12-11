@@ -1,10 +1,9 @@
 
-                
-                Function: main
-                Parameter: x,y,z,t,k
-                Body:
-                    y= x + y \ z * t;
-                    x= k % t;
-                    y= x == z;
-                EndBody.
-            
+        **Function: main 
+        Parameter: x, a
+        Body:
+            While x>1 Do
+                Var: a = 10;
+            EndWhile.
+        EndBody.**
+        

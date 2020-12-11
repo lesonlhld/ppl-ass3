@@ -1,1 +1,1 @@
-Undeclared Identifier: prod
+Type Mismatch In Statement: Assign(Id(x),ArrayLiteral(FloatLiteral(996.24),FloatLiteral(712.464),FloatLiteral(216.454)))

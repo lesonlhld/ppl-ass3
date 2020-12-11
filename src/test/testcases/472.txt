@@ -1,6 +1,7 @@
-
-            Function: main 
-            Body: 
-                Var: a=1,x; 
-                a=foo(x); 
-            EndBody.             
+Function: main 
+                Parameter: x[2][3]
+        Body:
+            Var: i = 0;
+            x[2][3]={{867,345,987},{76,12,744}};
+            printStrLn(string_of_int(x[2]));
+        EndBody.

@@ -1,10 +1,5 @@
-
-                
-                Function: main
-                Body:
-                    Var:a[5]= {1,2,3,4,5};
-                    Var:b[5];
-                    b={1.,2.,3.,4.,5.};
-                    a=b;
-                EndBody.
-            
+Function: main 
+        Body:
+            Do0=1; While True
+            EndDo.
+        EndBody.

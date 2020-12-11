@@ -1,9 +1,8 @@
 
-            Function: main 
-            Parameter: x
-            Body:
-                Var: y = 1; 
-                main(y); 
-                x = 1.0; 
-            EndBody.
-            
+        Function: main 
+        Parameter: a, b,c[123] ,d[123][234][0]  ,e
+        Body:
+        Var: z[0]={};
+            a=1;
+        EndBody.
+        

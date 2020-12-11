@@ -1,14 +1,10 @@
 
-                
-                Function: main
-                Body:
-                    Var:x;
-                    x = 1 + foo(x);
-                EndBody.               
-                Function: foo
-                Parameter: x
-                Body:
-
-                EndBody.
-
-            
+        Function: main
+        Body:
+            Var: x=1;
+            If x > 10 Then
+                x=25+6-.2.5%3\100*x;
+            Else
+                x=x+2;
+            EndIf.
+        EndBody.

@@ -1,9 +1,10 @@
-                
-                Function: main
-                Body:
-                    Var:a[5]= {1,2,3,4,5};
-                    Var:b[5];
-                    a=b;
-                    a[5]=b;
-                EndBody.
-            
+Function: main 
+        Parameter: varrr
+        Body:
+            Var: x =1;
+            Do
+                Var: x =1.5;
+                x= x+.1.5;
+            While x>1 
+            EndDo.
+        EndBody.

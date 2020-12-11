@@ -1,10 +1,10 @@
-
-                Function: main
-                Body:
-                    foo();
-                EndBody.
-                Function: foo
-                Body:
-                    Return 1;
-                EndBody.
-            
+Function: main
+        Parameter: a
+        Body:
+            Do
+                While a<100 Do
+                    a=a-30;
+                EndWhile.
+            While (a>.1.5)
+            EndDo.
+        EndBody.

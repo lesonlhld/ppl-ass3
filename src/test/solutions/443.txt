@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[IntLiteral(1)])
+Type Mismatch In Expression: VarDecl(Id(stringID),[108],StringLiteral(day la \\ 1 chuoi !!))

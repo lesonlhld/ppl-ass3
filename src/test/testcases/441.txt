@@ -1,16 +1,11 @@
 
-                Function: main
-                Body:
-                    Var: x;
-                    While (foo(x))
-                    Do
-                        x=1;
-                    EndWhile.
-                EndBody.
-                
-                Function: foo
-                Parameter: x
-                Body:
-
-                EndBody.
-            
+        Var: x, a,b ,c;
+        Function: main 
+        Body:
+        Var:a,b,c;
+            If (x == (b!=c && (a > b + c))) Then Return;
+            ElseIf (x=="Chung Xon@@") Then Break;
+            Else 
+            x="successful";
+            EndIf.
+        EndBody.

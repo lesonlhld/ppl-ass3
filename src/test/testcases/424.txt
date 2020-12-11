@@ -1,7 +1,7 @@
-                
-                Function: main
-                Body:
-                    Var:a[5],b[5];
-                    a=b;
-                EndBody.
-            
+Function: main 
+        Body:
+        Var: k,i;
+            If ((k==1)&&(i!=0))||(k==5.6)||!j Then
+                f=f%3;
+            EndIf.
+        EndBody.

@@ -1,15 +1,12 @@
-
-                Var: abc[5];
-                Function: foo
-                Parameter: x[2]
-                Body:
-                    x[1] = 1;
-                    abc[1] = 2;
-                EndBody.
-                Function: main
-                Body:
-                    Var: z[2] = {1,2};
-                    Var: w[2] = {3,4};
-                    Var: x;
-                    abc[1] = 1.5;   
-                EndBody.         
+Function: main 
+        Parameter: n,a,b
+        Body:
+            Var: i = 0,c;
+            While i!=423 Do
+                i = i + 3; **cmt**
+                If i==212 Then Break;
+                a = (!(b && c)||!(a&&b)&&(i+1)==234); 
+                EndIf.
+            EndWhile.
+        EndBody.
+        

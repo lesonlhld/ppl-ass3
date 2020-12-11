@@ -1,11 +1,17 @@
 
-                Function: main
-                Body:
-                    Var:x;
-                    If True Then
-                        x = 3;
-                    Else 
-                        x = 2.0;
+        Var: x;
+        Function: main
+            Parameter: j, brr[1000]
+            Body:
+                Var: x=0,i;
+                For (i=0,True,i) Do
+                    Var:x=1;
+                    Do
+                        Var:x=2;
+                    While1==0
+                    EndDo.
+                    IfTrueThen
+                        Var:x=3;
                     EndIf.
-                EndBody.
-            
+                EndFor.
+            EndBody.

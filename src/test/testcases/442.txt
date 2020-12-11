@@ -1,11 +1,13 @@
 
-                Function: main
-                Body:
-                    Var: x,y;
-                    While (x)
-                    Do
-                        Var:z;
-                        y=1;
-                    EndWhile.
-                EndBody.
-            
+        Var: i;
+        Function: main
+        Body:
+        Var: n;
+            If i <. 4.5 Then
+                printStrLn(string_of_float(i));
+            ElseIf n > 10 Then 
+                Break;
+            Else
+                int_of_float(i)=int_of_float(i)-1;
+            EndIf.
+            EndBody.

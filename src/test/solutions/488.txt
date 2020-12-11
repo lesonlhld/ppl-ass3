@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallExpr(Id(main),[Id(x),Id(y)])
+Undeclared Identifier: n

@@ -1,11 +1,13 @@
-
-                Function: foo
-                Body:
-                EndBody.
-                Function: main
-                Body:
-                    Var:x;
-                    foo();
-                    foo() = x+1;
-                EndBody.
-            
+Function: main 
+        Parameter: n
+        Body:
+            While True Do
+                Whilen>=1 Do
+                    Whilen<.69.96 Do
+                        While n%3==1 Do
+                            n = n \ 5;
+                        EndWhile
+                    .EndWhile.
+                EndWhile.
+            EndWhile.
+        EndBody.

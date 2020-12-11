@@ -1,7 +1,3 @@
-
-        Var:x =1;
-        Function: main
-        Parameter: y
-        Body:
-            x = main(0.5) + y;
-        EndBody.            
+Function: main
+            Body:Var: x[123]={"duwat73\r \t", "@#&\n rwFEW54",54312,10.e13, 0.123, 543.0e-6  ,{"xe mau xanh"},"xe mau do"};
+        EndBody.

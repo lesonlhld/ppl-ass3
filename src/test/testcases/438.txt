@@ -1,13 +1,5 @@
-
-                
-                Function: main
-                Body:
-                    Var:x;
-                    If x Then
-                        x=1;
-                    Else
-                        Var:y,z;
-                        y=x;
-                    EndIf.
-                EndBody.
-            
+Function: main 
+        Parameter: n,a[3], b[2][3], c[1]
+        Body:a = {1,2,3}; b[2][3] = 5;
+        c[2] = {{1,3},{1,5,7}};
+        EndBody.

@@ -1,9 +1,6 @@
-
-                Function: main
-                Body:
-                    If True Then
-                    ElseIf True Then
-                        Var: a;
-                    EndIf.
-                EndBody.
-            
+Function: main 
+        Parameter: i
+        Body:
+            If i==0 Then Return;
+            EndIf.
+        EndBody.

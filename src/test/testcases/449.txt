@@ -1,8 +1,9 @@
-
-                Function: main
-                Body:
-                    Var: x,y=0.5;
-                    For (x=1, x>1 , y +. 1) Do
-                    EndFor.
-                EndBody.
-            
+Function: main
+        Body:
+            Var: i = 0,k=10;
+            While i !=k Do
+            Var:a[5],b, c = "Hello";
+                a[i] = b + i + int_of_string();
+                i = i + 1;
+            EndWhile.
+        EndBody.

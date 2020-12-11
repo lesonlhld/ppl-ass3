@@ -1,7 +1,4 @@
-
-
-                Function: main
-                Body:
-                    x=1;
-                EndBody.    
-            
+ 
+        Var: decimal[108], hexadecimal[0X5456A][0x205F], octdecimal[0o413215][0O123];
+        Var: array[5][13456];
+        

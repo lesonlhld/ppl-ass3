@@ -598,8 +598,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
     def visitCallExpr(self, ast: CallExpr, globalEnvi):
         symbol = Symbol.getSymbol(ast.method.name, globalEnvi)
         paramType = [self.visit(x, globalEnvi) for x in ast.param]
-        typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
 
+        try:
+            typeReturn = Checker.checkCall(ast, globalEnvi, paramType)
+        except TypeCannotBeInferred:
+            raise TypeCannotBeInferred(ast)
         Symbol.updateParamType(globalEnvi, ast)
         return typeReturn
 
@@ -610,6 +613,9 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         if type(arrType) != ArrayType and type(ast.arr) == CallExpr:
             raise TypeCannotBeInferred(ast)
         elif type(arrType) != ArrayType:
+            raise TypeMismatchInExpression(ast)
+
+        if len(arrType.dimen) != len(idxType):
             raise TypeMismatchInExpression(ast)
         for x in range(len(idxType)):
             if type(idxType[x]) == Unknown:
@@ -730,7 +736,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         if ast.expr == None:
             typeReturn = VoidType()
         else:
-            typeReturn = self.visit(ast.expr, envi)
+            try:
+                typeReturn = self.visit(ast.expr, envi)
+            except TypeCannotBeInferred:
+                raise TypeCannotBeInferred(ast)
+            
         if type(typeReturn) != type(symbol.mtype.restype) and type(symbol.mtype.restype) != Unknown:
             raise TypeMismatchInStatement(ast)
         elif type(typeReturn) == Unknown or (type(typeReturn) == ArrayType and type(typeReturn.eletype) == Unknown):
@@ -758,9 +768,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             Checker.checkOneSideType(exp, ast.exp, envi, BoolType(), BoolType())
         elif type(exp) != BoolType:
             raise TypeMismatchInStatement(ast)
-
-        typeReturn = Symbol.updateReturnType(listReturn, localEnvi, ast)
-        Checker.updateEnvi(envi, localEnvi, varDecl)
+        
+        typeReturn = Symbol.updateReturnType(listReturn, envi, ast)
         Symbol.updateParamType(envi, ast)
         return typeReturn
 

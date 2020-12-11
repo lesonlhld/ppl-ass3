@@ -1,11 +1,6 @@
+Function: main
+        Body:
+            Var: a[12] = { 5 };
+            Var: x[45]={{{{{5}}}}};
 
-                Function: main
-                Parameter: x
-                Body:
-                    Var:y;
-                    Do
-                        x=1;
-                        main(0.5);
-                    While y 
-                    EndDo.
-                EndBody.            
+        EndBody.
