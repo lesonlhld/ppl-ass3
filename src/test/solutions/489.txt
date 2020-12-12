@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(ArrayCell(Id(x),[ArrayCell(Id(x),[IntLiteral(0),Id(y)]),CallExpr(Id(foo),[Id(x),CallExpr(Id(foo),[Id(x),Id(y)])])]),FloatLiteral(1.1))
+TypeMismatchInExpression(BinaryOp("+",Id("a"),IntLiteral(5)))

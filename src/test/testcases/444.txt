@@ -1,13 +1,9 @@
 
-        Var: x;
         Function: main
-            Body:
-                foo(1);
-                x = foo(1) + 2;
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return;
-            EndBody.
+        Body:
+        Var: i = 0, a;
+            For (i = 0, i < 10, 2) Do
+                a= int_of_float(float_of_string(read()));
+                Return a;
+            EndFor.
+        EndBody.

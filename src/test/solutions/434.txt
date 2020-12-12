@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+,Id(x),Id(y))
+TypeCannotBeInferred(Assign(Id("x"),ArrayCell(Id("arr"),[BinaryOp("+",Id("a"),IntLiteral(6))])))

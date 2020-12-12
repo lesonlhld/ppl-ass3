@@ -1,13 +1,8 @@
 
+        Var: a,b,c,d;
+        Function: main 
+        Parameter: n
+        Body:
         Var: x;
-        Function: main
-            Body:
-                Var: foo;
-                x = 1 + 2 - foo(1);
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return x;
-            EndBody.
+            x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
+        EndBody.

@@ -1,5 +1,5 @@
-Var: x, main, y;
-        Function: main
-            Body:
-                Return;
-            EndBody.
+** This is a single-line comment. **
+** This is a
+* multi-line
+* comment.
+**

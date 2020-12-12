@@ -1,1 +1,1 @@
-No Entry Point
+TypeMismatchInExpression(BinaryOp("%",FloatLiteral(2.5),IntLiteral(3)))

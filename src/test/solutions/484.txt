@@ -1,1 +1,0 @@
-Type Mismatch In Statement: For(Id(x),IntLiteral(5),Id(y),CallExpr(Id(foo),[BinaryOp(&&,BooleanLiteral(false),Id(y))]),[],[For(Id(z),CallExpr(Id(foo),[Id(y)]),Id(y),Id(x),[],[])])

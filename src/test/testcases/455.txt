@@ -1,12 +1,10 @@
-
-        Var: x;
-        Function: main
-            Body:
-                x = foo(x) + x;
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
+Function: main
+        Parameter: a
+        Body:
+            Do
+                While a<100 Do
+                    a=a-30;
+                EndWhile.
+            While (a>.1.5)
+            EndDo.
+        EndBody.

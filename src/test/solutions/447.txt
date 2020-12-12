@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+.,CallExpr(Id(foo),[IntLiteral(10)]),FloatLiteral(1.1))
+TypeMismatchInExpression(BinaryOp("+.",BinaryOp("*",Id("i"),Id("i")),FloatLiteral(1.5)))

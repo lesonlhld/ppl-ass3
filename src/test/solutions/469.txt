@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallExpr(Id(goo),[Id(x)])
+TypeMismatchInExpression(BinaryOp("==",StringLiteral("str"),StringLiteral("Chung Xon")))

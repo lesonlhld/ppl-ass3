@@ -1,1 +1,1 @@
-Redeclared Variable: x
+TypeMismatchInStatement(CallStmt(Id("fact"),[Id("x")]))

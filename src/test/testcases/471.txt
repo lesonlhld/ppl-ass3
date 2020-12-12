@@ -1,18 +1,8 @@
-
-        Function: foo
-            Parameter: x, y
-            Body:
-                Var: z;
-                While (True) Do
-                    z = foo(1, foo(x, True));
-                EndWhile.
-                Return y && z;
-            EndBody.
-        Function: main
-            Parameter: x,y,z
-            Body:
-                If (True) Then
-                    main(1, 2.2, foo(x, y));
-                EndIf.
-                Return;
-            EndBody.
+Function: main
+        Parameter: x[123]
+        Body:
+            Var: i = 0;
+            x={996.24,712.464,216.454};
+            printStrLn(string_of_float(x[2]));
+            printStrLn(string_of_int(x[2]));
+        EndBody.

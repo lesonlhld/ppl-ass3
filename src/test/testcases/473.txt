@@ -1,12 +1,17 @@
 
-        Function: foo
-            Parameter: x, y
-            Body:
-                Var: z;
-                z = foo(y+1, foo(x, 1.1));
-                Return z;
-            EndBody.
+        Var: x;
         Function: main
+            Parameter: j, brr[1000]
             Body:
-                Return;
+                Var: x=0,i;
+                For (i=0,True,i) Do
+                    Var:x=1;
+                    Do
+                        Var:x=2;
+                    While1==0
+                    EndDo.
+                    IfTrueThen
+                        Var:x=3;
+                    EndIf.
+                EndFor.
             EndBody.

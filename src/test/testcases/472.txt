@@ -1,18 +1,7 @@
-
-        Function: foo
-            Parameter: x, y
-            Body:
-                Return False;
-            EndBody.
-        Function: main
-            Parameter: x,y,z
-            Body:
-                Var: a, b;
-                If (True) Then
-                    main(1, 2.2, foo(x, y));
-                EndIf.
-                a = x;
-                b = y;
-                main(a, b, "Hello");
-                Return;
-            EndBody.
+Function: main 
+                Parameter: x[2][3]
+        Body:
+            Var: i = 0;
+            x[2][3]={{867,345,987},{76,12,744}};
+            printStrLn(string_of_int(x[2]));
+        EndBody.

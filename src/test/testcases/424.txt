@@ -1,7 +1,7 @@
-
-        Var: x;
-        Function: main
-            Body:
-                x = foo(1);
-                Return;
-            EndBody.
+Function: main 
+        Body:
+        Var: k,i;
+            If ((k==1)&&(i!=0))||(k==5.6)||!j Then
+                f=f%3;
+            EndIf.
+        EndBody.

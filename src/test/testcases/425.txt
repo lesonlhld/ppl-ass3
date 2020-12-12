@@ -1,8 +1,6 @@
-
-        Var: x;
-        Function: main
-            Body:
-                Var: foo;
-                x = foo(1);
-                Return;
-            EndBody.
+Function: main 
+        Parameter: n
+        Body:
+            Var: a[3] = {1,2,3}, b[2][3], c[2][3] = {{1,3},{3,5,7}};
+            a[3+foo(3)] = a[b[2][3]] + 4;
+        EndBody.

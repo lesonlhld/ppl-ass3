@@ -1,5 +1,9 @@
-Var: x, y, z;
+ 
+        Var: x;
         Function: main
-            Body:
-                Return;
-            EndBody.
+        Parameter: i
+        Body:
+            If x==i Then Break;
+            EndIf. 
+        EndBody.
+        

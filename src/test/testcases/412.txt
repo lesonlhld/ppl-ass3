@@ -1,11 +1,16 @@
-Var: a;
-                    Function: main
-                    Parameter: b
-                    Body:
-                        Var: i;
-                        For (i = 2, i == b, 6) Do
-                            a = 6;
-                        EndFor.
-                        b = a +. 2.2;          
-                        Return a;
-                    EndBody.
+
+        Var: n;
+        Function: fact
+        Parameter: themdauchamphay
+        Body:
+            If n == 0 Then
+                Return 1;
+            ElseIf (n>0) Then
+                Return n * fact (n - 1);
+            Else
+                Return n;
+            EndIf.
+        EndBody.
+        Function: main
+        Body:
+        EndBody.

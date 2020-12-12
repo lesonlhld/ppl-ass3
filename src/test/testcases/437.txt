@@ -1,9 +1,6 @@
-
-        Var: x;
-        Function: main
-            Parameter: x
-            Body:
-                Var: y;
-                x = y;
-                Return;
-            EndBody.
+Function: main 
+        Parameter: naybingeohuhu
+        Body:
+Var: r = 10., v;
+v = (4. \. 3.) *. 3.14 *. r *. r *. r;
+EndBody.

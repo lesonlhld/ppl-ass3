@@ -1,14 +1,9 @@
 
-        Function: foo
-            Body:
-                Return;
-            EndBody.
-        Function: main
-            Body:
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x,y,z
-            Body:
-                Return;
-            EndBody.
+        **Function: main 
+        Parameter: x, a
+        Body:
+            While x>1 Do
+                Var: a = 10;
+            EndWhile.
+        EndBody.**
+        

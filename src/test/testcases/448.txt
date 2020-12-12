@@ -1,12 +1,11 @@
 
-        Var: x;
         Function: main
-            Body:
-                foo(10);
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
+        Parameter: row,col,sum,arr[5][9]
+        Body:
+            Var: sum=0;
+            For( i=0,i<=row,1) Do
+                For(j=0,j<col,2) Do
+                    sum=sum+arr[i][j];
+                EndFor.
+            EndFor.
+        EndBody.

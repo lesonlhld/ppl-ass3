@@ -1,20 +1,5 @@
-
-        Var: x;
-        Function: foo
-            Parameter: x[3]
-            Body:
-                While (True) Do
-                    x = {4,5,6};
-                    Return 1;
-                EndWhile.
-                Return 1;
-            EndBody.
-        Function: main
-            Body:
-                x = foo(goo()) +. 1.1;
-                Return;
-            EndBody.
-        Function: goo
-            Body:
-                Return {1,2,3};
-            EndBody.
+Function: main
+        Body:
+        Var:i = 10;
+            While i < 5 Do Return; EndWhile.
+        EndBody.

@@ -1,6 +1,4 @@
-Var: x, y, z;
-        Function: main
-            Parameter: x, y, z, main
-            Body:
-                Return;
-            EndBody.
+**sau day la 1 ham \\ main\n**
+Function:**het y r** main ** test ne;**
+**cmt tum lum ~!$()>?:{}**    Body:Var: a=**235**865;
+    EndBody **Body**.

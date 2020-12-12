@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(x),BinaryOp(>=,Id(t),Id(z)))
+TypeMismatchInExpression(BinaryOp("%",FloatLiteral(2.5),IntLiteral(3)))

@@ -1,0 +1,1 @@
+TypeCannotBeInferred(CallStmt(Id("foo"),[Id("x")]))

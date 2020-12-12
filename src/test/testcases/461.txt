@@ -1,12 +1,11 @@
 
-        Function: foo
-            Parameter: x
-            Body:
-                Return {True,False};
-            EndBody.
+        Function: call
+        Parameter: a, b, c, d, e,f
+        Body:
+            Return f;
+        EndBody.
         Function: main
-            Body:
-                Var: a,b;
-                foo(True)[0] = foo(1)[1];
-                Return;
-            EndBody.
+        Body:
+        Var: a, var, arr[5]={1};
+            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
+        EndBody.

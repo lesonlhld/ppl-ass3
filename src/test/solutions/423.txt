@@ -1,1 +1,1 @@
-Undeclared Function: x
+TypeMismatchInExpression(BinaryOp("\.",Id("n"),IntLiteral(5)))

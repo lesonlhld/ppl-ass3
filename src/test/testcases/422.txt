@@ -1,8 +1,1 @@
-
-        Var: x;
-        Function: main
-            Body:
-                Var: y;
-                x = y()[1] + 1;
-                Return;
-            EndBody.
+Var: a =True;Function:main Parameter:x,b Body:If!a Thenb=2; ElseWhile(x>0)DoBreak;EndWhile.EndIf.EndBody.

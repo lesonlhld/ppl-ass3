@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(x),Id(y))
+TypeMismatchInExpression(BinaryOp("<",Id("x"),FloatLiteral(100000000.0)))

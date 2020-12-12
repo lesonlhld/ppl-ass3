@@ -1,9 +1,8 @@
-
-        Var: x;
-        Function: main
-            Body:
-                Var: x[3][2] = { {6.6,5.5}, {4.4,3.3}, {2.2,1.1} };
-                Var: y[3][2] = { {1,2}, {3,4}, {5,6} };
-                x = y;
-                Return;
-            EndBody.
+Var:c[4][5],b[108];
+        Function: main 
+        Parameter: i , j, arr[1001]
+        Body:
+        Var:a[2005];
+            a[i] = arr[c[2+j][b[i]*3]] + 4;
+            i = i + 1;
+        EndBody.

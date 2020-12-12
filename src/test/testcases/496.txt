@@ -1,20 +1,13 @@
-           
+
         Function: main
-            Body:
-                Var: a[3][2] = {{1,2},{3,4},{5,6}}, i = 0;
-                While i < 3 Do
-                    Var: j = 0;
-                    If i < j Then
-                        Continue;
-                    EndIf.
-                    While (j < 2) Do
-                        printStrLn(string_of_int(a[i][j]));
-                        j =  j + 1;
-                        If j == 3 Then
-                            Continue;
-                        EndIf.
-                    EndWhile.
-                    i = i + 1;           
-                EndWhile.
-                Return;
-            EndBody.
+        Parameter: a[123], b, c[13][14][15]
+        Body:
+        Var: y;
+            If a[12] > b Then
+                Var: x;
+                Do
+                    a = b + 3; 
+                    c[2][3] = int_of_float(c[4][2]+.10.2*.main(a,b,c))+a[2+int_of_float(main({2},a[3],a))+int_of_float(c[4])]; 
+                While (x == y)  EndDo.
+            EndIf.
+        EndBody.

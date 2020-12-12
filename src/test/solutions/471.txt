@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Assign(Id(z),CallExpr(Id(foo),[IntLiteral(1),CallExpr(Id(foo),[Id(x),BooleanLiteral(true)])]))
+TypeMismatchInStatement(Assign(Id("x"),ArrayLiteral([FloatLiteral(996.24),FloatLiteral(712.464),FloatLiteral(216.454)])))

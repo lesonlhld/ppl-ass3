@@ -1,12 +1,8 @@
 
-        Var: x;
+        Var: i=0, k=100;
         Function: main
-            Body:
-                x = foo(10) +. 1.1;
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
+        Body:
+            For (i=12, i < k, i*i) Do
+            goo();
+            EndFor.
+        EndBody.

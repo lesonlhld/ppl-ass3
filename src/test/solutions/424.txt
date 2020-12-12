@@ -1,1 +1,1 @@
-Undeclared Function: foo
+TypeMismatchInExpression(BinaryOp("==",Id("k"),FloatLiteral(5.6)))
