@@ -1,19 +1,11 @@
-
-        
-        
-        
-
-
-        Function: main
-            Body:
-            EndBody.
-                   
-        Function: bar
-            Parameter: n[10], int_of_string, a
-            Body:
-                bar = 1;
-            EndBody.
-
-                   
-                   
-                   
+Var: a;
+                    Function: main
+                    Parameter: b
+                    Body:
+                        Var: i;
+                        For (i = 2, i == b, 6) Do
+                            a = 6;
+                        EndFor.
+                        b = a +. 2.2;          
+                        Return a;
+                    EndBody.

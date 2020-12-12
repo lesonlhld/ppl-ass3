@@ -1,1 +1,1 @@
-Redeclared Function: int_of_string
+Type Mismatch In Statement: CallStmt(Id(printStrLn),[])

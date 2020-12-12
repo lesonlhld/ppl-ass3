@@ -1,35 +1,6 @@
 
-        
-        
-        Var: a = 5;
-        Var: b, c[10];
-        
-                
-
         Function: main
-            Parameter: main
-                   Body:
-            
-                   EndBody.
-                   
-
-        Function: foo
-                   Body: 
-
-
-                   EndBody.
-
-        Function: bar
-            Parameter: bar
             Body:
-                bar = 5.0;
-                a = a + bar;
+                x = 1;
+                Return;
             EndBody.
-
-        
-                   
-        
-
-                   
-                   
-                   

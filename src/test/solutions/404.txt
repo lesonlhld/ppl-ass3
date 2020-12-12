@@ -1,1 +1,1 @@
-Redeclared Function: b
+Type Mismatch In Expression: CallExpr(Id(read),[IntLiteral(4)])

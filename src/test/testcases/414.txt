@@ -1,22 +1,6 @@
 
-        
-        
-        Var: a;
-
-        Function: bar
-            Parameter: n[10], int_of_string
-            Body:
-                a = 3.0;
-
-            EndBody.
-
         Function: main
+            Parameter: x,x,y
             Body:
-                a = 1;
+                Return;
             EndBody.
-                   
-        
-
-                   
-                   
-                   

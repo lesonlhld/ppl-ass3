@@ -11,6 +11,6 @@ Var: x;
         Function: main
             Body:
                 x = 10;
-                printStr(string_of_int(fact(x)));
+                print(string_of_int(fact(x)));
                 Return;
             EndBody.

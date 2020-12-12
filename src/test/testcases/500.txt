@@ -1,17 +1,7 @@
- 
-            Var: b;
+
+                Var: a = "Truong", b = "Dep", c = "Trai";
                 Function: main
                 Body:
-                    Var: a = 5,x;
-                    a = a + foo(x);
-                    b = 5.2;
-                    Return 3;
+                    a = b + c;
                 EndBody.
-
-                Function: foo
-                Parameter: a
-                Body:
-                    Var: c = 5;
-                    Return c;
-                EndBody.
-            
+                

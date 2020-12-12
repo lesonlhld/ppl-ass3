@@ -1,1 +1,1 @@
-Redeclared Variable: bar
+No Entry Point

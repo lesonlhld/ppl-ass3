@@ -1,18 +1,6 @@
-
-        
-        
-
-
+Var: x, y[3] = {1,2,3}, z;
+        Var: m, n[2][3], y = 1;
         Function: main
             Body:
+                Return;
             EndBody.
-                   
-        Function: bar
-            Parameter: n[10], int_of_string, a
-            Body:
-                int_of_string = a;
-            EndBody.
-
-                   
-                   
-                   

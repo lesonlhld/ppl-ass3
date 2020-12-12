@@ -1,28 +1,13 @@
 
-        
-        
-        Var: a = 5;
-Var: b[2][3] = {{2,3,4},{4,5,6}};
-Var: c[2][3] , d = 6, e, f;
-Var: m, n[1];
-        
-                
-
+        Var: x;
         Function: main
-            Parameter: main[1]
-                   Body:
-                   EndBody.
-                   
-
-        Function: foo
-                   Body:
-                   b = bar(b);
-                   a = bar(c);
-                   EndBody.
-
-        Function: bar
-            Parameter: bar[2][3]
             Body:
+                Var: foo;
+                x = 1 + 2 - foo(1);
+                Return;
             EndBody.
-                   
-                   
+        Function: foo
+            Parameter: x
+            Body:
+                Return x;
+            EndBody.

@@ -209,7 +209,7 @@ class Symbol:
     def getNowSymbol(listSymbol):
         for x in listSymbol:
             if x.inHere == True:
-                Checker.checkUndeclared(listSymbol, x.name, Function())
+                #Checker.checkUndeclared(listSymbol, x.name, Function())
                 return x
         
 
@@ -278,6 +278,8 @@ class Symbol:
 class Checker:
     @staticmethod
     def mergedEnvi(globalEnvi, localEnvi):
+        curFunction = Symbol.getNowSymbol(globalEnvi)
+        redeclareFunctionName = False
         newEnvi = copy.deepcopy(globalEnvi)
         envi = [x.name for x in newEnvi]
         for x in localEnvi:
@@ -287,6 +289,10 @@ class Checker:
             else:
                 envi.append(x.name)
                 newEnvi.append(x)
+            if x.name == curFunction.name and type(x.kind) != Function:
+                redeclareFunctionName = True
+        if redeclareFunctionName == True:
+            newEnvi.append(curFunction)
         return newEnvi
 
     @staticmethod
@@ -297,11 +303,17 @@ class Checker:
                 symbol = Symbol.getSymbol(x.name, globalEnvi)
                 symbol.update(x)
         else:
+            curFunction = Symbol.getNowSymbol(globalEnvi)
             envi = [x for x in localEnvi]
             noUpdateList = [x.name for x in exceptList]
+            
             for x in localEnvi:
                 if x.name not in noUpdateList:
-                    symbol = Symbol.getSymbol(x.name, globalEnvi).update(x)
+                    if x.name == curFunction.name:
+                        if type(x.kind) == Function:
+                            symbol = curFunction.update(x)
+                    else:
+                        symbol = Symbol.getSymbol(x.name, globalEnvi).update(x)
 
     # Check Redeclared Variable/Function/Parameter and return merged two environment
     @staticmethod
@@ -317,10 +329,17 @@ class Checker:
 
     @staticmethod
     def checkUndeclared(currentEnvi, name, kind):
-        envi = {x.name: Identifier() if type(x.kind) in [Variable, Parameter] else x.kind for x in currentEnvi}
+        checkRedeclareFunction = Symbol.getSymbol(currentEnvi[-1].name, currentEnvi)
+        if type(checkRedeclareFunction.kind) != type(currentEnvi[-1].kind):
+            newCurrentEnvi = copy.deepcopy(currentEnvi[:-1])
+        else:
+            newCurrentEnvi = currentEnvi
+        envi = {x.name: Identifier() if type(x.kind) in [Variable, Parameter] else x.kind for x in newCurrentEnvi}
+        
         if name not in list(envi.keys()) or type(envi[name]) != type(kind):
             raise Undeclared(kind, name)
-        return Symbol.getSymbol(name, currentEnvi)
+        
+        return Symbol.getSymbol(name, newCurrentEnvi)
         
     @staticmethod
     def updateSideType(side, sideType, ast, envi):
@@ -552,12 +571,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             z = self.visit(y, localEnvi)
             if type(y) == Return:
                 listReturn.append(z)
-        Symbol.updateReturnType(listReturn, localEnvi, ast)
-
         # Update global environment
         Checker.updateEnvi(globalEnvi, localEnvi)
+        Symbol.updateReturnType(listReturn, globalEnvi, ast)
 
-        Symbol.getSymbol(ast.name.name, globalEnvi).updateMember(inHere = False)
+        symbol.updateMember(inHere = False)
 
     # Visit expression
     # Return Type of expression
@@ -718,6 +736,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             z = self.visit(y, localEnvi)
             if type(y) == Return:
                 listReturn.append(z)
+
         typeReturn = Symbol.updateReturnType(listReturn, localEnvi, ast)
 
         Checker.updateEnvi(envi, localEnvi, varDecl)
@@ -740,6 +759,8 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
                 typeReturn = self.visit(ast.expr, envi)
             except TypeCannotBeInferred:
                 raise TypeCannotBeInferred(ast)
+            if type(typeReturn) == VoidType:
+                raise TypeMismatchInStatement(ast)
             
         if type(typeReturn) != type(symbol.mtype.restype) and type(symbol.mtype.restype) != Unknown:
             raise TypeMismatchInStatement(ast)

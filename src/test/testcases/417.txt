@@ -1,25 +1,14 @@
 
-        
-        
-        Var: a;
-
-
+        Function: foo
+            Body:
+                Return;
+            EndBody.
         Function: main
             Body:
-                a = 3.0;
+                Return;
             EndBody.
-
-        Function: bar
-            Parameter: n[10], int_of_string
+        Function: foo
+            Parameter: x,y,z
             Body:
-                int_of_string = 3 + a;
-
+                Return;
             EndBody.
-
-        
-                   
-        
-
-                   
-                   
-                   
