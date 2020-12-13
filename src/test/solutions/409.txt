@@ -1,1 +1,1 @@
-TypeMismatchInStatement(Assign(Id("x"),FloatLiteral(1.0)))
+Type Mismatch In Statement: For(Id(y),IntLiteral(1),BinaryOp(==,Id(y),IntLiteral(1)),BinaryOp(+,Id(y),IntLiteral(1)),[],[])

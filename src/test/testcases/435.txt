@@ -1,6 +1,12 @@
-Function: main 
-        Parameter: a
-        Body:
-        Var: x; 
-            x = (a >=. 2.3e-13 || (x =/= 2e-35));
-        EndBody.
+
+                Function: foo
+                Parameter: x,y
+                Body:
+                EndBody.
+
+                Function: main
+                Body:
+                    Var:x=1,y;
+                    foo(x,y);
+                EndBody.
+            

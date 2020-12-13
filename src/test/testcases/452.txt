@@ -1,10 +1,9 @@
-Function: main 
-        Parameter: x
-        Body:
-            While (True) Do
-                While (x>=0) Do
-                    x = x+-1;
-                EndWhile.
-                If ((x<0)) Then Break; EndIf.
-            EndWhile.
-        EndBody.
+
+                Function: main
+                Body:
+                    Var: x=1,y;
+                    Do
+                    While (x)
+                    EndDo.
+                EndBody.
+            

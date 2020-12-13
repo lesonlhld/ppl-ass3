@@ -1,9 +1,11 @@
- 
-        Function: main
-        Parameter: x
-        Body:
-        Var: y = 1;
-        main(y);
-        x = 1.0;
-        EndBody.
-        
+
+            Function: main
+            Parameter: x,y
+            Body:
+                y=0.5;
+                For(x=1,x==1,x+1) Do
+                EndFor.
+                For(y=1,y==1,y+1) Do
+                EndFor.
+            EndBody.    
+            

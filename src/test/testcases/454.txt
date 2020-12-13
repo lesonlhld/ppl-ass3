@@ -1,5 +1,11 @@
 
-        Function: main
-        Body:
-            While True Do printStrLn("Hello World"); EndWhile.
-        EndBody.
+                Function: foo
+                Body:
+                EndBody.
+                Function: main
+                Body:
+                    Var:x;
+                    foo();
+                    x = foo();
+                EndBody.
+            

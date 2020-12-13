@@ -1,4 +1,8 @@
-Function: main
-        Body:
-            Var  : x[123]={   20, 2   ,108  };
-        EndBody.
+
+                Var:x =1;
+                Function: main
+                Parameter: y
+                Body:
+                    x = y + main(0.5) ;
+                EndBody.
+            

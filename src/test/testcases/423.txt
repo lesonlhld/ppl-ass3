@@ -1,10 +1,10 @@
-Function: main 
-        Parameter: n
-        Body:
-            If n <=. 1.2E-4 Then
-            n=n*.3.3;
-            ElseIf n>.100.2 Then
-            n=n\.5;
-            EndIf.
-        EndBody.
-        
+             
+                Function: main
+                Body:
+                    Var:a[5]= {1,2,3,4,5};
+                    Var:b[5];
+                    Var:c;
+                    c = b[5] +. 1;
+                    a=b; 
+                EndBody.
+            

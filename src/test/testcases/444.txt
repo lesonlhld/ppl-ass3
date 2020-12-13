@@ -1,9 +1,12 @@
 
-        Function: main
-        Body:
-        Var: i = 0, a;
-            For (i = 0, i < 10, 2) Do
-                a= int_of_float(float_of_string(read()));
-                Return a;
-            EndFor.
-        EndBody.
+                Function: main
+                Parameter: x
+                Body:
+                    foo(1);
+                    x= 1+foo(1);
+                EndBody.
+                Function: foo
+                Parameter: x
+                Body:
+                EndBody.
+            

@@ -1,6 +1,15 @@
-Function: main
-        Parameter: arr[2222]
-        Body:
-        Var: x,a=0X24211ABC;
-            x=arr[a+6];
-        EndBody.
+
+                
+                Function: main
+                Body:
+                    Var:x;
+                    If (foo(x)) Then
+                        x=1;
+                    EndIf.
+                EndBody.
+                Function: foo
+                Parameter: x
+                Body:
+                EndBody.
+
+            

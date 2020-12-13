@@ -1,5 +1,9 @@
-Function: main
-            Parameter: a,b
+
+Function: main 
+            Parameter: x[5]
             Body:
-                a[10e2] = (foo(x) +. 12.e3) *. 0x123 - a[b[2][3]] + 4;
-            EndBody. 
+                Var: y = 1; 
+                x = {1,2,3,4,5};
+                main(y); 
+            EndBody.
+            

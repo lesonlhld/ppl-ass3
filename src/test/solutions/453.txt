@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("<.",Id("n"),FloatLiteral(69.96)))
+Type Mismatch In Statement: Assign(CallExpr(Id(foo),[]),BinaryOp(+,Id(x),IntLiteral(1)))

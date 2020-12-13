@@ -1,9 +1,12 @@
- 
-        Function: main
-        Parameter: x, y
-        Body:
-            While (True) Do
-                x = main(1, 2);
-            EndWhile.
-        EndBody.
-        
+
+            Function: foo 
+            Parameter: x,y
+            Body:
+            EndBody.
+            Function: main
+            Parameter: x,y
+            Body:
+                foo(1,2);  
+                foo(1. , 2.); 
+            EndBody.
+            

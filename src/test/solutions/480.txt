@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("&&",BinaryOp("||",UnaryOp("!",BinaryOp("&&",Id("b"),Id("c"))),UnaryOp("!",BinaryOp("&&",Id("a"),Id("b")))),BinaryOp("+",Id("i"),IntLiteral(1))))
+Type Mismatch In Statement: Assign(ArrayCell(Id(abc),[IntLiteral(1)]),FloatLiteral(1.5))

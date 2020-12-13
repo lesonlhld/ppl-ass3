@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("+",Id("a"),IntLiteral(5)))
+Type Cannot Be Inferred: Return(CallExpr(Id(main),[BinaryOp(+,Id(x),IntLiteral(3)),BinaryOp(+.,Id(y),FloatLiteral(10.2))]))

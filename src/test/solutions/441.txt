@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("+",Id("b"),Id("c")))
+Type Cannot Be Inferred: While(CallExpr(Id(foo),[Id(x)]),[],[Assign(Id(x),IntLiteral(1))])

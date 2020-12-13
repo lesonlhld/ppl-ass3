@@ -1,12 +1,8 @@
 
-        Var: a[143];
-        Function: main
-        Parameter: n,b[15]
-        Body:
-            a[a[3 + foo(2,2.6)]] = a[b[b||True]]+b[1+0x369]*3 + 4;
-        EndBody.
-        Function: foo
-        Parameter: a,b
-        Body:
-            Return 2;
-        EndBody.
+                
+                Function: main
+                Body:
+                    Var: x,y;
+                    x=y;
+                EndBody.
+            

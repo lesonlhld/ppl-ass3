@@ -1,11 +1,8 @@
 
-        Var: x;
-        Function: foo
-            Parameter: x[3]
-            Body:
-                Return;
-            EndBody.
-        Function: main
-            Body:
-                Return foo({1.1,2.2,3.3});
-            EndBody.
+                Function: main
+                Body:
+                    For (a = 1, a < 10, 1) Do
+                        Var:a=1;
+                    EndFor.
+                EndBody.
+            

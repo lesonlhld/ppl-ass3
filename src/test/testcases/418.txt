@@ -1,10 +1,10 @@
 
-        Function: main
-        Parameter: x, y
-        Body:
-            Var: z;
-            While (True) Do
-                z = main(1, main(x, True));
-            EndWhile.
-            Return y && z;
-        EndBody.
+
+                Function: main
+                Parameter: x,y,z,t
+                Body:
+                    x= !y;
+                    z= z && t;
+                    x=z;
+                EndBody.
+            

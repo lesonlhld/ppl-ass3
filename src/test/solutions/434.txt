@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(Id("x"),ArrayCell(Id("arr"),[BinaryOp("+",Id("a"),IntLiteral(6))])))
+Type Cannot Be Inferred: If(CallExpr(Id(foo),[Id(x)]),[],[Assign(Id(x),IntLiteral(1))])Else([],[])

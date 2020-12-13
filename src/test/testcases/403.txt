@@ -1,16 +1,9 @@
- 
-        Var: dsa[432][0X364][0o35721], b = 20.e5, c = "mot con vit xoe ra 2 \n cai canh";
-        Function: main
-        Parameter: a[5][4]
-        Body:
-            Var: i = 0;
-            While (i < 5) Do
-                Var: j = 0;
-                While ((j % 5) == 2) Do
-                    a[i][j] = b +. 1.0;
-                    j = j + -i;
-                EndWhile.
-            EndWhile.
-            Return c;
-        EndBody.
-        
+
+
+                Function: main
+                Parameter:x
+                Body:
+                    x=1;
+                    x=1.6;
+                EndBody.
+            

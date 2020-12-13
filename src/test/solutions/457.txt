@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Return(Id("a")))
+Type Mismatch In Statement: Return(FloatLiteral(1.5))

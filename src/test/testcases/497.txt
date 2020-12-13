@@ -1,7 +1,9 @@
-Function: main
-            Parameter: a,b
+
+Function: main 
+            Parameter: x[5]
             Body:
-                a = "string 1";
-                b = "string 2";
-                Return a+b;
-            EndBody. 
+                Var: y[5]; 
+                x = {1,2,3,4,5};
+                main(y); 
+            EndBody.
+            

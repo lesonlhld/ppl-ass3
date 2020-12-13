@@ -394,6 +394,10 @@ class Checker:
                 elif type(left[i]) != Unknown and type(left[i]) != ArrayType and type(right[i]) == Unknown:
                     right[i] = left[i]
                     typeReturn = Checker.updateSideType("right", left[i], ast.param[i], envi)
+                elif type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown:
+                    left[i].eletype = right[i].eletype
+                elif type(left[i]) == ArrayType and type(left[i].eletype) != Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown:
+                    right[i].eletype = left[i].eletype
                 elif type(left[i]) != Unknown and type(left[i]) != ArrayType and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown and type(left[i]) != type(right[i].eletype):
                     if type(ast) == CallExpr:
                         raise TypeMismatchInExpression(ast)

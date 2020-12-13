@@ -1,1 +1,0 @@
-TypeMismatchInExpression(BinaryOp("-.",BinaryOp("+",IntLiteral(25),IntLiteral(6)),BinaryOp("\\",BinaryOp("%",FloatLiteral(2.5),IntLiteral(3)),IntLiteral(100))))

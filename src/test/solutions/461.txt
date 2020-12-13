@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Return(Id("f")))
+Type Mismatch In Expression: ArrayCell(Id(a),[IntLiteral(1),IntLiteral(2),IntLiteral(3)])

@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("==",Id("x"),BinaryOp("&&",BinaryOp("||",BooleanLiteral(False),BooleanLiteral(True)),BinaryOp(">",Id("a"),BinaryOp("+",Id("b"),Id("c"))))))
+Type Mismatch In Expression: ArrayCell(Id(abc),[IntLiteral(1)])

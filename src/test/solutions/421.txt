@@ -1,1 +1,1 @@
-TypeMismatchInExpression(CallExpr(Id("foo"),[FloatLiteral(0.0)]))
+Type Mismatch In Statement: Assign(Id(a),Id(b))

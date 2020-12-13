@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("-.",BinaryOp("+",IntLiteral(25),IntLiteral(6)),BinaryOp("*",BinaryOp("\\",BinaryOp("%",FloatLiteral(2.5),IntLiteral(3)),IntLiteral(100)),Id("x"))))
+Type Cannot Be Inferred: Assign(Id(x),BinaryOp(+,IntLiteral(1),CallExpr(Id(foo),[Id(x)])))

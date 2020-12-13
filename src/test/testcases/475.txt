@@ -1,9 +1,7 @@
 
+        Var:x =1;
         Function: main
+        Parameter: y
         Body:
-            foo()[0] = 1;
-        EndBody.
-
-        Function: foo
-        Body:
-        EndBody.
+            x = main(0.5) + y;
+        EndBody.            

@@ -1,18 +1,18 @@
-Var: a = 5;
 
-        Function: main
-        Parameter: a
-        Body:
-        Var:b[2];
-            If bool_of_string ("True") Then
-                a = int_of_string (read ());
-                b = float_of_int (a) +. 2.0;
-            ElseIf a == 5 Then
-                a = a + main(123);
-            ElseIf a == 6 Then
-                a = a * 2;
-                Return string_of_int(a);
-                Break;
-            Else Continue;
-            EndIf.
+        Function: main 
+        Parameter:a
+        Body: 
+            a=1;
+            foo(a,3*7, a+ 5,"string",True);
         EndBody.
+        Function: foo 
+        Parameter: a,b,c,d,e
+        Body: 
+            Var:z;
+            a=4;
+            b=21;
+            c=6;
+            d="Hello";
+            z= !e;
+        EndBody.
+            

@@ -1,11 +1,7 @@
-Function: main
-        Parameter: a[5], b
-        Body:
-        Var: x[2][3] = {{1,2,3},{2,3,3}};
-        Var: i = 0;
-        While (i < 5) Do
-        If i == 3 ThenReturn 1;EndIf.
-        i = i + 1;
-        EndWhile.
-        Return x[1][1];
-        EndBody.
+
+                    Function: main
+                    Parameter: x
+                    Body:
+                        y= x + main(0.5);
+
+                    EndBody.            

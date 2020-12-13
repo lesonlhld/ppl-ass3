@@ -1,1 +1,1 @@
-TypeMismatchInStatement(Return(CallExpr(Id("foo"),[ArrayLiteral([FloatLiteral(1.1),FloatLiteral(2.2),FloatLiteral(3.3)])])))
+Undeclared Identifier: a

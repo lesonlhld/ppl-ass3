@@ -1,10 +1,1 @@
-
-        Function: main
-        Body:
-            Var: foo = 0;
-            foo = foo + foo();
-        EndBody.
-        Function: foo
-        Body:
-            Return True;
-        EndBody.
+Program([FuncDecl(Id(main)[],([][CallExpr(Id(foo),[])]))])
