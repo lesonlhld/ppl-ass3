@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(main),[CallExpr(Id(foo),[])])
+TypeCannotBeInferred(Assign(ArrayCell(CallExpr(Id("foo"),[]),[IntLiteral(0)]),IntLiteral(1)))

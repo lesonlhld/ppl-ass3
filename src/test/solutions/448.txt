@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(*,Id(a),CallExpr(Id(int_of_string),[ArrayCell(Id(arr),[IntLiteral(1),IntLiteral(2)])]))
+Redeclared(Variable(),"sum")

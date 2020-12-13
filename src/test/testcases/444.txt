@@ -1,14 +1,9 @@
 
-        Var: a, b, arr[10][10];
         Function: main
-        Parameter: x, y
         Body:
-            arr[0][2] = "PPL!!! hard!!!";
-            b = a * int_of_string(arr[1][2]);
+        Var: i = 0, a;
+            For (i = 0, i < 10, 2) Do
+                a= int_of_float(float_of_string(read()));
+                Return a;
+            EndFor.
         EndBody.
-        Function: test
-        Parameter: m
-        Body:
-            Return arr[a + b];
-        EndBody.
-        

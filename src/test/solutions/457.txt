@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Dowhile([],[CallStmt(Id(test),[IntLiteral(1)])],Id(k))
+TypeCannotBeInferred(Return(Id("a")))

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+.,Id(t),CallExpr(Id(factorial),[Id(t)]))
+Undeclared(Function(),"foo")

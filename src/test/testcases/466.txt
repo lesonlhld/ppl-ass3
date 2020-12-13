@@ -1,15 +1,8 @@
-
-        Var: x[10];
-        Function: foo
-        Parameter: a, b
+Function: main 
+        Parameter: n
         Body:
-            Return x;
+            Var: t=False;
+            If n<100 Then t=True;
+            EndIf.
+            Return t;
         EndBody.
-        Function: main
-        Body:
-            Var: a[10], t, z;
-            t = 4;
-            a[0] = t;
-            a = foo(t, 4);
-        EndBody.
-        

@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Dowhile([],[CallStmt(Id(printStrLn),[ArrayCell(Id(b),[IntLiteral(2)])])],CallExpr(Id(f),[ArrayCell(Id(a),[IntLiteral(7)])]))
+TypeMismatchInExpression(BinaryOp("+",Id("a"),IntLiteral(5)))

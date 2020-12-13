@@ -1,17 +1,11 @@
 
-        Var: a, b[4][2], c;
-        Function: test
+        Var:var;
+        Function: main 
+        Parameter: a
         Body:
-            func()[2][1] = 14;
+        Var: variable;
+            While (True) Do
+            Var: logic;
+                logic=a&&var||!variable;
+            EndWhile.
         EndBody.
-        Function: func
-        Body:
-            Return b;
-        EndBody.
-        Function: main
-        Body:
-            func()[3][1] = 0;
-            b[0][0] = "s";
-            test();
-        EndBody.
-        

@@ -1,18 +1,13 @@
-
-        Var: x, a[10], b[5];
-        Function: main
-        Parameter: x
+Function: main 
         Body:
-            Var: i;
-            If b[2] == 2 Then
-            ElseIf b[x] != b[0] Then
-                a = foo(i);
-            EndIf.
+        Var:x;
+            While x>1 Do
+            Var: i,a = 4;
+                For (i = 100,True, i-1) Do
+                    If -a<-3 Then
+                        Break;
+                    EndIf.
+                    a = a -1;
+                EndFor.
+            EndWhile.
         EndBody.
-        Function: foo
-        Parameter: k
-        Body:
-            a[0] = 1;
-            Return a;
-        EndBody.
-        

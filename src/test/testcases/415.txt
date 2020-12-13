@@ -1,18 +1,8 @@
 
-        Var: x[10];
         Function: main
+        Parameter: x
         Body:
+        Var: y = 1;
+        x = 1.0;
+        main(y);
         EndBody.
-        Function: test
-        Body:
-            Var: x, y;
-            If foo()[1] Then
-                Return 1;
-            EndIf.
-            Return y;
-        EndBody.
-        Function: foo
-        Body:
-            Return 1;
-        EndBody.
-        

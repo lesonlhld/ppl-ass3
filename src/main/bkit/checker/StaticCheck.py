@@ -354,14 +354,18 @@ class Checker:
             name = ast.lhs.name if side == "left" else ast.rhs.name
 
         symbol = Symbol.getSymbol(name, envi)
+        
         if type(symbol.kind) == Function:
-            varType = MType(symbol.mtype.intype, sideType)
+            if (type(symbol.mtype.restype) == Unknown or type(symbol.mtype.restype) == type(sideType)) and side == "right":
+                varType = MType(symbol.mtype.intype, sideType)
+                symbol.updateMember(mtype = varType)
         elif type(symbol.mtype) == ArrayType:
-            varType = ArrayType(symbol.mtype.dimen, sideType)
+            if type(symbol.mtype.eletype) == Unknown or type(symbol.mtype.eletype) == type(sideType):
+                varType = ArrayType(symbol.mtype.dimen, sideType)
+                symbol.updateMember(mtype = varType)
         else:
             varType = sideType
-        symbol.updateMember(mtype = varType)
-
+            symbol.updateMember(mtype = varType)
         return sideType
 
     @staticmethod
@@ -409,9 +413,9 @@ class Checker:
     @staticmethod
     def checkOneSideType(body, ast, envi, opType, targetType):
         if type(body) == Unknown:
-            body = Checker.updateSideType("left", opType, ast, envi)
+            body = Checker.updateSideType("right", opType, ast, envi)
         elif type(body) == ArrayType and type(body.eletype) == Unknown:
-            body = Checker.updateSideType("left", opType, ast, envi)
+            body = Checker.updateSideType("right", opType, ast, envi)
         elif type(body) == ArrayType and type(body.eletype) != Unknown:
             body = body.eletype
         if type(body) == type(opType):
@@ -460,6 +464,9 @@ class Checker:
     def checkCall(ast, envi, actualParameters, final = False):
         symbol = Checker.checkUndeclared(envi, ast.method.name, Function())
 
+        formaParameters = symbol.mtype.intype
+        
+        checkParam = Checker.checkParamType(actualParameters, formaParameters, ast, envi, final)
         if type(ast) == CallStmt:
             if type(symbol.mtype.restype) in [Unknown, VoidType]:
                 typeReturn = VoidType()
@@ -467,10 +474,6 @@ class Checker:
                 raise TypeMismatchInStatement(ast)
         else:
             typeReturn = symbol.mtype.restype
-        
-        formaParameters = symbol.mtype.intype
-        
-        checkParam = Checker.checkParamType(actualParameters, formaParameters, ast, envi, final)
         if not checkParam:
             if type(ast) == CallStmt:
                 raise TypeMismatchInStatement(ast)

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+.,Id(t),FloatLiteral(2.0))
+TypeMismatchInStatement(Assign(Id("x"),ArrayLiteral([FloatLiteral(996.24),FloatLiteral(712.464),FloatLiteral(216.454)])))

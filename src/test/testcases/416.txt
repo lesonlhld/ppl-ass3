@@ -1,27 +1,10 @@
 
-        Var: x[10];
-        Function: test
-        Parameter: y
-        Body:
-            Var: x;
-            If foo()[1] Then
-                Return 1;
-            ElseIf f(1) Then
-            EndIf.
-            Return y;
-        EndBody.
         Function: main
         Body:
-            Var: k;
-            k = test(1.5);
+            Var: foo = 0;
+            foo = foo + foo();
         EndBody.
         Function: foo
         Body:
-            Return {True, False, True};
+            Return True;
         EndBody.
-        Function: f
-        Parameter: k
-        Body:
-            Return k == 1;
-        EndBody.
-        

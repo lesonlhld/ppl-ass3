@@ -1,11 +1,9 @@
-
+ 
         Function: main
+        Parameter: x, y
         Body:
-            Var: x;
-            x = test();
-        EndBody.
-        Function: test
-        Body:
-            Return 1;
+            While (True) Do
+                x = main(1, 2);
+            EndWhile.
         EndBody.
         

@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[BinaryOp(+,Id(a),Id(b))])
+TypeMismatchInExpression(CallExpr(Id("int_of_string"),[]))

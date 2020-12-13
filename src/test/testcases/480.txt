@@ -1,13 +1,12 @@
-
-        Var: x;
-        Function: main
-        Parameter: x
+Function: main 
+        Parameter: n,a,b
         Body:
-            x = x + test(x, 1);
-        EndBody.
-        Function: test
-        Parameter: x, y
-        Body:
-            Return x + y;
+            Var: i = 0,c;
+            While i!=423 Do
+                i = i + 3; **cmt**
+                If i==212 Then Break;
+                a = (!(b && c)||!(a&&b)&&(i+1)==234); 
+                EndIf.
+            EndWhile.
         EndBody.
         

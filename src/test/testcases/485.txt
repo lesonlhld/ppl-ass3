@@ -1,22 +1,20 @@
-
-        Var: x, a[10], b[5];
-        Function: main
-        Parameter: x
+Function: main
+        Parameter: octalNumber
         Body:
-            While f(2, x) Do
-            EndWhile.
-        EndBody.
-        Function: test
-        Parameter: x, y
-        Body:
-        EndBody.
-        Function: foo
-        Body:
-            Return x;
-        EndBody.
-        Function: f
-        Parameter: z, t
-        Body:
-            Return a;
-        EndBody.
-        
+        Var: decimalNumber = 0, i = 0, rem;
+        While (octalNumber != 0) Do
+            rem = octalNumber % 10;
+            octalNumber =octalNumber \ 10;
+            decimalNumber =decimalNumber  + rem * pow(8,i);
+            i=i+1;
+        EndWhile.
+    Return decimalNumber;
+    EndBody.
+    Function: pow
+    Parameter: x,y
+    Body:
+    If x == 0 Then
+    Return 1;
+    EndIf.
+    Return x * pow(x-1,y);
+    EndBody.

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: ArrayCell(Id(a),[IntLiteral(2),IntLiteral(3)])
+TypeMismatchInExpression(BinaryOp("<.",Id("n"),FloatLiteral(69.96)))

@@ -1,29 +1,8 @@
 
-        Var: x, y, arr[5];
-        Function: foo
+        Var: a,b,c,d;
+        Function: main 
         Parameter: n
         Body:
-            n = 10 * 2 - 1;
-            Return n;
+        Var: x;
+            x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
         EndBody.
-        Function: get_arr
-        Body:
-            arr = {1, 2, 3, 4, 5};
-            Return arr;
-        EndBody.
-        Function: main
-        Body:
-            Var: t, a[5];
-            t = 10 + foo(2);
-            a = get_arr();
-            t = a[4] - factorial(t);
-        EndBody.
-        Function: factorial
-        Parameter: n
-        Body:
-            If (n == 0) || (n == 1) Then
-                Return 1;
-            EndIf.
-            Return n * factorial(n - 1);
-        EndBody.
-        

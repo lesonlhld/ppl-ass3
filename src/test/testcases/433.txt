@@ -1,14 +1,12 @@
 
-        Var: a, b[2][4][2];
+        Var: a[143];
         Function: main
+        Parameter: n,b[15]
         Body:
-            Var: temp;
-           printStrLn(a);
-           test(temp);
+            a[a[3 + foo(2,2.6)]] = a[b[b||True]]+b[1+0x369]*3 + 4;
         EndBody.
-        Function: test
-        Parameter: p
+        Function: foo
+        Parameter: a,b
         Body:
-            print(read());
+            Return 2;
         EndBody.
-        

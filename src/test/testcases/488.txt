@@ -1,18 +1,8 @@
-
-        Var: x, a[10], b[5];
-        Function: main
-        Parameter: x
+Function: main 
         Body:
-            a[0] = test() * b[2];
+            If n == 0 Then
+                x = 3;
+            ElseIf x != 2 Then
+                check = False;
+            EndIf.
         EndBody.
-        Function: test
-        Body:
-            Return f(2, 5)[x];
-        EndBody.
-        Function: f
-        Parameter: z, t
-        Body:
-            a[0] = 10;
-            Return 1;
-        EndBody.
-        

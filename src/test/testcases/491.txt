@@ -1,16 +1,18 @@
+Var: a = 5;
 
-        Var: x, a[10], b[5];
         Function: main
-        Parameter: x
+        Parameter: a
         Body:
-            For(x = a[9], f(x)[3], x) Do
-                x = x * a[2] - f(a[2])[1];
-            EndFor.
+        Var:b[2];
+            If bool_of_string ("True") Then
+                a = int_of_string (read ());
+                b = float_of_int (a) +. 2.0;
+            ElseIf a == 5 Then
+                a = a + main(123);
+            ElseIf a == 6 Then
+                a = a * 2;
+                Return string_of_int(a);
+                Break;
+            Else Continue;
+            EndIf.
         EndBody.
-        Function: f
-        Parameter: k
-        Body:
-            b[1] = "dasd";
-            Return a;
-        EndBody.
-        

@@ -1,19 +1,6 @@
-
-        Var: a, b[2][2], c;
-        Function: test
-        Parameter: k
+Function: main 
+        Parameter: a
         Body:
-            Do
-                test(1);
-            While k EndDo.
+        Var: x; 
+            x = (a >=. 2.3e-13 || (x =/= 2e-35));
         EndBody.
-        Function: main
-        Body:
-           b[f()][f()] = 123;
-        EndBody.
-        Function: f
-        Body:
-            Var: c[2][3];
-            Return 1;
-        EndBody.
-        

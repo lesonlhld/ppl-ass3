@@ -1,17 +1,10 @@
-
-        Var: x[10];
-        Function: foo
-        Parameter: a, b
+Function: main
+        Parameter: a
         Body:
-            b = x[5] * b % 4;
-            Return x;
+            Do
+                While a<100 Do
+                    a=a-30;
+                EndWhile.
+            While (a>.1.5)
+            EndDo.
         EndBody.
-        Function: main
-        Body:
-            Var: a[10], t, z;
-            t = 4;
-            a = foo(t, 4);
-            z = foo(a[2], t)[2];
-            a[2] = float_to_int(z);
-        EndBody.
-        

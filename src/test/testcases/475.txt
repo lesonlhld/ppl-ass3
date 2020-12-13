@@ -1,11 +1,9 @@
 
+        Function: main
+        Body:
+            foo()[0] = 1;
+        EndBody.
+
         Function: foo
         Body:
         EndBody.
-
-        Function: main
-        Parameter: x
-        Body:
-            main(foo());
-        EndBody.
-        

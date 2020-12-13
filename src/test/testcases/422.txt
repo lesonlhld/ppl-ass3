@@ -1,13 +1,1 @@
-
-        Var: x[10][10], m, k;
-        Function: test
-        Body:
-            Return m + k + x[0][1];
-        EndBody.
-        Function: main
-        Parameter: flag
-        Body:
-            flag = test();
-            x[3][2] = 1.2;
-        EndBody.
-        
+Var: a =True;Function:main Parameter:x,b Body:If!a Thenb=2; ElseWhile(x>0)DoBreak;EndWhile.EndIf.EndBody.

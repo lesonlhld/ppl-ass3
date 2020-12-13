@@ -1,22 +1,12 @@
-
-        Var: a, b, arr[10][10];
-        Function: main
-        Parameter: x, y
+Function: main
+        Parameter: n
         Body:
-            For(a = f()[1][2], c()[1 + 2][fe()][fe()][fe()], arr[1][1]) Do
-            EndFor.
+        Var: a, b;
+            If bool_of_string("True") Then
+                a = int_of_string (read ());
+            ElseIf n =/= 1.08 Then
+                b = float_of_int (a) +. 2.0;
+            ElseIf False Then
+                Return n;
+            EndIf.
         EndBody.
-        Function: f
-        Body:
-            Return arr;
-        EndBody.
-        Function: c
-        Body:
-            Var: a[2][3][4][5];
-            Return a;
-        EndBody.
-        Function: fe
-        Body:
-            Return float_to_int(b);
-        EndBody.
-        

@@ -1,13 +1,11 @@
 
-        Var: a, b, arr[10][10];
-        Function: main
-        Parameter: x, y
+        Var: x, a,b ,c;
+        Function: main 
         Body:
-            f()[2][3] = a * 2;
-            arr[0][2] = "PPL!!! hard!!!";
+        Var:a,b,c;
+            If (x == (b!=c && (a > b + c))) Then Return;
+            ElseIf (x=="Chung Xon@@") Then Break;
+            Else 
+            x="successful";
+            EndIf.
         EndBody.
-        Function: f
-        Body:
-            Return arr;
-        EndBody.
-        

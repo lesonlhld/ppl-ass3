@@ -1,7 +1,10 @@
 
-        Var: a, b;
         Function: main
-        Parameter: x, y, k, t, a, x
         Body:
+            Var: x=1;
+            If x > 10 Then
+                x=25+6-.2.5%3\100*x;
+            Else
+                x=x+2;
+            EndIf.
         EndBody.
-        

@@ -1,21 +1,12 @@
-
-        Var: x, a[10], b[5];
-        Function: main
-        Parameter: x
+Function: main
+        Parameter: n
         Body:
-            test(foo() * x, f(2, 4)[2] - b[2]);
+        Var:factorial=1;
+        print("Enter integer: ");
+        read();
+        For (i=0, i<=n, 1) Do
+            factorial=factorial*i;
+        EndFor.
+        printStrLn(string_of_int(factorial));
+        Return factorial;
         EndBody.
-        Function: test
-        Parameter: x, y
-        Body:
-        EndBody.
-        Function: foo
-        Body:
-            Return x;
-        EndBody.
-        Function: f
-        Parameter: z, t
-        Body:
-            Return a;
-        EndBody.
-        

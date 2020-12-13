@@ -1,1 +1,1 @@
-No Entry Point
+TypeCannotBeInferred(Return(Id("f")))

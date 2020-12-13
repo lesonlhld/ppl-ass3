@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(arr),CallExpr(Id(get_arr),[]))
+TypeMismatchInExpression(BinaryOp("*.",IntLiteral(3),FloatLiteral(4.5)))

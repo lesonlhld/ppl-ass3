@@ -1,9 +1,13 @@
 
-        Var: a, b, arr[10][10];
+        Var: i;
         Function: main
-        Parameter: x, y
         Body:
-            reaD()[2][3] = a * 2;
-            arr[0][2] = "PPL!!! hard!!!";
-        EndBody.
-        
+        Var: n;
+            If i <. 4.5 Then
+                printStrLn(string_of_float(i));
+            ElseIf n > 10 Then 
+                Break;
+            Else
+                i=int_of_float(i)-1;
+            EndIf.
+            EndBody.

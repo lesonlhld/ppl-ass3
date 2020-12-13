@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: ArrayCell(CallExpr(Id(f),[]),[IntLiteral(1),IntLiteral(2)])
+Undeclared(Function(),"float_of_int")

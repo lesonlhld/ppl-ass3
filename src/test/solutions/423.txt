@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(main),[Id(p)])
+TypeMismatchInExpression(BinaryOp("\.",Id("n"),IntLiteral(5)))

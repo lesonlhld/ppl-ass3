@@ -1,8 +1,10 @@
-
-        Var: a, b, arr[10][10], array[10][10];
-        Function: main
-        Parameter: x, y, main
+Function: main 
+        Parameter: x
         Body:
-            arr = array;
+            While (True) Do
+                While (x>=0) Do
+                    x = x+-1;
+                EndWhile.
+                If ((x<0)) Then Break; EndIf.
+            EndWhile.
         EndBody.
-        

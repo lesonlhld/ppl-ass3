@@ -1,8 +1,13 @@
-
-        Var: a, b, arr[3][2];
-        Function: main
-        Parameter: x, y, main
+Function: main 
+        Parameter: n
         Body:
-            a[2][3] = b * y - x % main;
+            While True Do
+                Whilen>=1 Do
+                    Whilen<.69.96 Do
+                        While n%3==1 Do
+                            n = n \ 5;
+                        EndWhile
+                    .EndWhile.
+                EndWhile.
+            EndWhile.
         EndBody.
-        
