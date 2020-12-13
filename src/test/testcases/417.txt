@@ -1,9 +1,15 @@
 
-        **Function: main 
-        Parameter: x, a
+        Var: x[10][10];
+        Function: main
         Body:
-            While x>1 Do
-                Var: a = 10;
-            EndWhile.
-        EndBody.**
+            Var: k;
+            If 1 == f()[1][2] Then
+            ElseIf x[0][0] Then
+            EndIf.
+        EndBody.
+        Function: f
+        Body:
+            Var: x[10][10];
+            Return x;
+        EndBody.
         

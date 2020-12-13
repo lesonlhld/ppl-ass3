@@ -1,1 +1,0 @@
-TypeMismatchInStatement(Assign(ArrayCell(CallExpr(Id("foo"),[IntLiteral(3)]),[IntLiteral(5)]),Id("b")))

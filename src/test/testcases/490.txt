@@ -1,16 +1,16 @@
-** this is a comment **
-        Var: a[2] = {True,{2,3}}, str = "string";
-        Function: func
-        Body:
-            If (a + 5) && (j-6) || (k*7) Then
-                ** this is another comment **
-                a[i] = b +. 1.0;
-                b = i - b * a -. b \ c - -.d;
-            EndIf.
-            Return a+func();
-        EndBody.
+
+        Var: x, a[10], b[5];
         Function: main
+        Parameter: x
         Body:
-            func();
-            Return 0;
+            Do
+                printStrLn(b[2]);
+            While f(a[7]) EndDo.
         EndBody.
+        Function: f
+        Parameter: k
+        Body:
+            b[1] = "dasd";
+            Return True;
+        EndBody.
+        

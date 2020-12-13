@@ -1,7 +1,17 @@
-Function: main
-        Parameter: x,a,b
+
+        Var: a, b, arr[10][10], array[10][10];
+        Function: main
+        Parameter: x, y, main
         Body:
-            Do x = a + b;
-            While(x<1000.e5)
-            EndDo.
+            If main && x Then
+                Return y + 1;
+            EndIf.
+            Return arr[0][0];
         EndBody.
+        Function: foo
+        Parameter: x, y
+        Body:
+            array[2][3] = x =/= y;
+            arr = array;
+        EndBody.
+        

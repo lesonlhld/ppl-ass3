@@ -1,1 +1,1 @@
-Undeclared(Function(),"float_of_int")
+Type Cannot Be Inferred: Assign(Id(x),ArrayCell(Id(a),[IntLiteral(9)]))

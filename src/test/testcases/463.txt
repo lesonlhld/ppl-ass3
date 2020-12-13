@@ -1,11 +1,23 @@
 
-        Function: call
-        Parameter: a, b, c, d, e,f
+        Var: x[10];
+        Function: test
+        Parameter: flag
         Body:
-            Return f;
+            Var: s, x, y, t;
+            s = read();
+            x = length(s) * 2;
+            t = length(flag);
+            Return flag;
         EndBody.
-        Function: main
+        Function: length
+        Parameter: s
         Body:
-        Var: a, var, arr[5]={1};
-            a = call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n") +1;
+            Return 100;
         EndBody.
+        Function: foo
+        Body:
+            Var: z;
+            z = test(x[0]);
+            x[1] = z;
+        EndBody.
+        

@@ -1,11 +1,9 @@
-Function: main
-        Parameter: a, b
+
+        Var: a, b, arr[10][10];
+        Function: main
+        Parameter: x, y
         Body:
-        Var: id[4312][867][9856][867], literal = 120000e-1,  array[2][3] = {{867,345,987},{76,12,744}};
-            If n > 10 Then
-                If n <. 20.5 Then Return x;
-                EndIf.
-                printStrLn(arg);
-            Else fact(x);
-            EndIf.
+            arr[0][2] = "PPL!!! hard!!!";
+            b = a * c[2][3];
         EndBody.
+        

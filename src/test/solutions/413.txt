@@ -1,1 +1,1 @@
-TypeCannotBeInferred(CallStmt(Id("foo"),[Id("x")]))
+Type Mismatch In Statement: Assign(ArrayCell(Id(x),[IntLiteral(1)]),StringLiteral(s))

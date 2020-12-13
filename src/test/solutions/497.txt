@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("+",Id("a"),Id("b")))
+Undeclared Function: float_of_int

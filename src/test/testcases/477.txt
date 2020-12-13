@@ -1,23 +1,20 @@
 
-        Var: arr[5];
-        Function: func1
+        Var: x;
+        Function: main
         Parameter: x
         Body:
-        Return x *x%2;
+            foo();
+            test();
         EndBody.
-        Function: main
-        Parameter: a
+        Function: test
         Body:
-            a =float_of_int(-(-(func1(4)+23) * -func2(a)+arr[3]))\. 0.5;
+            If x Then
+                foo();
+            Else
+                test();
+            EndIf.
         EndBody.
-        Function: func2
-        Parameter: y
+        Function: foo
         Body:
-        Var: z;
-        Var: i = 0;
-        While (i < 5) Do
-            z = z +. y;
-            i = i + 1;
-        EndWhile.
-        Return z;
         EndBody.
+        

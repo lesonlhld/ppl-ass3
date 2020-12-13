@@ -1,9 +1,11 @@
- 
-        Var: x;
+
         Function: main
-        Parameter: i
         Body:
-            If x==i Then Break;
-            EndIf. 
+        EndBody.
+        Function: test
+        Parameter: x
+        Body:
+            x = 1;
+            test(1.4);
         EndBody.
         

@@ -1,17 +1,13 @@
 
-        Var: x;
+        Var: a[2] = {0, 1};
+        Function: foo
+        Parameter: x
+        Body:
+            Return a;
+        EndBody.
+
         Function: main
-            Parameter: j, brr[1000]
             Body:
-                Var: x=0,i;
-                For (i=0,True,i) Do
-                    Var:x=1;
-                    Do
-                        Var:x=2;
-                    While1==0
-                    EndDo.
-                    IfTrueThen
-                        Var:x=3;
-                    EndIf.
-                EndFor.
+                foo(0)[0] = foo(0.0)[1 * a[1]];
             EndBody.
+        

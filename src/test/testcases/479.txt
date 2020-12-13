@@ -1,2 +1,17 @@
-Function: a Parameter: a Body:Var: a=False;EndBody. Function: b Body:EndBody.
-Function: main**Here some too**Parameter: d Body:EndBody.
+
+        Var: x;
+        Function: main
+        Parameter: x
+        Body:
+            If x Then
+                While x Do
+                    If x Then
+                        Break;
+                    ElseIf False Then
+                        Continue;
+                    EndIf.
+                EndWhile.
+            Else
+            EndIf.
+        EndBody.
+        

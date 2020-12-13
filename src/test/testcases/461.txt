@@ -1,11 +1,16 @@
 
-        Function: call
-        Parameter: a, b, c, d, e,f
-        Body:
-            Return f;
-        EndBody.
+        Var: x[10];
         Function: main
+        Parameter: flag
         Body:
-        Var: a, var, arr[5]={1};
-            call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n");
+            Var: s, x, y, t;
+            s = read();
+            x = length(s) * 2;
+            t = length(x);
         EndBody.
+        Function: length
+        Parameter: s
+        Body:
+            Return 100;
+        EndBody.
+        

@@ -1,9 +1,12 @@
-Function: main
+
+        Var: x[10];
+        Function: main
         Body:
-            Var: i = 0;
-            Do
-                Var: k = 10;
-                i = i + 1;
-            While i <= 10 
-            EndDo.
+            test()[0] = 1;
+            test()[1] = "s";
         EndBody.
+        Function: test
+        Body:
+            Return x;
+        EndBody.
+        

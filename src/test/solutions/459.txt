@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("*.",Id("i"),FloatLiteral(2.0)))
+Type Cannot Be Inferred: Assign(Id(v),CallExpr(Id(f),[Id(flag)]))

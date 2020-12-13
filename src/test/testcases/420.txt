@@ -1,10 +1,18 @@
-Function: main 
-        Parameter: varrr
+
+        Var: x[10][10];
+        Function: main
+        Parameter: flag
         Body:
-            Var: x =1;
-            Do
-                Var: x =1.5;
-                x= x+.1.5;
-            While x>1 
-            EndDo.
+            Var: v;
+            v = f(flag);
         EndBody.
+        Function: f
+        Parameter: x
+        Body:
+            Return foo();
+        EndBody.
+        Function: foo
+        Body:
+            Return x;
+        EndBody.
+        

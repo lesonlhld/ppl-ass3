@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("||",Id("b"),BooleanLiteral(True)))
+Type Cannot Be Inferred: CallStmt(Id(test),[Id(temp)])

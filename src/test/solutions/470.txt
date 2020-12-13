@@ -1,1 +1,1 @@
-TypeMismatchInStatement(Return(BinaryOp("==",Id("x"),Id("a"))))
+Type Mismatch In Statement: Assign(Id(a),CallExpr(Id(foo),[]))

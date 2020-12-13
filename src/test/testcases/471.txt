@@ -1,8 +1,8 @@
-Function: main
-        Parameter: x[123]
+
+        Var: x[10];
+        Function: main
         Body:
-            Var: i = 0;
-            x={996.24,712.464,216.454};
-            printStrLn(string_of_float(x[2]));
-            printStrLn(string_of_int(x[2]));
+            Var: a[10], t, z;
+            a[t] = t +. 2.;
         EndBody.
+        

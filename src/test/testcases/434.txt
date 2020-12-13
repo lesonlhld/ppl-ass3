@@ -1,6 +1,13 @@
-Function: main
-        Parameter: arr[2222]
+
+        Var: a, b[2][2], c;
+        Function: main
         Body:
-        Var: x,a=0X24211ABC;
-            x=arr[a+6];
+           b[f()][f()] = 123;
         EndBody.
+        Function: f
+        Body:
+            Var: c[2][3];
+            b = c;
+            Return 1;
+        EndBody.
+        

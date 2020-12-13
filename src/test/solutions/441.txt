@@ -1,1 +1,1 @@
-TypeMismatchInExpression(BinaryOp("!=",Id("b"),BinaryOp("&&",Id("c"),BinaryOp(">",Id("a"),BinaryOp("+",Id("b"),Id("c"))))))
+Type Cannot Be Inferred: Assign(ArrayCell(CallExpr(Id(f),[]),[IntLiteral(2),IntLiteral(3)]),BinaryOp(*,Id(a),IntLiteral(2)))

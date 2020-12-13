@@ -1,12 +1,14 @@
 
-        Var: a;
-        Function: main 
+        Var: x[10];
+        Function: main
         Body:
-        Var: a;
-        Return int_of_float(a+.2.5)+foo(int_of_float(a));
+            Var: a[10], t, z;
+            a[9] = t * z;
+            a = foo();
+            foo()[2] = 3.4;
         EndBody.
         Function: foo
-        Parameter: x
         Body:
-        Return x == a;
+            Return x;
         EndBody.
+        

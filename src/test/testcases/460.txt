@@ -1,15 +1,17 @@
 
-        Function: foo
+        Var: x[10];
+        Function: main
+        Parameter: flag
         Body:
-            Var: c[3];
-            Return c;
-        EndBody.
-        Function: main 
-        Body:
-        Var: i;
-            For (i=0, i!=9, i) Do
-                If i==10 Then Continue;
-                EndIf.
-                foo(1);
+            Var: s;
+            s = read();
+            For(flag = 0, flag < length(s), 1) Do
+                x[s] = x[s] + 1;
             EndFor.
         EndBody.
+        Function: length
+        Parameter: s
+        Body:
+            Return 100;
+        EndBody.
+        

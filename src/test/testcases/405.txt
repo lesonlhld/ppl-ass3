@@ -1,15 +1,1 @@
- 
-        Var **COMMENT**: ****id = 465632
-        **dsfhfsdhjnc^#%#@@~!**;
-    Var: sss;Function: main
-    Body:
-        Var: a = 123;
-        If a % 3 == 0 Then
-            printStrLn("a % 3 == 0");
-        ElseIf a % 3 == 1 Then
-            printStrLn("a % 3 == 1");
-        Else
-            printStrLn("a % 3 == 2");
-        EndIf.
-    EndBody.
-        
+Program([FuncDecl(Id(main)[],([][CallStmt(Id(printStrLn),[])]))])

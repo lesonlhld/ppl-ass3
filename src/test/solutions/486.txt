@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(Id("a"),BinaryOp("-",BinaryOp("+",CallExpr(Id("func1"),[CallExpr(Id("func2"),[IntLiteral(3)])]),IntLiteral(23)),CallExpr(Id("foo"),[CallExpr(Id("goo"),[CallExpr(Id("func1"),[Id("a")])])]))))
+Type Cannot Be Inferred: While(CallExpr(Id(f),[IntLiteral(2),Id(x)]),[],[])

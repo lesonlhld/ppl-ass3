@@ -1,9 +1,13 @@
-Function: main
+
+        Var: a, b, arr[10][10];
+        Function: main
+        Parameter: x, y, main
         Body:
-            Var: i = 0,k=10;
-            While i !=k Do
-            Var:a[5],b, c = "Hello";
-                a[i] = b + i + int_of_string();
-                i = i + 1;
-            EndWhile.
+            foo(a + b);
         EndBody.
+        Function: foo
+        Parameter: x, y
+        Body:
+            foo(1, 2.2);
+        EndBody.
+        

@@ -1,11 +1,23 @@
-Function: main 
-        Parameter: x,y
+
+        Var: x[10];
+        Function: test
+        Parameter: flag
         Body:
-            foo(2 + x, 4. \. y);
-            goo();
+            Var: s, x, y, t;
+            s = read();
+            x = length(s) * 2;
+            t = length(flag);
+            Return flag;
         EndBody.
-        Function: foo
+        Function: length
+        Parameter: s
         Body:
-            Var: a, c;
-            Return a + b;
+            Return 100;
         EndBody.
+        Function: main
+        Body:
+            Var: z;
+            z = test(x[0]);
+            x[0] = t;
+        EndBody.
+        

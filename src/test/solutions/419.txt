@@ -1,1 +1,1 @@
-TypeMismatchInStatement(For(Id("j"),IntLiteral(1),BooleanLiteral(True),CallExpr(Id("main"),[]),([],[Assign(Id("y"),BinaryOp("+",Id("x"),IntLiteral(1)))])))
+Type Cannot Be Inferred: Assign(ArrayCell(CallExpr(Id(f),[StringLiteral(s)]),[IntLiteral(2),IntLiteral(3)]),IntLiteral(100))

@@ -1,5 +1,12 @@
-Function: main 
+
+        Var: x[10][10], m, k;
+        Function: test
         Body:
-            DoVar: a=1; While True
-            EndDo.
+            Return m + k;
         EndBody.
+        Function: main
+        Parameter: flag
+        Body:
+            test();
+        EndBody.
+        

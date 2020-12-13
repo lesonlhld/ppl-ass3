@@ -1,5 +1,10 @@
-Function: main 
+
+        Function: main
+        Parameter: x, y
         Body:
-            Var: a = 100, b;
-            b = (6\2)*8*b* **b**b*b;
+            Var: z;
+            While (True) Do
+                z = main(1, main(x, True));
+            EndWhile.
+            Return y && z;
         EndBody.

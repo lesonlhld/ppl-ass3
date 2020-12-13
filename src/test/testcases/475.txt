@@ -1,3 +1,11 @@
-Function: main
-            Body:Var: x[123]={"duwat73\r \t", "@#&\n rwFEW54",54312,10.e13, 0.123, 543.0e-6  ,{"xe mau xanh"},"xe mau do"};
+
+        Function: foo
+        Body:
         EndBody.
+
+        Function: main
+        Parameter: x
+        Body:
+            main(foo());
+        EndBody.
+        

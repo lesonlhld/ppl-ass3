@@ -1,1 +1,1 @@
-TypeCannotBeInferred(Assign(ArrayCell(Id("x"),[IntLiteral(2),IntLiteral(3)]),ArrayLiteral([ArrayLiteral([IntLiteral(867),IntLiteral(345),IntLiteral(987)]),ArrayLiteral([IntLiteral(76),IntLiteral(12),IntLiteral(744)])])))
+Type Mismatch In Expression: BinaryOp(==,Id(x),Id(z))

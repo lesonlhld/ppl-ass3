@@ -1,10 +1,19 @@
-Function: main 
-        Parameter: n
+
+        Var: x[10][10], m, k;
+        Function: main
+        Parameter: flag
         Body:
-            If n <=. 1.2E-4 Then
-            n=n*.3.3;
-            ElseIf n>.100.2 Then
-            n=n\.5;
-            EndIf.
+            For(flag = 1, f("a"), foo()) Do
+            EndFor.
+            Return flag;
+        EndBody.
+        Function: f
+        Parameter: p
+        Body:
+            Return main(p) == 1;
+        EndBody.
+        Function: foo
+        Body:
+            Return x[0][1] * m + k;
         EndBody.
         
