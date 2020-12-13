@@ -1,1 +1,5 @@
-Program([FuncDecl(Id(main)[],([][CallExpr(Id(foo),[])]))])
+Var: x, main, y;
+        Function: main
+            Body:
+                Return;
+            EndBody.

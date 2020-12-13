@@ -1,7 +1,7 @@
-                
-                Function: main
-                Body:
-                    Var:a[5],b[5];
-                    a=b;
-                EndBody.
-            
+
+        Var: x;
+        Function: main
+            Body:
+                x = foo(1);
+                Return;
+            EndBody.

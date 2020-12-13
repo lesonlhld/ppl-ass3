@@ -1,9 +1,6 @@
-
-            Function: main 
-            Parameter: x
+Var: x, y[3] = {1,2,3}, z;
+        Var: m, n[2][3], y = 1;
+        Function: main
             Body:
-                Var: y = 1; 
-                main(y); 
-                x = 1.0; 
+                Return;
             EndBody.
-            

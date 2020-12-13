@@ -1,8 +1,8 @@
 
-        Function: main 
-        Parameter: n
-        Body: 
-            Var: i = 0;
-            While i < 5 Do
-            EndWhile.
-        EndBody.            
+        Var: z;
+        Function: main
+            Body:
+                Var: x[2][3];
+                x = {1,2};
+                Return;
+            EndBody.

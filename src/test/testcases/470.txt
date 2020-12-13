@@ -1,8 +1,13 @@
 
-                
-                Function: main
-                Body:
-                    Var:a,b,c,d;
-                    a = a + b || c - d;
-                EndBody.
-            
+        Function: foo
+            Parameter: x, y, z
+            Body:
+                Return False;
+            EndBody.
+        Function: main
+            Body:
+                Var: x, y;
+                x = foo(True, 1, foo(x, y, False));
+                x = y;
+                Return;
+            EndBody.

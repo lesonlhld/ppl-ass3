@@ -1,4 +1,6 @@
-Function: main  
-                   Body:
-                        printStrLn();
-                    EndBody.
+
+        Function: main
+            Parameter: x,x,y
+            Body:
+                Return;
+            EndBody.

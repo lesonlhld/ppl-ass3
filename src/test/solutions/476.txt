@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(main),[FloatLiteral(0.5)])
+Type Cannot Be Inferred: If(CallExpr(Id(foo),[Id(x)]),[],[])Else([],[])

@@ -1,12 +1,5 @@
-
-            Function: foo 
-            Parameter: x,y
+Var: x, main, z;
+        Function: foo
             Body:
+                Return;
             EndBody.
-            Function: main
-            Parameter: x,y
-            Body:
-                foo(1,2);  
-                foo(1. , 2.); 
-            EndBody.
-            

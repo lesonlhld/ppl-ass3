@@ -1,11 +1,5 @@
-
-            Function: main
-            Parameter: x,y
+Var: x, y, z;
+        Function: main
             Body:
-                y=0.5;
-                For(x=1,x==1,x+1) Do
-                EndFor.
-                For(y=1,y==1,y+1) Do
-                EndFor.
-            EndBody.    
-            
+                Return;
+            EndBody.

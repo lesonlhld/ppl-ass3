@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+,ArrayCell(Id(a),[IntLiteral(1)]),ArrayCell(Id(a),[IntLiteral(2)]))
+Type Cannot Be Inferred: CallStmt(Id(foo),[CallExpr(Id(goo),[Id(x)])])

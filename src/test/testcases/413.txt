@@ -1,1 +1,7 @@
-Program([FuncDecl(Id(main)[],([][CallStmt(Id(printStrLn),[CallExpr(Id(read),[IntLiteral(4)])])]))])
+
+        Var: x, y, z;
+        Function: main
+            Body:
+                Var: x, y, z, main;
+                Return;
+            EndBody.

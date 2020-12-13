@@ -1,13 +1,19 @@
 
-               Function: main 
-                Parameter: n
-                Body: 
-                    If n == 0 Then
-                        If n!=0 Then
-                            If n!=0 Then
-                                a=5;
-                            EndIf.
-                        EndIf.
-                    EndIf.
-                EndBody.
-            
+        Function: sqrt
+            Parameter: x
+            Body:
+                Return 1.1;
+            EndBody.
+        Function: radius
+            Parameter: x, y
+            Body:
+                Var: radius;
+                radius = sqrt(x*.x +. y*.y);
+                Return radius;
+            EndBody.
+        Function: main
+            Body:
+                Var : x = 3.5e0, y = 4.6e-0;
+                printStrLn(string_of_float(radius(x, y)));
+                Return;
+            EndBody.

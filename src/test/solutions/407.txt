@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(main),[FloatLiteral(1.1),IntLiteral(0)])
+No Entry Point

@@ -1,7 +1,18 @@
 
-                Var: a[3]={"Mot","2","Three"};
-                Function: main
-                Body:
-                    a[1] = a[1] + a[2];
-                EndBody.
-            
+        Function: foo
+            Parameter: x
+            Body:
+                x = 1;
+                Return;
+            EndBody.
+        Function: main
+            Body:
+                Var: x;
+                foo(goo(x));
+                Return;
+            EndBody.
+        Function: goo
+            Parameter: x
+            Body:
+                Return 1;
+            EndBody.

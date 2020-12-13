@@ -1,9 +1,13 @@
 
-                Var:x;
-                Function: main
-                Body:
-                    Var:x;
-                    Var:main;
-                    Var:x[5]={1,2,3,4,5};
-                EndBody.
-            
+        Var: x;
+        Function: main
+            Body:
+                Var: foo;
+                x = 1 + 2 - foo(1);
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return x;
+            EndBody.

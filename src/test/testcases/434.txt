@@ -1,15 +1,10 @@
 
-                
-                Function: main
-                Body:
-                    Var:x;
-                    If (foo(x)) Then
-                        x=1;
-                    EndIf.
-                EndBody.
-                Function: foo
-                Parameter: x
-                Body:
-                EndBody.
-
-            
+        Var: x;
+        Function: main
+            Body:
+                Var: x,y,z;
+                x = (1 + 2 *3 \ 4 % 5) * 6;
+                y = 1.1 *. 2.2 +. 3.3 -. 4.4 \. 5.5;
+                z = x + y;
+                Return;
+            EndBody.

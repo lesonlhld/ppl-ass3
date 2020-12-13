@@ -1,6 +1,18 @@
 
-            Function: main 
-            Body: 
-                Var: a=1,x; 
-                a=foo(x); 
-            EndBody.             
+        Function: foo
+            Parameter: x, y
+            Body:
+                Return False;
+            EndBody.
+        Function: main
+            Parameter: x,y,z
+            Body:
+                Var: a, b;
+                If (True) Then
+                    main(1, 2.2, foo(x, y));
+                EndIf.
+                a = x;
+                b = y;
+                main(a, b, "Hello");
+                Return;
+            EndBody.

@@ -1,8 +1,11 @@
 
-                
-                Function: main
-                Body:
-                    Var: x,y;
-                    x=y;
-                EndBody.
-            
+        Var: x;
+        Function: main
+            Body:
+                Var: x, y = 1e3, z = 10;
+                z = - z;
+                x = !!x;
+                y = -. -. -.y;
+                x = !(-x);
+                Return;
+            EndBody.

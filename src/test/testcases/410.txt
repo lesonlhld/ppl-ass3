@@ -1,9 +1,5 @@
-
-            Function: main 
-            Parameter: x
+Var: x, x, z;
+        Function: main
             Body:
-                Var: y = 1; 
-                x = 1.0; 
-                main(y); 
+                Return;
             EndBody.
-            

@@ -1,8 +1,1 @@
-
-            Function: main 
-            Parameter: x,y
-            Body:
-                x = 1; 
-                main( 1.1, 0); 
-            EndBody.
-            
+Var: x, main, z;

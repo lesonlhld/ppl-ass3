@@ -1,11 +1,12 @@
 
-                Function: main
-                Body:
-                    Var:x;
-                    If True Then
-                        x = 3;
-                    Else 
-                        x = 2.0;
-                    EndIf.
-                EndBody.
-            
+        Function: foo
+            Parameter: x, y
+            Body:
+                Var: z;
+                z = foo(y+1, foo(x, 1.1));
+                Return z;
+            EndBody.
+        Function: main
+            Body:
+                Return;
+            EndBody.

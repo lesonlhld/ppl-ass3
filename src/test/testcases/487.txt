@@ -1,15 +1,8 @@
 
-        Function: main 
-        Parameter: n
-        Body: 
-            Var:a;
-            Do  
-                Var:b;
-                Do
-                While(b!=4)
-                EndDo.
-            While(a!=3)                
-            EndDo.
-            a=1.0;
-        EndBody.
-            
+        Var: z;
+        Function: main
+            Body:
+                Var: x[2][3];
+                x[x[0][1]][x[1][0]] = 1.1;
+                Return;
+            EndBody.

@@ -1,11 +1,13 @@
 
-                Function: main
-                Parameter: x
-                Body:
-                    Var:y;
-                    Do
-                        x=1;
-                        main(0.5);
-                    While y 
-                    EndDo.
-                EndBody.            
+        Function: main
+            Body:
+                Var: x;
+                If (foo(x)) Then
+                EndIf.
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return True;
+            EndBody.

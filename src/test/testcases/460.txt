@@ -1,8 +1,12 @@
 
-                
-                Function: main
-                Body:
-                    Var: a[1][2];
-                    a[1+1][0.5+.1.5] = 1;
-                EndBody.
-            
+        Function: goo
+            Parameter: x
+            Body:
+                Return True;
+            EndBody.
+        Function: main
+            Body:
+                Var: a, b;
+                b = goo(a < b);
+                Return;
+            EndBody.

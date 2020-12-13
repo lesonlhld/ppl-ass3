@@ -1,13 +1,7 @@
 
-                Function: foo
-                Parameter: x[2]
-                Body:
-                EndBody.
-                Function: main
-                Body:
-                    Var: z[2] = {1,2};
-                    Var: w[2] = {3,4};
-                    Var: x;
-                    foo(z);
-                    foo(w);
-                EndBody.            
+        Function: main
+            Body:
+                For (x = 5, True, 1) Do
+                EndFor.
+                Return;
+            EndBody.

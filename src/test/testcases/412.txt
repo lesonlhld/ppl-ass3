@@ -1,4 +1,7 @@
-Function: main 
-                    Body:
-                        printStrLn(read(4));
-                    EndBody.
+
+        Function: main
+            Parameter: x, y[4], z
+            Body:
+                Var: y = 3, m, n;
+                Return;
+            EndBody.

@@ -159,7 +159,7 @@ class Symbol:
         return self
 
     @staticmethod
-    def fromVarDecl(var):
+    def fromVarDecl(var, envi):
         name = var.variable.name
         if len(var.varDimen) > 0:
             if not all(isinstance(x, int) for x in var.varDimen):
@@ -172,7 +172,6 @@ class Symbol:
                 varType = ArrayType(var.varDimen, init)
             else:
                 raise TypeMismatchInExpression(var)
-            
         else:
             init = Type.getTypeFromLiteral(var.varInit)
             if type(init) == ArrayType:
@@ -183,11 +182,11 @@ class Symbol:
         return Symbol(name, varType, kind)
 
     @staticmethod
-    def fromFuncDecl(func):
+    def fromFuncDecl(func, envi):
         name = func.name.name
         kind = Function()
 
-        param = [Symbol.fromVarDecl(x).toParam() for x in func.param]
+        param = [Symbol.fromVarDecl(x, envi).toParam() for x in func.param]
         listParams = Checker.checkRedeclared([], param)
         paramType = [x.mtype for x in listParams]
         varType = MType(paramType, Unknown())
@@ -195,8 +194,8 @@ class Symbol:
         return Symbol(name, varType, kind)
 
     @staticmethod
-    def fromDecl(decl):
-        return Symbol.fromVarDecl(decl).makeVisit() if type(decl) is VarDecl else Symbol.fromFuncDecl(decl)
+    def fromDecl(decl, envi):
+        return Symbol.fromVarDecl(decl, envi).makeVisit() if type(decl) is VarDecl else Symbol.fromFuncDecl(decl, envi)
 
     @staticmethod
     def getSymbol(name, listSymbol):
@@ -369,7 +368,7 @@ class Checker:
         return sideType
 
     @staticmethod
-    def checkTwoSideType(left, right, ast, envi, opType = None, targetType = None):
+    def checkTwoSideType(left, right, ast, envi, opType = None, targetType = None, final = None):
         if type(ast) == Assign:
             if type(left) == Unknown and type(right) == Unknown:
                 raise TypeCannotBeInferred(ast)
@@ -385,7 +384,7 @@ class Checker:
                 typeReturn = left
         elif type(ast) in [CallExpr, CallStmt]:
             for i in range(len(right)):
-                if (type(left[i]) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown):
+                if (type(left[i]) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown):
                     raise TypeCannotBeInferred(ast)
                 elif type(left[i]) == Unknown and type(right[i]) != Unknown and type(right[i]) != ArrayType:
                     left[i] = right[i]
@@ -453,8 +452,7 @@ class Checker:
         if len(formaParameters) < len(actualParameters):
             return False        
             
-        formaParameters, actualParameters = Checker.checkTwoSideType(formaParameters, actualParameters, ast, envi)
-
+        formaParameters, actualParameters = Checker.checkTwoSideType(formaParameters, actualParameters, ast, envi, final = final)
         if len(formaParameters) > len(actualParameters) and final == True:
             return False        
 
@@ -545,7 +543,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             x.makeVisit()
 
         # Visit all global variables, function names from input
-        symbols = [Symbol.fromDecl(x).toGlobal() for x in ast.decl]
+        symbols = [Symbol.fromDecl(x, globalEnvi).toGlobal() for x in ast.decl]
         
         # Check Redeclared Variable/Function and update globalEnvi
         globalEnvi = Checker.checkRedeclared(globalEnvi, symbols)
@@ -560,7 +558,7 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
 
     # Visit declaration
     def visitVarDecl(self, ast, c):
-        return Symbol.fromVarDecl(ast)
+        return Symbol.fromVarDecl(ast, c)
 
     def visitFuncDecl(self, ast: FuncDecl, globalEnvi):
         symbol = Symbol.getSymbol(ast.name.name, globalEnvi).makeHere()
@@ -574,10 +572,9 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         for a, b in zip(localEnvi, formaParameters):
             a.updateMember(mtype = b)
 
-        listLocalVar = [self.visit(x, globalEnvi).toVar() for x in ast.body[0]]
-
-        # Check Redeclared Variable and update localEnvi
-        localEnvi = Checker.checkRedeclared(localEnvi, listLocalVar)
+        for x in ast.body[0]:
+            t = self.visit(x, globalEnvi).toVar()
+            localEnvi = Checker.checkRedeclared(localEnvi, [t])
 
         # Merge local with global environment
         localEnvi = Checker.mergedEnvi(globalEnvi, localEnvi)
@@ -732,31 +729,36 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         return typeReturn
     
     def visitFor(self, ast: For, envi):
-        indexVar = self.visit(ast.idx1, envi)
-        expr1 = self.visit(ast.expr1, envi)
-        if type(expr1) != IntType:
-            if type(expr1) == Unknown:
-                Checker.checkOneSideType(indexVar, ast.expr1, envi, IntType(), IntType())
-            else:
-                raise TypeMismatchInStatement(ast)
-        if type(indexVar) != IntType:
-            if type(indexVar) == Unknown:
-                Checker.checkTwoSideType(indexVar, expr1, Assign(ast.idx1, ast.expr1), envi)
-            else:
-                raise TypeMismatchInStatement(ast)
-        expr2 = self.visit(ast.expr2, envi)
-        if type(expr2) != BoolType:
-            if type(expr2) == Unknown:
-                Checker.checkOneSideType(indexVar, ast.expr2, envi, BoolType(), BoolType())
-            else:
-                raise TypeMismatchInStatement(ast)
-        expr3 = self.visit(ast.expr3, envi)
-        if type(expr3) != IntType:
-            if type(expr3) == Unknown:
-                Checker.checkOneSideType(indexVar, ast.expr3, envi, IntType(), IntType())
-            else:
-                raise TypeMismatchInStatement(ast)
-        
+        try:
+            indexVar = self.visit(ast.idx1, envi)
+            if type(indexVar) != IntType:
+                if type(indexVar) == Unknown:
+                    Checker.checkOneSideType(indexVar, ast.idx1, envi, IntType(), IntType())
+                    #Checker.checkTwoSideType(indexVar, expr1, Assign(ast.idx1, ast.expr1), envi)
+                else:
+                    raise TypeMismatchInStatement(ast)
+            expr1 = self.visit(ast.expr1, envi)
+            if type(expr1) != IntType:
+                if type(expr1) == Unknown:
+                    Checker.checkOneSideType(expr1, ast.expr1, envi, IntType(), IntType())
+                    #Checker.checkOneSideType(expr1, ast.expr1, envi, IntType(), IntType())
+                else:
+                    raise TypeMismatchInStatement(ast)
+            expr2 = self.visit(ast.expr2, envi)
+            if type(expr2) != BoolType:
+                if type(expr2) == Unknown:
+                    Checker.checkOneSideType(indexVar, ast.expr2, envi, BoolType(), BoolType())
+                else:
+                    raise TypeMismatchInStatement(ast)
+            expr3 = self.visit(ast.expr3, envi)
+            if type(expr3) != IntType:
+                if type(expr3) == Unknown:
+                    Checker.checkOneSideType(indexVar, ast.expr3, envi, IntType(), IntType())
+                else:
+                    raise TypeMismatchInStatement(ast)
+        except TypeCannotBeInferred:
+            raise TypeCannotBeInferred(ast)
+
         varDecl = [self.visit(y, envi) for y in ast.loop[0]]
         localEnvi = Checker.checkRedeclared([], varDecl)
         localEnvi = Checker.mergedEnvi(envi, localEnvi)
@@ -854,8 +856,11 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
         for i in ast.param:
             y = self.visit(i, globalEnvi)
             paramType.append(y)
-            Checker.checkCall(ast, globalEnvi, paramType)
-            Symbol.updateParamType(globalEnvi, ast)
+            try:
+                Checker.checkCall(ast, globalEnvi, paramType)
+                Symbol.updateParamType(globalEnvi, ast)
+            except TypeCannotBeInferred:
+                raise TypeCannotBeInferred(ast)
 
         try:
             typeReturn = Checker.checkCall(ast, globalEnvi, paramType, True)

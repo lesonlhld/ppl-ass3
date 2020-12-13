@@ -1,8 +1,7 @@
 
-                Var: a[1][2]= {{1,2}};
-                Function: main
-                Parameter: x
-                Body:
-                    a[1][2] = x;
-                EndBody.
-            
+        Var: x;
+        Function: main
+            Body:
+                x = y + 1;
+                Return;
+            EndBody.

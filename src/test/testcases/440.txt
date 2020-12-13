@@ -1,12 +1,14 @@
-Function: main
-        Parameter: n
-        Body:
-        Var: a, b;
-            If bool_of_string("True") Then
-                a = int_of_string (read ());
-            ElseIf n =/= 1.08 Then
-                b = float_of_int (a) +. 2.0;
-            ElseIf False Then
-                Return n;
-            EndIf.
-        EndBody.
+
+        Var: x;
+        Function: main
+            Parameter: x
+            Body:
+                Var: y, a = True;
+                y = !a && !foo(x);
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return False;
+            EndBody.

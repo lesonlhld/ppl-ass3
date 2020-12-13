@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Assign(Id(y),BinaryOp(==,Id(x),Id(z)))
+Redeclared Function: foo

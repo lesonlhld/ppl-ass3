@@ -1,8 +1,12 @@
 
-                Var:x =1;
-                Function: main
-                Parameter: y
-                Body:
-                    x = y + main(0.5) ;
-                EndBody.
-            
+        Function: foo
+            Parameter: x, y
+            Body:
+                Var: z;
+                z = foo( float_to_int(y) +. foo(1.1, 1.1) , int_of_float(foo(x, 1)) );
+                Return z;
+            EndBody.
+        Function: main
+            Body:
+                Return;
+            EndBody.

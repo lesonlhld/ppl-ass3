@@ -1,9 +1,12 @@
 
-                
-                Function: main
-                Body:
-                    Var:x=1;
-                    If x Then
-                    EndIf.
-                EndBody.
-            
+        Var: x;
+        Function: foo
+            Parameter: x
+            Body:
+                Return 1;
+            EndBody.
+        Function: main
+            Body:
+                x = foo(10) +. 1.1;
+                Return;
+            EndBody.

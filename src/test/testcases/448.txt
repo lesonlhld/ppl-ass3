@@ -1,8 +1,12 @@
 
-                Function: main
-                Body:
-                    Var: x=1.5;
-                    For (x = !True, x>1 , 0+1) Do
-                    EndFor.
-                EndBody.
-            
+        Var: x;
+        Function: main
+            Body:
+                foo(10);
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                Return 1;
+            EndBody.

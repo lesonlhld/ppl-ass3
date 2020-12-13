@@ -1,13 +1,9 @@
 
-                
-                Function: main
-                Body:
-                    Var:x;
-                    If x Then
-                        x=1;
-                    Else
-                        Var:y,z;
-                        y=x;
-                    EndIf.
-                EndBody.
-            
+        Var: x;
+        Function: main
+            Parameter: x[2][3]
+            Body:
+                Var: y[2][3];
+                x = y;
+                Return;
+            EndBody.

@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[Id(w)])
+Type Mismatch In Expression: BinaryOp(+,Id(x),Id(y))

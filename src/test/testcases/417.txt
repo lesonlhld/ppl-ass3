@@ -1,10 +1,14 @@
 
-                
-                Function: main
-                Parameter: x,y,z,t,k
-                Body:
-                    y= x + y \ z * t;
-                    x= k % t;
-                    y= x == z;
-                EndBody.
-            
+        Function: foo
+            Body:
+                Return;
+            EndBody.
+        Function: main
+            Body:
+                Return;
+            EndBody.
+        Function: foo
+            Parameter: x,y,z
+            Body:
+                Return;
+            EndBody.

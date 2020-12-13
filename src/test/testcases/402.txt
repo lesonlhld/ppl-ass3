@@ -1,7 +1,5 @@
-
-
-                Function: main
-                Body:
-                    x=1;
-                EndBody.    
-            
+Function: main 
+                    Body:
+                        printStrLn(read(4));
+                        Return;
+                    EndBody.

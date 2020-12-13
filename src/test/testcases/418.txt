@@ -1,10 +1,6 @@
 
-
-                Function: main
-                Parameter: x,y,z,t
-                Body:
-                    x= !y;
-                    z= z && t;
-                    x=z;
-                EndBody.
-            
+        Function: main
+            Body:
+                x = 1;
+                Return;
+            EndBody.
