@@ -1,12 +1,20 @@
 
-        Function: foo
-            Parameter: x, y
-            Body:
-                Var: z;
-                z = foo(y+1, foo(x, 1.1));
-                Return z;
-            EndBody.
-        Function: main
-            Body:
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: foo
+                    Parameter: x[1][1]
+                    Body:
+                        x[1][1] = -.x[1][1];
+                        Return x;
+                    EndBody.
+
+                    Function: main
+                    Body:
+                        Var: x[1][1] = {{1}};
+                        Do
+                            Var: e;
+                            e = foo(x)[1][1];
+                        While (True) EndDo.
+                        Return;
+                    EndBody.
+
+                

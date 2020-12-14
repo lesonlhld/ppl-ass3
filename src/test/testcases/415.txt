@@ -1,6 +1,16 @@
-Var: x, y, z;
-        Function: main
-            Parameter: x, y, z, main
-            Body:
-                Return;
-            EndBody.
+
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1];
+                        z = 1;
+                        a = 1.1;
+                        c = z + foo(2)[1][1];
+                    EndBody.
+
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Return {{1}};
+                    EndBody.
+                

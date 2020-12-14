@@ -1,12 +1,21 @@
 
-        Var: x;
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
-        Function: main
-            Body:
-                x = foo(10) +. 1.1;
-                Return;
-            EndBody.
+                    Var: arr[5] = {1,5,4,3,2};
+                    Function: main
+                    Body:
+                        Var: i,j;
+                        For (i = 0, i<5, 1) Do
+                            For (j = i+5%10, 1.0 +. 2.5>.10.3, 1) Do
+                                If arr[i] < arr[j] Then
+                                    Var: i = True;
+                                    print("something");
+                                ElseIf arr[i] > arr[j] Then
+                                    Var: i = "string";
+                                    print("something");
+                                Else
+                                    Var: x[1] = {1};
+                                    print("something");
+                                EndIf.
+                            EndFor.
+                        EndFor.
+                    EndBody.
+                

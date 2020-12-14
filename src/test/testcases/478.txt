@@ -1,10 +1,16 @@
 
-        Function: main
-            Parameter: x,y
-            Body:
-                If (True) Then
-                    x = True;
-                    main(1, 2.2);
-                EndIf.
-                Return;
-            EndBody.
+                Var: abc[2][3][4];
+                Function: foo
+                Parameter: x[2]
+                Body:
+                    x[1] = 1;
+                    abc[1] = 2.;
+                EndBody.
+                Function: main
+                Body:
+                    Var: z[2][3][4] = {1.,2.};
+                    Var: w[2] = {3.,4.};
+                    Var: x;
+                    abc = z;
+                    foo(x);
+                EndBody.            

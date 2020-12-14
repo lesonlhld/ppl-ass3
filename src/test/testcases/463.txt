@@ -1,11 +1,14 @@
 
-        Function: main
-            Parameter: x, y, z[2]
-            Body:
-                While (x > int_of_float(z[x])) Do
-                    y = z[1];
-                    main(1, 1.1, {1,2});
-                EndWhile.
-                Return;
-            EndBody.
-            
+                    Var: arr[5] = {1,2,3,4,5};
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Var: a = 10;
+                        Return 5;
+                    EndBody.
+                    Function: main
+                    Body:
+                        foo(arr[1]);
+                    EndBody.
+
+                

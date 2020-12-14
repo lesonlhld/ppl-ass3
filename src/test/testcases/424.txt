@@ -1,7 +1,21 @@
 
-        Var: x;
-        Function: main
-            Body:
-                x = foo(1);
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: foo
+                    Parameter: x[1][1]
+                    Body:
+                        x[1][1] = 1 > 2;
+                        Return x;
+                    EndBody.
+                    Function: foo1
+                    Body:
+                        Var: x[1][1] = {{1}};
+                        Return foo(x);
+                    EndBody.
+                    Function: main
+                    Body:
+                        Var: z,c,d[1], y[1][1];
+                        y = {{10}};
+                        y = foo1();
+                        Return;
+                    EndBody.
+                

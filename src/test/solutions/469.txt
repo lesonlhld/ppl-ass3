@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[CallExpr(Id(goo),[Id(x)])])
+Type Cannot Be Inferred: Dowhile([VarDecl(Id(x),IntLiteral(1))],[Assign(Id(x),BinaryOp(+,Id(x),Id(x)))],ArrayCell(CallExpr(Id(foo),[Id(x)]),[IntLiteral(1),IntLiteral(1)]))

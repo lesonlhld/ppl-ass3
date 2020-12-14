@@ -1,14 +1,11 @@
 
-        Function: foo
-            Body:
-                Return;
-            EndBody.
-        Function: main
-            Body:
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x,y,z
-            Body:
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,b,x,d[1];
+                        z = 1;
+                        a = 1;
+                        c = z + c * (a \ 1) % b;
+                        x = c < z;
+                    EndBody.
+                

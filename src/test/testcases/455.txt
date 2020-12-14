@@ -1,12 +1,9 @@
 
-        Var: x;
-        Function: main
-            Body:
-                x = foo(x) + x;
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
+                Function: main
+                Parameter: x
+                Body:
+                    If main(main(5)) Then
+                        Return True;
+                    EndIf.
+                EndBody.
+                

@@ -1,9 +1,11 @@
 
-                Function: main
-                Body:
-                    Var: x=1,y;
-                    Do
-                    While (x)
-                    EndDo.
-                EndBody.
-            
+                    Var: arr[5] = {1,5,4,3,2};
+                    Function: main
+                    Body:
+                        Var: i;
+                        i = 0;
+                        While (i<5) Do
+                            print(string_of_int(arr[i]));
+                        EndWhile.
+                    EndBody.
+                

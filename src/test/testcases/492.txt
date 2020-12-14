@@ -1,25 +1,7 @@
-Var: string_list[4] = {"","","",""};
-        Function: get_string_list
-            Parameter: list[4]
-                Body:
-                    Var : str_input = "", i;
-                    For (i = 0 , i < 4, 1) Do
-                        str_input = read();
-                        list[i] = str_input;
-                    EndFor.
-                    Return list;
+
+                Function: main 
+                Parameter: a,b,c
+                Body: 
+                    a= (a==b)!= c +3;
                 EndBody.
-        Function: print_string_list
-            Parameter: list[4]
-                Body:
-                    Var: i;
-                    For (i = 0 , i < 4, 1) Do
-                        printStrLn(list[i]);
-                    EndFor.
-                    Return;
-                EndBody.
-        Function: main
-            Body:
-                print_string_list(get_string_list(string_list));
-                Return;
-            EndBody.
+            

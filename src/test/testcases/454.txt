@@ -1,12 +1,17 @@
 
-        Var: x;
-        Function: main
-            Body:
-                x = x + foo(x);
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1;
-            EndBody.
+                    Var: arr[5];
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Var: a = 10;
+                        Return a > 5;
+                    EndBody.
+                    Function: main
+                    Body:
+                        Var: i;
+                        i = 0;
+                        While (i<5) Do
+                            print(string_of_bool(foo(arr[i])));
+                        EndWhile.
+                    EndBody.
+                

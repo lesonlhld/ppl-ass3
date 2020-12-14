@@ -1,6 +1,10 @@
-Var: x, y[3] = {1,2,3}, z;
-        Var: m, n[2][3], y = 1;
-        Function: main
-            Body:
-                Return;
-            EndBody.
+
+                    Var: x[1];
+                    Function: main
+                    Parameter: x, y, t, e, f, g
+                    Body:
+                        x = 1;
+                        x = print(string_of_int(12));
+                        Return x;
+                    EndBody.
+                

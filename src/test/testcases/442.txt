@@ -1,12 +1,8 @@
 
-        Var: x;
-        Function: main
-            Body:
-                foo(x);
-                Return;
-            EndBody.
-        Function: foo
-            Parameter: x
-            Body:
-                Return;
-            EndBody.
+                    Var: x[1];
+                    Function: main
+                    Body:
+                        x();
+                        Return;
+                    EndBody.
+                

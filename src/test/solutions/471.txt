@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[Id(x),Id(y)])
+Type Mismatch In Statement: Dowhile([VarDecl(Id(e),IntLiteral(1))],[Assign(Id(e),BinaryOp(+,Id(e),Id(e)))],ArrayCell(CallExpr(Id(foo),[Id(x)]),[IntLiteral(1),IntLiteral(1)]))

@@ -1,9 +1,13 @@
 
-        Var: x;
-        Function: main
-            Body:
-                Var: x[2][3];
-                Var: y[3][2] = { {1,2}, {3,4}, {5,6} };
-                x = y;
-                Return;
-            EndBody.
+                    Var: x;
+                    Function: main
+                    Body:
+                        Var: c;
+                        If x Then
+                            Var: x = 1;
+                            x = x+2;
+                        EndIf.
+                        c = x + c;
+                        Return;
+                    EndBody.
+                

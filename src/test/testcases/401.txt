@@ -1,5 +1,9 @@
-Function: main  
-                   Body:
-                        printStrLn();
-                        Return;
+Var: x[1];
+                    Function: main
+                    Parameter: x[1][1]
+                    Body:
+                        x = {{1.1}};
+                        x = y;
+                        Return x;
                     EndBody.
+                

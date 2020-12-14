@@ -1,13 +1,18 @@
 
-        Function: foo
-            Parameter: x, y, z
-            Body:
-                Return False;
-            EndBody.
-        Function: main
-            Body:
-                Var: x, y;
-                x = foo(True, 1, foo(x, y, False));
-                x = y;
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: x[1][1] = {{1}};
+                        Do
+                            Var: e = 1;
+                            e = e+e;
+                        While (foo(x)[1][1]) EndDo.
+                        Return;
+                    EndBody.
+
+                    Function: foo
+                    Parameter: x[1][1]
+                    Body:
+                        Return x;
+                    EndBody.
+                

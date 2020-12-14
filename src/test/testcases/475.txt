@@ -1,14 +1,7 @@
 
+        Var:x =1;
         Function: main
-            Body:
-                Var: x;
-                If (x > 1) Then Return 1;
-                ElseIf (x < 1) Then
-                    Var: y;
-                    y = x + 1;
-                    Return 2;
-                Else
-                    y = x - 1;
-                    Return 3;
-                EndIf.
-            EndBody.
+        Parameter: y
+        Body:
+            x = main(0.5) + y;
+        EndBody.            

@@ -1,6 +1,14 @@
 
-        Function: main
-            Body:
-                x = 1;
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1];
+                        c = z + foo(foo(2));
+                    EndBody.
+
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Return 1;
+                    EndBody.
+                

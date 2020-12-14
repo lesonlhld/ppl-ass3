@@ -1,1 +1,1 @@
-Undeclared Identifier: y
+Type Mismatch In Expression: BinaryOp(>,BinaryOp(+,Id(z),CallExpr(Id(foo),[Id(c)])),Id(d))

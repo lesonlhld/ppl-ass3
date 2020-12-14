@@ -1,13 +1,14 @@
 
-        Function: foo
-            Parameter: x
-            Body:
-                Return 1.1;
-            EndBody.
-        Function: main
-            Body:
-                Var: x, y;
-                For (x = 5, y, foo(False && y)) Do
-                EndFor.
-                Return;
-            EndBody.
+                
+                Function: main 
+        Body:
+            If True Then
+                Var: a;
+                Var: x;
+                Var: y;
+                x = 1;
+                y = 2;
+                z = 3;
+            EndIf.
+        EndBody.
+            

@@ -1,7 +1,15 @@
 
-        Var: x;
-        Function: main
-            Body:
-                x = y + 1;
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1];
+                        d[1]=1+3%10;
+                        c = !( (z>c)  || (z+foo(c)>d[1]));
+                    EndBody.
+
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Return 1;
+                    EndBody.
+                

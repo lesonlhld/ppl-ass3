@@ -1,11 +1,7 @@
 
-        Function: foo
-            Body:
-                Return 1;
-            EndBody.
-        Function: main
-            Body:
-                For (foo = 5, True, 1) Do
-                EndFor.
-                Return;
-            EndBody.
+                    Function: main
+                    Parameter: x
+                    Body:
+                        y= x + main(0.5);
+
+                    EndBody.            

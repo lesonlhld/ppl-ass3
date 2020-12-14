@@ -1,1 +1,1 @@
-Redeclared Parameter: x
+Type Cannot Be Inferred: Return(Id(x))

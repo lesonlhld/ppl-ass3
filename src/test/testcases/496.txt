@@ -1,20 +1,15 @@
-           
-        Function: main
+
+Function: main 
+            Parameter: x[5]
             Body:
-                Var: a[3][2] = {{1,2},{3,4},{5,6}}, i = 0;
-                While i < 3 Do
-                    Var: j = 0;
-                    If i < j Then
-                        Continue;
-                    EndIf.
-                    While (j < 2) Do
-                        printStrLn(string_of_int(a[i][j]));
-                        j =  j + 1;
-                        If j == 3 Then
-                            Continue;
-                        EndIf.
-                    EndWhile.
-                    i = i + 1;           
-                EndWhile.
-                Return;
+                Var: y[5]; 
+                x = {1,2,3,4,5};
+                main(y);
+                foo(1.2);
             EndBody.
+        Function: foo
+            Parameter: x
+            Body:
+                x = 2;
+            EndBody.
+            

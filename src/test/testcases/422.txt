@@ -1,8 +1,10 @@
 
-        Var: x;
-        Function: main
-            Body:
-                Var: y;
-                x = y()[1] + 1;
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1];
+                        d = {1};
+                        c = !((z+c>d[1]) || (z>c));
+                        Return;
+                    EndBody.
+                

@@ -1,1 +1,1 @@
-Undeclared Identifier: foo
+Type Cannot Be Inferred: Assign(Id(e),UnaryOp(!,BinaryOp(||,BinaryOp(>,BinaryOp(+,Id(z),CallExpr(Id(foo),[Id(c)])),ArrayCell(Id(d),[IntLiteral(1)])),BinaryOp(>,Id(z),Id(c)))))

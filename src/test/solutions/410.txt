@@ -1,1 +1,1 @@
-Redeclared Variable: x
+Type Mismatch In Expression: BinaryOp(+,Id(z),CallExpr(Id(foo),[BinaryOp(+.,Id(a),CallExpr(Id(foo),[Id(a)]))]))

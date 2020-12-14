@@ -1,5 +1,10 @@
-Var: x, main, y;
-        Function: main
-            Body:
-                Return;
-            EndBody.
+
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1];
+                        z = 1;
+                        a = 1.1;
+                        c = z + foo(2);
+                    EndBody.
+                

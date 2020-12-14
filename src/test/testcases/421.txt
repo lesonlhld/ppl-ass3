@@ -1,13 +1,15 @@
 
-        Var: x;
-        Function: foo
-            Parameter: x
-            Body:
-                x = 1;
-                Return x;
-            EndBody.        
-        Function: main
-            Body:
-                x = foo + 1;
-                Return;
-            EndBody.
+                    Var: a;
+                    Function: main
+                    Body:
+                        Var: z,c,d[1],e;
+                        d[1]=1+3%10;
+                        e = !((z+foo(c)>d[1]) || (z>c));
+                    EndBody.
+
+                    Function: foo
+                    Parameter: x
+                    Body:
+                        Return 1;
+                    EndBody.
+                

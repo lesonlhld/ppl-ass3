@@ -384,8 +384,13 @@ class Checker:
                 typeReturn = left
         elif type(ast) in [CallExpr, CallStmt]:
             for i in range(len(right)):
-                if (type(left[i]) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown):
+                if (type(left[i]) == Unknown and type(right[i]) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown) or (type(left[i]) == ArrayType and type(left[i].eletype) == Unknown and type(right[i]) == Unknown):
                     raise TypeCannotBeInferred(ast)
+                elif  (type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) == Unknown):
+                    if type(ast) == CallExpr:
+                        raise TypeMismatchInExpression(ast)
+                    else:
+                        raise TypeMismatchInStatement(ast)
                 elif type(left[i]) == Unknown and type(right[i]) != Unknown and type(right[i]) != ArrayType:
                     left[i] = right[i]
                 elif type(left[i]) == Unknown and type(right[i]) == ArrayType and type(right[i].eletype) != Unknown:
@@ -457,6 +462,8 @@ class Checker:
             return False        
 
         for a, b in zip(formaParameters, actualParameters):
+            if VoidType in [type(a), type(b)]:
+                return False
             if Unknown not in [type(a), type(b)] and type(a) != type(b) and type(a) != ArrayType and type(b) == ArrayType and type(b.eletype) != Unknown and type(a) != type(b.eletype):
                 return False
             
@@ -734,14 +741,12 @@ Symbol("printStrLn",MType([StringType()],VoidType()))]
             if type(indexVar) != IntType:
                 if type(indexVar) == Unknown:
                     Checker.checkOneSideType(indexVar, ast.idx1, envi, IntType(), IntType())
-                    #Checker.checkTwoSideType(indexVar, expr1, Assign(ast.idx1, ast.expr1), envi)
                 else:
                     raise TypeMismatchInStatement(ast)
             expr1 = self.visit(ast.expr1, envi)
             if type(expr1) != IntType:
                 if type(expr1) == Unknown:
                     Checker.checkOneSideType(expr1, ast.expr1, envi, IntType(), IntType())
-                    #Checker.checkOneSideType(expr1, ast.expr1, envi, IntType(), IntType())
                 else:
                     raise TypeMismatchInStatement(ast)
             expr2 = self.visit(ast.expr2, envi)

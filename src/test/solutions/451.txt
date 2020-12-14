@@ -1,1 +1,1 @@
-Type Mismatch In Statement: While(Id(x),[],[])
+Type Cannot Be Inferred: If(CallExpr(Id(foo),[Id(x)]),[VarDecl(Id(i),BooleanLiteral(true))],[CallStmt(Id(print),[StringLiteral(something)])])ElseIf(BinaryOp(>,ArrayCell(Id(arr),[Id(i)]),ArrayCell(Id(arr),[Id(j)])),[VarDecl(Id(i),StringLiteral(string))],[CallStmt(Id(print),[StringLiteral(something)])])Else([VarDecl(Id(x),[1],ArrayLiteral(IntLiteral(1)))],[CallStmt(Id(print),[StringLiteral(something)])])

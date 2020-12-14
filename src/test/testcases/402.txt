@@ -1,5 +1,8 @@
-Function: main 
+Var: x[1];
+                    Function: foo
+                    Parameter: x[1][1]
                     Body:
-                        printStrLn(read(4));
-                        Return;
+                        x = {{1.1}};
+                        Return x;
                     EndBody.
+                

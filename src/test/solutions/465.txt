@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[IntLiteral(1),FloatLiteral(1.1),Id(t)])
+Type Mismatch In Statement: Return(CallExpr(Id(foo),[Id(a)]))
