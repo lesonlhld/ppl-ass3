@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: Dowhile([VarDecl(Id(x),IntLiteral(1))],[Assign(Id(x),BinaryOp(+,Id(x),Id(x)))],ArrayCell(CallExpr(Id(foo),[Id(x)]),[IntLiteral(1),IntLiteral(1)]))
+Type Mismatch In Expression: BinaryOp(==,StringLiteral(str),StringLiteral(Chung Xon))

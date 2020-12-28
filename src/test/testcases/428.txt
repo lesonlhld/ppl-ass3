@@ -1,13 +1,6 @@
-
-                    Var: x;
-                    Function: main
-                    Body:
-                        Var: c;
-                        If x Then
-                            Var: x = 1;
-                            x = x+2;
-                        EndIf.
-                        c = x + c;
-                        Return;
-                    EndBody.
-                
+Var: a;
+        Function: main 
+        Parameter: n, arr[3][4][5]
+        Body:
+            a = 3*.4.5\0e-2+arr[3-main("call")];
+        EndBody.

@@ -1,24 +1,9 @@
-
-                    Function: main
-                        Parameter: x, y, z, t
-                        Body:
-                            Var: a[1];
-                            x = -1;
-                            a[0] = -12;
-                            foo(x, a[2], int_of_float(1.2), -1);
-                            foo1(x, 1, int_of_float(0.5), -1);
-                            Return;
-                        EndBody.
-                    Function: foo
-                        Parameter: x, y, z, t
-                        Body:
-                            foo1(t, y, int_of_float(0.1), -1);
-                            Return;
-                        EndBody.
-
-                    Function: foo1
-                        Parameter: x, y, z, t
-                        Body:
-                            Return;
-                        EndBody.
-                
+ 
+        Function: main
+        Parameter: x, y
+        Body:
+            While (True) Do
+                x = main(1, 2);
+            EndWhile.
+        EndBody.
+        

@@ -1,14 +1,9 @@
-
-                Function: main
-                Body:
-                    Var: x;
-                    For (x = 1 , 1==1 , 1) Do
-                    EndFor.
-                EndBody.
-
-                Function: foo
-                Parameter: x
-                Body:
-
-                EndBody.
-            
+Function: main 
+        Body:
+            Var: a;
+                If bool_of_string("True") Then
+                Var: b;
+                    a = int_of_string (b);
+                    b = float_of_int (a) +. 2.0;
+                EndIf.
+        EndBody.

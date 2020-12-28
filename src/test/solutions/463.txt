@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[ArrayCell(Id(arr),[IntLiteral(1)])])
+Type Cannot Be Inferred: Return(Id(f))

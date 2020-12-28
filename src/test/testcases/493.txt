@@ -1,13 +1,18 @@
 
-               Function: main 
-                Parameter: n
-                Body: 
-                    If n == 0 Then
-                        If n!=0 Then
-                            If n!=0 Then
-                                a=5;
-                            EndIf.
-                        EndIf.
-                    EndIf.
-                EndBody.
-            
+            Function: sqrt
+            Parameter: x
+            Body:
+                Var: i;
+            While (i*i) < x Do
+                    i = i - -1;
+                EndWhile.
+                Return i-1;
+            EndBody.
+            Function: main
+            Parameter: n,x
+            Body:
+                Var: i;
+                For (i = 0, i < sqrt(n), 2) Do
+                    x = i + n;
+                EndFor.
+            EndBody.

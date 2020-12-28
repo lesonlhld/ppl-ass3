@@ -1,20 +1,17 @@
 
-                    Var: a;
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        x[1][1] = -.x[1][1];
-                        Return x;
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: x[1][1] = {{1}};
-                        Do
-                            Var: e;
-                            e = foo(x)[1][1];
-                        While (True) EndDo.
-                        Return;
-                    EndBody.
-
-                
+        Var: x;
+        Function: main
+            Parameter: j, brr[1000]
+            Body:
+                Var: x=0,i;
+                For (i=0,True,i) Do
+                    Var:x=1;
+                    Do
+                        Var:x=2;
+                    While1==0
+                    EndDo.
+                    IfTrueThen
+                        Var:x=3;
+                    EndIf.
+                EndFor.
+            EndBody.

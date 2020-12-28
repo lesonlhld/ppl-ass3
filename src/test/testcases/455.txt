@@ -1,9 +1,10 @@
-
-                Function: main
-                Parameter: x
-                Body:
-                    If main(main(5)) Then
-                        Return True;
-                    EndIf.
-                EndBody.
-                
+Function: main
+        Parameter: a
+        Body:
+            Do
+                While a<100 Do
+                    a=a-30;
+                EndWhile.
+            While (a>.1.5)
+            EndDo.
+        EndBody.

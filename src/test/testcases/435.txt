@@ -1,20 +1,6 @@
-
-                    Var: x[9];
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = {1,2,3,4,5,6,7,8,9};
-                        For (i = 0, i <= 9, 1) Do
-                            If chiaHetCho2(x[i]) Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-
-                    Function: chiaHetCho2
-                    Parameter: x
-                    Body:
-                        Return x % 2 == 0;
-                    EndBody.
-                
+Function: main 
+        Parameter: a
+        Body:
+        Var: x; 
+            x = (a >=. 2.3e-13 || (x =/= 2e-35));
+        EndBody.

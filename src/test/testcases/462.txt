@@ -1,20 +1,11 @@
-
-                    Var: arr[5] = {1,2,3,4,5};
-                    Function: main
-                    Body:
-                        Var: i,x;
-                        i = 0;
-                        For (i = 0, !(i+10>100),100) Do
-                            While (i<5) Do
-                                print(string_of_bool(foo(arr[i])));
-                                i = i + 1;
-                            EndWhile.
-                        EndFor.
-                    EndBody.
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return 5;
-                    EndBody.
-                
+Function: main 
+        Parameter: x,y
+        Body:
+            foo(2 + x, 4. \. y);
+            goo();
+        EndBody.
+        Function: foo
+        Body:
+            Var: a, c;
+            Return a + b;
+        EndBody.

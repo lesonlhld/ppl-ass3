@@ -1,14 +1,10 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: z,c,d[1];
-                        c = z + foo(foo(2));
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Return 1;
-                    EndBody.
-                
+        Function: main
+        Parameter: x, y
+        Body:
+            Var: z;
+            While (True) Do
+                z = main(1, main(x, True));
+            EndWhile.
+            Return y && z;
+        EndBody.

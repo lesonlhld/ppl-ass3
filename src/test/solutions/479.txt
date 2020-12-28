@@ -1,1 +1,1 @@
-Type Mismatch In Statement: CallStmt(Id(foo),[Id(w)])
+Redeclared Variable: a

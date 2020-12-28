@@ -1,12 +1,11 @@
-
-                    Function: foo
-                    Body:
-                        Return;
-                    EndBody.
-                    Function: main
-                    Body:
-                        Var: x;
-                        x = foo;
-                        Return;
-                    EndBody.
-                
+Function: main
+        Parameter: a, b
+        Body:
+        Var: id[4312][867][9856][867], literal = 120000e-1,  array[2][3] = {{867,345,987},{76,12,744}};
+            If n > 10 Then
+                If n <. 20.5 Then Return x;
+                EndIf.
+                printStrLn(arg);
+            Else fact(x);
+            EndIf.
+        EndBody.

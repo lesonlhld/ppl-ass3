@@ -1,20 +1,7 @@
-
-                    Var: a;
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        x[1][1] = !x[1][1];
-                        Return x;
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: x[1][1] = {{True}};
-                        Do
-                            Var: e = 1;
-                            e = e+e;
-                        While (foo(x)[1][1]) EndDo.
-                        Return;
-                    EndBody.
-
-                
+Function: main 
+                Parameter: x[2][3]
+        Body:
+            Var: i = 0;
+            x[2][3]={{867,345,987},{76,12,744}};
+            printStrLn(string_of_int(x[2]));
+        EndBody.

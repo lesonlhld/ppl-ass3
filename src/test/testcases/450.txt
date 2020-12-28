@@ -1,27 +1,11 @@
-
-                    Var: arr[5] = {1,5,4,3,2};
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return a > 5;
-                    EndBody.
-                    Function: main
-                    Body:
-                        Var: i,j,x;
-                        For (i = j, i<5, 1) Do
-                            For (j = i, foo(x), 1) Do
-                                If arr[i] < arr[j] Then
-                                    Var: i = True;
-                                    print("something");
-                                ElseIf arr[i] > arr[j] Then
-                                    Var: i = "string";
-                                    print("something");
-                                Else
-                                    Var: x[1] = {1};
-                                    print("something");
-                                EndIf.
-                            EndFor.
-                        EndFor.
-                    EndBody.
-                
+Function: main 
+        Body:
+            Var: x=20;
+            While True Do
+                If x==0 Then Break;
+                ElseIf x%2==0 Then
+                    x=x\2;
+                Else printStrLn("Error");
+                EndIf.
+            EndWhile.
+        EndBody.

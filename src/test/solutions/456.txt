@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(print),[CallExpr(Id(string_of_bool),[CallExpr(Id(foo),[ArrayCell(Id(arr),[Id(i)])])])])
+Type Mismatch In Expression: BinaryOp(<,Id(x),FloatLiteral(100000000.0))

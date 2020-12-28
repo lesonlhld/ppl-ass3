@@ -1,15 +1,5 @@
-
-                    Var: arr[5] = {1,2,3,4,5};
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return;
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        foo(arr[1]);
-                    EndBody.
-
-                
+Var: callnotinfunction;
+        Function: main
+        Body:
+            goo(x,y*2,z+3.00000003);
+            EndBody.

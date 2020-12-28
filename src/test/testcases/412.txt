@@ -1,16 +1,16 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: z,c;
-                        z = 1;
-                        a = 1.1;
-                        c = z + foo(c);
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Return x;
-                    EndBody.
-                
+        Var: n;
+        Function: fact
+        Parameter: themdauchamphay
+        Body:
+            If n == 0 Then
+                Return 1;
+            ElseIf (n>0) Then
+                Return n * fact (n - 1);
+            Else
+                Return n;
+            EndIf.
+        EndBody.
+        Function: main
+        Body:
+        EndBody.

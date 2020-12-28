@@ -1,14 +1,18 @@
 
-                    Var: x[9];
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = {1,2,3,4,5,6,7,8,9};
-                        For (i = 0, i <= 9, "Loi") Do
-                            If x[i] % 2 == 0 Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
+        Var: a,c,d;
+        Function: main
+        Parameter: b
+        Body:
+        Var: d;
+            a = -1082000;
+            b = -0X123BCD;
+            c = -0o21345;
+            d = -a;
+            c = -call(a);
+        EndBody.
+        Function: call
+                Parameter: s
+                Body:
+                    Return 0;
+                EndBody.
                 

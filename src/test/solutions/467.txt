@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[CallExpr(Id(foo1),[])])
+Type Mismatch In Statement: Dowhile([],[Assign(Id(x),IntLiteral(1))],Id(x))

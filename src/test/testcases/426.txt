@@ -1,21 +1,8 @@
 
-                    Var: a;
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        x[1][1] = 1;
-                        Return x;
-                    EndBody.
-                    Function: foo1
-                    Body:
-                        Var: x[1][1] = {{1}};
-                        Return foo(x);
-                    EndBody.
-                    Function: main
-                    Body:
-                        Var: z,c,d[1], y[1][1];
-                        y = {{"10"}};
-                        y = foo1();
-                        Return;
-                    EndBody.
-                
+        Var: a,b,c,d;
+        Function: main 
+        Parameter: n
+        Body:
+        Var: x;
+            x = !(!(!a && b) || (c >. 3.e+3) &&!(d < 2));
+        EndBody.

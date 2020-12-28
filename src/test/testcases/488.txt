@@ -1,10 +1,8 @@
-
-        Function: main 
-        Parameter: x,y
-        Body: 
-            Do  
-                Return main(x,y);
-            While True
-            EndDo.
+Function: main 
+        Body:
+            If n == 0 Then
+                x = 3;
+            ElseIf x != 2 Then
+                check = False;
+            EndIf.
         EndBody.
-            

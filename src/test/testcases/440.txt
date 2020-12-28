@@ -1,26 +1,12 @@
-
-                    Var: x[9];
-                    Function: getEle
-                    Parameter: index
-                    Body:
-                        Var: x[9] = {1,2,3,4,5,6,7,8,9};
-                        Return x[index];
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: i;
-                        For (i = 0, i <= 9, 1) Do
-                            If chiaHetCho2(getEle(i)) Then
-                                print(string_of_int(getEle(i)));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-
-                    Function: chiaHetCho2
-                    Parameter: x
-                    Body:
-                        Return x % 2 == 0;
-                    EndBody.
-                
+Function: main
+        Parameter: n
+        Body:
+        Var: a, b;
+            If bool_of_string("True") Then
+                a = int_of_string (read ());
+            ElseIf n =/= 1.08 Then
+                b = float_of_int (a) +. 2.0;
+            ElseIf False Then
+                Return n;
+            EndIf.
+        EndBody.

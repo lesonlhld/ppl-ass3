@@ -1,11 +1,10 @@
-
-                    Var: arr[5] = {1,5,4,3,2};
-                    Function: main
-                    Body:
-                        Var: i;
-                        i = 0;
-                        While (i<5) Do
-                            print(string_of_int(arr[i]));
-                        EndWhile.
-                    EndBody.
-                
+Function: main 
+        Parameter: x
+        Body:
+            While (True) Do
+                While (x>=0) Do
+                    x = x+-1;
+                EndWhile.
+                If ((x<0)) Then Break; EndIf.
+            EndWhile.
+        EndBody.

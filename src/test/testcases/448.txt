@@ -1,21 +1,11 @@
 
-                    Var: arr[5] = {1,5,4,3,2};
-                    Function: main
-                    Body:
-                        Var: i,j;
-                        For (i = j, i<5, 1) Do
-                            For (j = i, j <5, 1) Do
-                                If arr[i] < arr[j] Then
-                                    Var: i = True;
-                                    print("something");
-                                ElseIf arr[i] > arr[j] Then
-                                    Var: i = "string";
-                                    print("something");
-                                Else
-                                    Var: x[1] = {1};
-                                    print("something");
-                                EndIf.
-                            EndFor.
-                        EndFor.
-                    EndBody.
-                
+        Function: main
+        Parameter: row,col,sum,arr[5][9]
+        Body:
+            Var: sum=0;
+            For( i=0,i<=row,1) Do
+                For(j=0,j<col,2) Do
+                    sum=sum+arr[i][j];
+                EndFor.
+            EndFor.
+        EndBody.

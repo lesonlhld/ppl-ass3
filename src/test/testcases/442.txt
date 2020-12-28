@@ -1,8 +1,13 @@
 
-                    Var: x[1];
-                    Function: main
-                    Body:
-                        x();
-                        Return;
-                    EndBody.
-                
+        Var: i;
+        Function: main
+        Body:
+        Var: n;
+            If i <. 4.5 Then
+                printStrLn(string_of_float(i));
+            ElseIf n > 10 Then 
+                Break;
+            Else
+                i=int_of_float(i)-1;
+            EndIf.
+            EndBody.

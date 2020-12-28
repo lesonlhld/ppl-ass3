@@ -1,18 +1,9 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: x[1][1];
-                        Do
-                            Var: x = 1;
-                            x = x+x;
-                        While (foo(x)[1][1]) EndDo.
-                        Return;
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        Return x;
-                    EndBody.
-                
+            Function: main
+            Body:
+            If "str" == "Chung Xon" Then
+                Return True;
+            Else
+                Return False;
+                EndIf.
+            EndBody.

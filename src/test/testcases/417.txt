@@ -1,11 +1,9 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: z,c,b,x,d[1];
-                        z = 1;
-                        a = 1;
-                        c = z + c * (a \ 1) % b;
-                        x = c < z;
-                    EndBody.
-                
+        Function: main 
+        Parameter: x, a
+        Body:
+            While x>1 Do
+                Var: a = 10;
+            EndWhile.
+        EndBody.
+        

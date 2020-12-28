@@ -1,9 +1,14 @@
-Var: x[1];
-                    Var: main;
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        x = {{1.1}};
-                        Return x;
-                    EndBody.
-                
+ 
+        Var: a = True, d = "string\b";
+        **this  is comment**
+        Function: main
+        Parameter: a[123], b , x
+        Body:
+        Var:y;
+            Do
+            Var:y; 
+            y = y + 1;
+                main(a,y,d);
+            While (x+y) > 3 EndDo.
+        EndBody.
+        

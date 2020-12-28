@@ -1,25 +1,10 @@
 
-                    Var: x[9];
-                    Function: newArray
-                    Body:
-                        Return {1,2,3,4,5,6,7,8,9};
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = newArray();
-                        For (i = 0, i <= 9, 1) Do
-                            If chiaHetCho2(x[i]) Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-
-                    Function: chiaHetCho2
-                    Parameter: x
-                    Body:
-                        Return x % 2 == 0;
-                    EndBody.
-                
+        Function: main
+        Body:
+            Var: x=1;
+            If x > 10 Then
+                x=25+6-.2.5%3\100*x;
+            Else
+                x=x+2;
+            EndIf.
+        EndBody.

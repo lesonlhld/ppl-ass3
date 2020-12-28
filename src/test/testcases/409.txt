@@ -1,13 +1,9 @@
-
-                    Function: main
-                    Body:
-                        Var: z;
-                        z = foo(z);
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Return x;
-                    EndBody.
-                
+ 
+        Function: main
+        Parameter: x
+        Body:
+        Var: y = 1;
+        main(y);
+        x = 1.0;
+        EndBody.
+        

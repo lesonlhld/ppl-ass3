@@ -1,11 +1,8 @@
 
-            Function: main
-                Body:
-                    Var: foo[1] = {0};
-                    foo = foo(10);
-                EndBody.
-            Function: foo
-                Parameter: x
-                Body:
-                    Return True;
-                EndBody.
+        Var: i=0, k=100;
+        Function: main
+        Body:
+            For (i=12, i < k, i*i) Do
+            goo();
+            EndFor.
+        EndBody.

@@ -1,21 +1,4 @@
-
-                    Var: a;
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body: 
-                        x[1][1] = -x[1][1];
-                        Return x[1][1];
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: x[1][1] = {{1}};
-                        Do
-                            Var: e;
-                            foo(x);
-                        While (True) EndDo.
-                        Return;
-                    EndBody.
-
-                    
-                
+Function: main
+        Body:
+            Var  : x[123]={   20, 2   ,108  };
+        EndBody.

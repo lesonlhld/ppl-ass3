@@ -1,1 +1,1 @@
-Undeclared Function: x
+Type Mismatch In Expression: BinaryOp(+,Id(b),Id(c))

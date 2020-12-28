@@ -1,15 +1,14 @@
-
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: z,c,d[1];
-                        d[1]=1+3%10;
-                        c = !( (z>c)  || (z+foo(c)>d[1]));
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Return 1;
-                    EndBody.
+Var **test comment**: **bien = "STRING"**
+        ****fu[3]={0X743A5,0o26523,321 **cmt**},i****;****
+        Function: main
+            Body:
+            Var:x,y,j;
+                For (i=0, True, 1) Do
+                    x = y + 1;
+                EndFor.
                 
+                For (j=1, True, main()) Do
+                    y = x + 1;
+                EndFor.
+            EndBody.
+            

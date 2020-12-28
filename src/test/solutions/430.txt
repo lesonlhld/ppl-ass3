@@ -1,1 +1,0 @@
-Type Mismatch In Statement: For(Id(i),BinaryOp(>,Id(i),IntLiteral(0)),BinaryOp(<=,Id(i),IntLiteral(9)),IntLiteral(1),[],[If(BinaryOp(==,BinaryOp(%,ArrayCell(Id(x),[Id(i)]),IntLiteral(2)),IntLiteral(0)),[],[CallStmt(Id(print),[CallExpr(Id(string_of_int),[ArrayCell(Id(x),[Id(i)])])])])Else([],[])])

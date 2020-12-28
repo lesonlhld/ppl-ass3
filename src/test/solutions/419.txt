@@ -1,1 +1,0 @@
-Type Mismatch In Statement: Assign(Id(c),UnaryOp(!,BinaryOp(||,BinaryOp(>,Id(z),Id(c)),BinaryOp(>,BinaryOp(+,Id(z),CallExpr(Id(foo),[Id(c)])),ArrayCell(Id(d),[IntLiteral(1)])))))

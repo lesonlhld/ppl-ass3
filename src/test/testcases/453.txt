@@ -1,11 +1,13 @@
-
-                    Var: arr[5];
-                    Function: main
-                    Body:
-                        Var: i;
-                        i = 0;
-                        While (i<5) Do
-                            print(string_of_int(arr[i]));
-                        EndWhile.
-                    EndBody.
-                
+Function: main 
+        Parameter: n
+        Body:
+            While True Do
+                Whilen>=1 Do
+                    Whilen<.69.96 Do
+                        While n%3==1 Do
+                            n = n \ 5;
+                        EndWhile
+                    .EndWhile.
+                EndWhile.
+            EndWhile.
+        EndBody.

@@ -1,1 +1,1 @@
-Type Cannot Be Inferred: CallStmt(Id(foo),[Id(x)])
+Type Mismatch In Statement: Return(CallExpr(Id(foo),[ArrayLiteral(FloatLiteral(1.1),FloatLiteral(2.2),FloatLiteral(3.3))]))

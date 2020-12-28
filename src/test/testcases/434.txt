@@ -1,15 +1,6 @@
-
-                    Var: x[9];
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = {1,2,3,4,5,6,7,8,9};
-                        For (i = 0, i <= 9, 1) Do
-                            Var: x = 0;
-                            If x[i] % 2 == x Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-                
+Function: main
+        Parameter: arr[2222]
+        Body:
+        Var: x,a=0X24211ABC;
+            x=arr[a+6];
+        EndBody.

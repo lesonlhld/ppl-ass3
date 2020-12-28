@@ -1,18 +1,12 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: x[1][1] = {{1}};
-                        Do
-                            Var: e = 1;
-                            e = e+e;
-                        While (foo(x)[1][1]) EndDo.
-                        Return;
-                    EndBody.
-
-                    Function: foo
-                    Parameter: x[1][1]
-                    Body:
-                        Return x;
-                    EndBody.
-                
+        Var: a;
+        Function: main 
+        Body:
+        Var: a;
+        Return int_of_float(a+.2.5)+foo(int_of_float(a));
+        EndBody.
+        Function: foo
+        Parameter: x
+        Body:
+        Return x == a;
+        EndBody.

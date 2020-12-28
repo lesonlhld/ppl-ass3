@@ -1,25 +1,5 @@
-
-                    Var: x[9];
-                    Function: newArray
-                    Body:
-                        Return {1,2,3,4,5,6,7,8,9};
-                    EndBody.
-
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = newArray();
-                        For (i = 0, i <= 9, 1) Do
-                            If chiaHetCho2(newArray()[i]) Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-
-                    Function: chiaHetCho2
-                    Parameter: x
-                    Body:
-                        Return x % 2 == 0;
-                    EndBody.
-                
+Function: main 
+        Parameter: n,a[3], b[2][3], c[1]
+        Body:a = {1,2,3}; b[2][3] = 5;
+        c[2] = {{1,3},{1,5,7}};
+        EndBody.

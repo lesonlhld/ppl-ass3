@@ -1,18 +1,8 @@
-
-                    Var: arr[5] = {1,2,3,4,5};
-                    Function: main
-                    Body:
-                        Var: i,x;
-                        i = 0;
-                        While (foo(x)) Do
-                            print(string_of_bool(foo(arr[i])));
-                            i = i + 1;
-                        EndWhile.
-                    EndBody.
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return a > 5;
-                    EndBody.
-                
+Function: main
+        Body:
+        Var:i=0;
+            For (i=0, i!=9, (i*.2.0)) Do
+                If i>=10 Then Break;
+                EndIf.
+            EndFor.
+        EndBody.

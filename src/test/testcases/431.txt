@@ -1,14 +1,11 @@
 
-                    Var: x[9];
-                    Function: main
-                    Body:
-                        Var: i;
-                        x = {1,2,3,4,5,6,7,8,9};
-                        For (i = 0, 9, 1) Do
-                            If x[i] % 2 == 0 Then
-                                print(string_of_int(x[i]));
-                            EndIf.
-                        EndFor.
-                        Return;
-                    EndBody.
-                
+        Var:var;
+        Function: main 
+        Parameter: a
+        Body:
+        Var: variable;
+            While (True) Do
+            Var: logic;
+                logic=a&&var||!variable;
+            EndWhile.
+        EndBody.

@@ -1,1 +1,1 @@
-Type Mismatch In Statement: If(CallExpr(Id(main),[CallExpr(Id(main),[IntLiteral(5)])]),[],[Return(BooleanLiteral(true))])Else([],[])
+Type Mismatch In Expression: BinaryOp(>.,Id(a),FloatLiteral(1.5))

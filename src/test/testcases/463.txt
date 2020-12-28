@@ -1,14 +1,11 @@
 
-                    Var: arr[5] = {1,2,3,4,5};
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return 5;
-                    EndBody.
-                    Function: main
-                    Body:
-                        foo(arr[1]);
-                    EndBody.
-
-                
+        Function: call
+        Parameter: a, b, c, d, e,f
+        Body:
+            Return f;
+        EndBody.
+        Function: main
+        Body:
+        Var: a, var, arr[5]={1};
+            a = call(a,876,var*.65e-1,arr[3],True,"chuoi~~\n") +1;
+        EndBody.

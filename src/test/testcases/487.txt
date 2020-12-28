@@ -1,15 +1,7 @@
-
-        Function: main 
-        Parameter: n
-        Body: 
-            Var:a;
-            Do  
-                Var:b;
-                Do
-                While(b!=4)
-                EndDo.
-            While(a!=3)                
-            EndDo.
-            a=1.0;
+Function: main 
+        Body:
+        Var: n;
+            If n == 0 Then
+                Break;
+            EndIf.
         EndBody.
-            

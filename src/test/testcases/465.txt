@@ -1,20 +1,4 @@
-
-                    Var: arr[5] = {1,2,3,4,5};
-                    Function: foo
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return;
-                    EndBody.
-                    Function: foo1
-                    Parameter: x
-                    Body:
-                        Var: a = 10;
-                        Return foo(a);
-                    EndBody.
-                    Function: main
-                    Body:
-                        foo1(arr[1]);
-                    EndBody.
-
-                
+Function: main
+        Body:
+            print(string_of_bool(!bool_of_string("False")&&!True));
+        EndBody.

@@ -1,9 +1,7 @@
-Var: x[1];
-                    Var: y[1][3] = {{1,2}};
-                    Function: main
-                    Parameter: x[1][1], y
-                    Body:
-                        x = {{1.1}};
-                        Return x;
-                    EndBody.
-                
+ 
+        Function: main 
+        Parameter: global_var
+        Body:
+            global_var = 25+6-.2.5%3\100 ; 
+        EndBody.
+        

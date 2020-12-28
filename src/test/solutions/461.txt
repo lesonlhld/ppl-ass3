@@ -1,1 +1,1 @@
-Type Mismatch In Expression: UnaryOp(!,BinaryOp(+,Id(i),IntLiteral(10)))
+Type Cannot Be Inferred: Return(Id(f))

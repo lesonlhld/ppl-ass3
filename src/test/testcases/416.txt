@@ -1,10 +1,10 @@
 
-                    Var: a;
-                    Function: main
-                    Body:
-                        Var: z,c,d[1];
-                        z = 1;
-                        a = 1.1;
-                        c = z + foo(2);
-                    EndBody.
-                
+        Function: main
+        Body:
+            Var: foo = 0;
+            foo = foo + foo();
+        EndBody.
+        Function: foo
+        Body:
+            Return True;
+        EndBody.

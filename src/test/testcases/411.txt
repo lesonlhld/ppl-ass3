@@ -1,10 +1,8 @@
 
-                    Var: x[1];
-                    Function: main
-                    Parameter: x, y, t, e, f, g
-                    Body:
-                        x = 1;
-                        x = print(string_of_int(12));
-                        Return x;
-                    EndBody.
-                
+        Function: main 
+        Parameter: a, b,c[123] ,d[123][234][0]  ,e
+        Body:
+        Var: z[1]={1};
+            a=1;
+        EndBody.
+        
